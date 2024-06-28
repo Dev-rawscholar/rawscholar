@@ -19,7 +19,7 @@ function NavbarComponent() {
     <Navbar expand="lg">
       <Container>
         <Navbar.Brand>
-          <Link to="/">
+          <Link to="/home">
             <img
               alt="Logo"
               src={Logo}

@@ -29,7 +29,7 @@ function App() {
       {show && <NavbarComponent />}
       <ScrollToTop />
       <Routes>
-        <Route path="/" element={<Home setShow={setShow} />} />
+        <Route path="/home" element={<Home setShow={setShow} />} />
         <Route path="/countries" element={<Countries setShow={setShow} />} />
         <Route
           path="/universities"
