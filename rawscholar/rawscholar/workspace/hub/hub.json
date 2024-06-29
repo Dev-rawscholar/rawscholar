@@ -1,0 +1,88 @@
+{
+ "charts": [
+  {
+   "chart_name": "Courses",
+   "label": "Course"
+  },
+  {
+   "chart_name": "Country",
+   "label": "Country"
+  }
+ ],
+ "content": "[{\"id\":\"DeosNPFl9d\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Course\",\"col\":6}},{\"id\":\"G_ZO0z8uwE\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Country\",\"col\":6}},{\"id\":\"mQR4hco8iv\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"ydBcxPb53J\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Hub</span>\",\"col\":12}},{\"id\":\"AfBRCsrmpO\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Courses\",\"col\":3}},{\"id\":\"GB4zwyzlXy\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Universities\",\"col\":3}},{\"id\":\"FRjtwmHt9A\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Countries\",\"col\":3}},{\"id\":\"6WFRi5Fw19\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Students\",\"col\":3}},{\"id\":\"FsN6yzFvab\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"ehDa84EZ6I\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Shortcuts <br></b></span>\",\"col\":12}},{\"id\":\"Zmxp7EH768\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Country\",\"col\":3}},{\"id\":\"Asr2cuVdj-\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"University\",\"col\":3}},{\"id\":\"rLcv2MVAFp\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Student\",\"col\":3}},{\"id\":\"NT3B06VJ1E\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Course\",\"col\":3}}]",
+ "creation": "2024-06-21 11:18:12.919684",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "quantity-1",
+ "idx": 0,
+ "indicator_color": "",
+ "is_hidden": 0,
+ "label": "Hub",
+ "links": [],
+ "modified": "2024-06-29 12:24:35.494005",
+ "modified_by": "Administrator",
+ "module": "Rawscholar",
+ "name": "Hub",
+ "number_cards": [
+  {
+   "label": "Universities",
+   "number_card_name": "University"
+  },
+  {
+   "label": "Courses",
+   "number_card_name": "Course"
+  },
+  {
+   "label": "Students",
+   "number_card_name": "Student"
+  },
+  {
+   "label": "Countries",
+   "number_card_name": "Country"
+  }
+ ],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 28.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Country",
+   "link_to": "Countries",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "University",
+   "link_to": "University",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Course",
+   "link_to": "Courses",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Student",
+   "link_to": "Student",
+   "stats_filter": "[]",
+   "type": "DocType"
+  }
+ ],
+ "title": "Hub"
+}

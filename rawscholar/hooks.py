@@ -14,6 +14,7 @@ fixtures = [
     {"dt": "University"},
     {"dt": "Number Card"},
     {"dt": "Qualification Type"},
+    {"dt": "Workspace"},
 ]
 
 
