@@ -16,7 +16,7 @@ function NavbarComponent() {
   setUserData(localStorage.getItem("userData"));
 
   return (
-    <Navbar expand="lg shadow-sm" style={{ position: "fixed", width:"100%", backgroundColor:"white",zIndex:"9999" }}>
+    <Navbar expand="lg shadow-sm">
       <Container>
         <Navbar.Brand>
           <Link to="/">
