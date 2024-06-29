@@ -3,17 +3,14 @@ import edit from "../../assets/Edit.svg";
 import ellipse from "../../assets/profile image/Ellipse.svg";
 import frame from "../../assets/profile image/Frame.svg";
 import upload from "../../assets/profile image/upload.svg";
-<<<<<<< HEAD
 
-function Profile() {
-=======
 import { useFrappeGetDocList } from "frappe-react-sdk";
 
 function Profile() {
 
   const {data,error} = useFrappeGetDocList('Student')
   console.log(data);
->>>>>>> 692629f (new commit)
+
   return (
     <div className="container">
       <div className="p-2 ">
@@ -67,11 +64,6 @@ function Profile() {
         </div>
         <div className="col-lg-5">
           {/* input section */}
-<<<<<<< HEAD
-
-=======
- 
->>>>>>> 692629f (new commit)
           <form action="">
             {/* name */}
             <div className="form-group d-lg-flex align-items-center gap-3 p-2">
