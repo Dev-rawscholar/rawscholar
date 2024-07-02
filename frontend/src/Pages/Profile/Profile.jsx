@@ -3,13 +3,42 @@ import edit from "../../assets/Edit.svg";
 import ellipse from "../../assets/profile image/Ellipse.svg";
 import frame from "../../assets/profile image/Frame.svg";
 import upload from "../../assets/profile image/upload.svg";
+import { useFrappeGetDocList } from "frappe-react-sdk";
+import { useContext } from "react";
+import { userContext } from "../../Components/ContextShare";
 
 function Profile() {
+
+  const {userData} = useContext(userContext)
+
+  const { data, error } = useFrappeGetDocList("Student", {
+    fields: [
+      "name1",
+      "address",
+      "dob",
+      "gender",
+      "status",
+      "country",
+      "email",
+      "phone",
+      "qualifications",
+      "passport_no",
+      "notes",
+      "photo",
+      "files",
+    ],
+    filters:[['email','=',userContext.email]]
+  });
+
+  console.log(userData);
+
   return (
     <div className="container">
       <div className="p-2">
-        <h2 style={{ color: "#067BC2", fontWeight: "bolder",marginTop:"50px" }}>
-          Hello Suresh Raina 👋
+        <h2
+          style={{ color: "#067BC2", fontWeight: "bolder", marginTop: "50px" }}
+        >
+          Hello {userData? userData.name1:""} 👋
         </h2>
         <p className="mt-4">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. In enim
@@ -67,6 +96,7 @@ function Profile() {
                 className="inputBox shadow "
                 type="text"
                 name="name"
+                value={userData ? userData.name1:""}
                 placeholder="Enter Name"
                 style={{ fontSize: "15px", border: "none" }}
               />
@@ -78,6 +108,7 @@ function Profile() {
                 className="inputBox shadow "
                 type="text"
                 name="mail"
+                value={userData ?userData.email:""}
                 placeholder="Enter Mail ID"
                 style={{ fontSize: "15px", border: "none" }}
               />
@@ -89,8 +120,9 @@ function Profile() {
                 className="inputBox shadow "
                 type="number"
                 name="phonenumber"
+                value={userData ? userData.phone:""}
                 placeholder="Enter PhoneNo"
-                style={{ fontSize: "15px", border: "none", appearance:"none" }}
+                style={{ fontSize: "15px", border: "none", appearance: "none" }}
               />
             </div>
             {/* gender */}
@@ -101,10 +133,10 @@ function Profile() {
                 aria-label="Default select example"
                 style={{ fontSize: "15px", border: "none" }}
               >
-                <option selected>Select Gender</option>
-                <option value="1">Male</option>
-                <option value="2">Female</option>
-                <option value="3">Other</option>
+                <option selected>{userData ? userData.gender:""}</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
               </select>
             </div>
           </form>
@@ -123,6 +155,7 @@ function Profile() {
               className="inputBox shadow "
               type="date"
               name="dob"
+              value={userData ? userData.dob:""}
               placeholder="Select DOB"
               style={{ fontSize: "15px", border: "none", color: "gray" }}
             />
@@ -135,6 +168,7 @@ function Profile() {
               className="inputBox shadow "
               type="text"
               name="PassportNo"
+              value={userData ? userData.passport_no:""}
               placeholder="Enter Passport No"
               style={{ fontSize: "15px", border: "none" }}
             />
@@ -149,6 +183,7 @@ function Profile() {
             <textarea
               className="inputBox shadow  "
               name="address"
+              value={userData ? userData.address:""}
               placeholder="Enter Address"
               style={{ fontSize: "15px", border: "none" }}
             />
@@ -381,7 +416,7 @@ function Profile() {
         </div>
       </div>
       <div className="row">
-      {/* General Documents */}
+        {/* General Documents */}
         <div className="col-sm-4">
           <div className="p-2 ">
             <div className="titleBar d-flex shapeParent mt-5 ">
@@ -403,7 +438,7 @@ function Profile() {
                 textDecoration: "none",
               }}
             >
-              <img  style={{width:"30px"}} src={upload} alt="" />
+              <img style={{ width: "30px" }} src={upload} alt="" />
               <span className="p-2" style={{ color: "#39C6B5" }}>
                 Upload
               </span>
@@ -423,7 +458,7 @@ function Profile() {
                 textDecoration: "none",
               }}
             >
-              <img  style={{width:"30px"}} src={upload} alt="" />
+              <img style={{ width: "30px" }} src={upload} alt="" />
               <span className="p-2" style={{ color: "#39C6B5" }}>
                 Upload
               </span>
@@ -443,7 +478,7 @@ function Profile() {
                 textDecoration: "none",
               }}
             >
-              <img  style={{width:"30px"}} src={upload} alt="" />
+              <img style={{ width: "30px" }} src={upload} alt="" />
               <span className="p-2" style={{ color: "#39C6B5" }}>
                 Upload
               </span>
@@ -463,7 +498,7 @@ function Profile() {
                 textDecoration: "none",
               }}
             >
-              <img  style={{width:"30px"}} src={upload} alt="" />
+              <img style={{ width: "30px" }} src={upload} alt="" />
               <span className="p-2" style={{ color: "#39C6B5" }}>
                 Upload
               </span>
@@ -492,7 +527,7 @@ function Profile() {
                 textDecoration: "none",
               }}
             >
-              <img style={{width:"30px"}}  src={upload} alt="" />
+              <img style={{ width: "30px" }} src={upload} alt="" />
               <span className="p-2" style={{ color: "#39C6B5" }}>
                 Upload
               </span>
@@ -512,7 +547,7 @@ function Profile() {
                 textDecoration: "none",
               }}
             >
-              <img  style={{width:"30px"}} src={upload} alt="" />
+              <img style={{ width: "30px" }} src={upload} alt="" />
               <span className="p-2" style={{ color: "#39C6B5" }}>
                 Upload
               </span>
@@ -532,7 +567,7 @@ function Profile() {
                 textDecoration: "none",
               }}
             >
-              <img style={{width:"30px"}}  src={upload} alt="" />
+              <img style={{ width: "30px" }} src={upload} alt="" />
               <span className="p-2" style={{ color: "#39C6B5" }}>
                 Upload
               </span>
@@ -552,7 +587,7 @@ function Profile() {
                 textDecoration: "none",
               }}
             >
-              <img  style={{width:"30px"}} src={upload} alt="" />
+              <img style={{ width: "30px" }} src={upload} alt="" />
               <span className="p-2" style={{ color: "#39C6B5" }}>
                 Upload
               </span>
@@ -573,7 +608,6 @@ function Profile() {
               style={{ color: "#067BC2", width: "110px", height: "43px" }}
             >
               Documents 1
-
             </label>
             <Link
               className=" py-2  px-3 shadow  "
@@ -582,7 +616,7 @@ function Profile() {
                 textDecoration: "none",
               }}
             >
-              <img style={{width:"30px"}}  src={upload} alt="" />
+              <img style={{ width: "30px" }} src={upload} alt="" />
               <span className="p-2" style={{ color: "#39C6B5" }}>
                 Upload
               </span>
@@ -594,7 +628,6 @@ function Profile() {
               style={{ color: "#067BC2", width: "110px", height: "43px" }}
             >
               Documents 2
-
             </label>
             <Link
               className=" py-2  px-3 shadow  "
@@ -603,7 +636,7 @@ function Profile() {
                 textDecoration: "none",
               }}
             >
-              <img style={{width:"30px"}} src={upload} alt="" />
+              <img style={{ width: "30px" }} src={upload} alt="" />
               <span className="p-2" style={{ color: "#39C6B5" }}>
                 Upload
               </span>
@@ -623,13 +656,12 @@ function Profile() {
                 textDecoration: "none",
               }}
             >
-              <img style={{width:"30px"}} src={upload} alt="" />
+              <img style={{ width: "30px" }} src={upload} alt="" />
               <span className="p-2" style={{ color: "#39C6B5" }}>
                 Upload
               </span>
             </Link>
           </div>
-
         </div>
       </div>
     </div>

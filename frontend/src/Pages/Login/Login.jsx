@@ -28,7 +28,7 @@ function Login({ setShow }) {
   };
 
   const { data, error } = useFrappeGetDocList("Student", {
-    fields: ["name1", "email", "phone", "password"],
+    fields: ["email","password"],
     filters: inputData.email ? [["email", "=", inputData.email]] : [],
   });
 
@@ -40,8 +40,8 @@ function Login({ setShow }) {
        alert("Fill the form");
      } else if (data[0]?.email === email) {
        if (data[0]?.password === password) {
-         const { name1, email, phone } = data[0];
-         setUserData({ name1, email, phone });
+         const { email } = data[0];
+         setUserData({ email });
          alert("Logged in");
          localStorage.setItem("userData", userData);
          navigate("/");
@@ -52,6 +52,8 @@ function Login({ setShow }) {
        alert("No account found");
      }
   };
+
+  console.log(userData);
 
   return (
     <div className="containerlogin d-flex justify-content-center align-items-center">

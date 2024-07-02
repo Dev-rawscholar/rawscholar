@@ -13,7 +13,8 @@ import { userContext } from "../ContextShare";
 
 function NavbarComponent() {
   const { userData, setUserData } = useContext(userContext);
-  setUserData(localStorage.getItem("userData"));
+  if (localStorage.getItem("userData"))
+    setUserData(localStorage.getItem("userData"));
 
   return (
     <Navbar expand="lg shadow-sm">
@@ -43,13 +44,26 @@ function NavbarComponent() {
             </div>
             <div className="mx-auto">
               {userData ? (
-                <div
-                  className="rounded-circle border"
-                  style={{ height: "40px" }}
-                >
-                  <Link to="/profile">
-                    <img src={Profile} alt="" style={{ height: "100%" }} />
-                  </Link>
+                <div className="d-flex gap-3">
+                  <div
+                    className="rounded-circle border"
+                    style={{ height: "40px" }}
+                  >
+                    <Link to="/profile">
+                      <img src={Profile} alt="" style={{ height: "100%" }} />
+                    </Link>
+                  </div>
+                    <button
+                      className="btn rounded-pill"
+                      style={{
+                        backgroundColor: "#067bc2",
+                        color: "white",
+                        width: "100px",
+                      }}
+                      onClick={()=>localStorage.removeItem("userData")}
+                    >
+                      Sign Out
+                    </button>
                 </div>
               ) : (
                 <Link to="/signup">
