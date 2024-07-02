@@ -8,6 +8,7 @@
  "engine": "InnoDB",
  "field_order": [
   "university",
+  "image",
   "country",
   "type_of_university",
   "location"
@@ -36,11 +37,16 @@
    "fieldname": "location",
    "fieldtype": "Data",
    "label": "Location"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "label": "Image"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-18 16:23:36.848868",
+ "modified": "2024-07-02 09:56:58.328785",
  "modified_by": "Administrator",
  "module": "Rawscholar",
  "name": "University",

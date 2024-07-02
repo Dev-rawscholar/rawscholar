@@ -19,7 +19,7 @@ function Universities({ setShow }) {
   const { countryData } = useContext(countryContext);
 
   const { data, error } = useFrappeGetDocList("University", {
-    fields: ["country", "university", "type_of_university", "location"],
+    fields: ["country", "university", "type_of_university", "location", "image"],
     filters: countryData ? [["country", "=", countryData.name]] : [],
     limit_start: pageIndex,
     limit: 12,
@@ -51,7 +51,7 @@ function Universities({ setShow }) {
                 style={{ width: "18rem", height: "15rem" }}
               >
                 <img
-                  src={university1}
+                  src={university.image}
                   alt="university1"
                   style={{ width: "100%" }}
                   className="rounded mb-3"
