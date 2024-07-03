@@ -16,6 +16,11 @@ function NavbarComponent() {
   if (localStorage.getItem("userData"))
     setUserData(localStorage.getItem("userData"));
 
+  const logout = () => {
+    localStorage.removeItem("userData");
+    window.location.reload();
+  };
+
   return (
     <Navbar expand="lg shadow-sm">
       <Container>
@@ -53,17 +58,17 @@ function NavbarComponent() {
                       <img src={Profile} alt="" style={{ height: "100%" }} />
                     </Link>
                   </div>
-                    <button
-                      className="btn rounded-pill"
-                      style={{
-                        backgroundColor: "#067bc2",
-                        color: "white",
-                        width: "100px",
-                      }}
-                      onClick={()=>localStorage.removeItem("userData")}
-                    >
-                      Sign Out
-                    </button>
+                  <button
+                    className="btn rounded-pill"
+                    style={{
+                      backgroundColor: "#067bc2",
+                      color: "white",
+                      width: "100px",
+                    }}
+                    onClick={logout}
+                  >
+                    Sign Out
+                  </button>
                 </div>
               ) : (
                 <Link to="/signup">

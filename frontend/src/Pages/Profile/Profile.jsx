@@ -4,12 +4,11 @@ import ellipse from "../../assets/profile image/Ellipse.svg";
 import frame from "../../assets/profile image/Frame.svg";
 import upload from "../../assets/profile image/upload.svg";
 import { useFrappeGetDocList } from "frappe-react-sdk";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { userContext } from "../../Components/ContextShare";
 
 function Profile() {
-
-  const {userData} = useContext(userContext)
+  const { userData } = useContext(userContext);
 
   const { data, error } = useFrappeGetDocList("Student", {
     fields: [
@@ -27,10 +26,41 @@ function Profile() {
       "photo",
       "files",
     ],
-    filters:[['email','=',userContext.email]]
+    filters: [["email", "=", userData.email]],
   });
 
-  console.log(userData);
+  console.log(userData, data);
+
+  const {
+    name1,
+    address,
+    dob,
+    gender,
+    status,
+    country,
+    email,
+    phone,
+    qualifications,
+    passport_no,
+    notes,
+    photo,
+    files,
+  } = data[0];
+
+  const [inputData, setInputData] = useState({
+    name1: "",
+    address: "",
+    dob: "",
+    gender: "",
+    email: "",
+    phone: "",
+    passport_no: "",
+  });
+
+  const getInputData = (e) => {
+    const { name, value } = e.target;
+    setInputData({ ...inputData, [name]: value });
+  };
 
   return (
     <div className="container">
@@ -38,7 +68,7 @@ function Profile() {
         <h2
           style={{ color: "#067BC2", fontWeight: "bolder", marginTop: "50px" }}
         >
-          Hello {userData? userData.name1:""} 👋
+          Hello {name1} 👋
         </h2>
         <p className="mt-4">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. In enim
@@ -95,8 +125,9 @@ function Profile() {
               <input
                 className="inputBox shadow "
                 type="text"
-                name="name"
-                value={userData ? userData.name1:""}
+                name="name1"
+                value={name1}
+                onChange={(e) => getInputData(e)}
                 placeholder="Enter Name"
                 style={{ fontSize: "15px", border: "none" }}
               />
@@ -106,9 +137,10 @@ function Profile() {
               <label style={{ color: "#067BC2", width: "70px" }}>Mail ID</label>
               <input
                 className="inputBox shadow "
-                type="text"
-                name="mail"
-                value={userData ?userData.email:""}
+                type="email"
+                name="email"
+                value={email}
+                onChange={(e) => getInputData(e)}
                 placeholder="Enter Mail ID"
                 style={{ fontSize: "15px", border: "none" }}
               />
@@ -119,8 +151,9 @@ function Profile() {
               <input
                 className="inputBox shadow "
                 type="number"
-                name="phonenumber"
-                value={userData ? userData.phone:""}
+                name="phone"
+                value={phone}
+                onChange={(e) => getInputData(e)}
                 placeholder="Enter PhoneNo"
                 style={{ fontSize: "15px", border: "none", appearance: "none" }}
               />
@@ -131,9 +164,10 @@ function Profile() {
               <select
                 className="inputBox shadow "
                 aria-label="Default select example"
+                name="gender"
                 style={{ fontSize: "15px", border: "none" }}
               >
-                <option selected>{userData ? userData.gender:""}</option>
+                <option selected>{gender}</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 <option value="Other">Other</option>
@@ -155,7 +189,8 @@ function Profile() {
               className="inputBox shadow "
               type="date"
               name="dob"
-              value={userData ? userData.dob:""}
+              value={dob}
+              onChange={(e) => getInputData(e)}
               placeholder="Select DOB"
               style={{ fontSize: "15px", border: "none", color: "gray" }}
             />
@@ -168,7 +203,8 @@ function Profile() {
               className="inputBox shadow "
               type="text"
               name="PassportNo"
-              value={userData ? userData.passport_no:""}
+              value={passport_no}
+              onChange={(e) => getInputData(e)}
               placeholder="Enter Passport No"
               style={{ fontSize: "15px", border: "none" }}
             />
@@ -183,7 +219,8 @@ function Profile() {
             <textarea
               className="inputBox shadow  "
               name="address"
-              value={userData ? userData.address:""}
+              value={address}
+              onChange={(e) => getInputData(e)}
               placeholder="Enter Address"
               style={{ fontSize: "15px", border: "none" }}
             />

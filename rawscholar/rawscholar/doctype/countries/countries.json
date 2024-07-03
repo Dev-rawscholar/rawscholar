@@ -6,7 +6,8 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "country"
+  "country",
+  "attach_image_rhlj"
  ],
  "fields": [
   {
@@ -15,11 +16,15 @@
    "in_list_view": 1,
    "label": "Country",
    "unique": 1
+  },
+  {
+   "fieldname": "attach_image_rhlj",
+   "fieldtype": "Attach Image"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-18 16:01:03.120398",
+ "modified": "2024-07-02 23:29:04.294736",
  "modified_by": "Administrator",
  "module": "Rawscholar",
  "name": "Countries",
