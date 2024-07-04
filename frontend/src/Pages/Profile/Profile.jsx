@@ -11,7 +11,7 @@ import { userContext } from "../../Components/ContextShare";
 function Profile() {
   const { userData, setUserData } = useContext(userContext);
 
-  const [editable, setEditable] = useState(false);
+  const [editable, setEditable] = useState(true);
 
   const [inputData, setInputData] = useState({
     name1: "",
@@ -47,7 +47,7 @@ function Profile() {
 
   useEffect(() => {
     if (data) setInputData(data[0]);
-  }, []);
+  }, [data]);
 
   const getInputData = (e) => {
     const { name, value } = e.target;

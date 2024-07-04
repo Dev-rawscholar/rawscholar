@@ -31,8 +31,8 @@ function NavbarComponent() {
           label: "Logout",
           onClick: () => {
             localStorage.removeItem("userData");
-            navigate("/");
             setIslogged(false);
+            navigate("/");
           },
         },
         {

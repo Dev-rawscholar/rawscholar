@@ -86,7 +86,7 @@ function Signup({ setShow }) {
           </p>
           <input
             className="inputBox"
-            type="text"
+            type="email"
             name="email"
             onChange={(e) => getInputData(e)}
             placeholder="Enter Email"
@@ -99,7 +99,7 @@ function Signup({ setShow }) {
           </p>
           <input
             className="inputBox"
-            type="text"
+            type="number"
             name="phone"
             onChange={(e) => getInputData(e)}
             placeholder="Enter Phone Number"
