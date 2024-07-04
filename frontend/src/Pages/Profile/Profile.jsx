@@ -10,7 +10,21 @@ import { userContext } from "../../Components/ContextShare";
 function Profile() {
   const { userData } = useContext(userContext);
 
-  const { data, error } = useFrappeGetDocList("Student", {
+  const [editable, setEditable] = useState(false);
+
+  const [inputData, setInputData] = useState({
+    name1: "",
+    address: "",
+    dob: "",
+    gender: "",
+    email: "",
+    phone: "",
+    passport_no: "",
+  });
+
+  const loggedData = JSON.parse(localStorage.getItem("userData"));
+
+  const { data, error, isValidating } = useFrappeGetDocList("Student", {
     fields: [
       "name1",
       "address",
@@ -29,37 +43,28 @@ function Profile() {
     filters: [["email", "=", userData.email]],
   });
 
-  console.log(userData, data);
-
-  const {
-    name1,
-    address,
-    dob,
-    gender,
-    status,
-    country,
-    email,
-    phone,
-    qualifications,
-    passport_no,
-    notes,
-    photo,
-    files,
-  } = data[0];
-
-  const [inputData, setInputData] = useState({
-    name1: "",
-    address: "",
-    dob: "",
-    gender: "",
-    email: "",
-    phone: "",
-    passport_no: "",
-  });
+  useEffect(() => {
+    if (data) setInputData(data[0]);
+  }, []);
 
   const getInputData = (e) => {
     const { name, value } = e.target;
     setInputData({ ...inputData, [name]: value });
+  };
+
+  useEffect(() => {
+    setUserData(inputData);
+  }, [inputData]);
+
+  const { updateDoc } = useFrappeUpdateDoc();
+
+  const handleEdit = () => {
+    setEditable(!editable);
+    if (editable == false) {
+      updateDoc("Student", data[0].name, userData)
+        .then(() => alert("Updated"))
+        .catch((error) => console.log(error.message));
+    }
   };
 
   return (
@@ -167,7 +172,7 @@ function Profile() {
                 name="gender"
                 style={{ fontSize: "15px", border: "none" }}
               >
-                <option selected>{gender}</option>
+                <option selected>{inputData.gender}</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 <option value="Other">Other</option>
@@ -189,7 +194,8 @@ function Profile() {
               className="inputBox shadow "
               type="date"
               name="dob"
-              value={dob}
+              value={inputData.dob}
+              disabled={editable}
               onChange={(e) => getInputData(e)}
               placeholder="Select DOB"
               style={{ fontSize: "15px", border: "none", color: "gray" }}
@@ -203,7 +209,8 @@ function Profile() {
               className="inputBox shadow "
               type="text"
               name="PassportNo"
-              value={passport_no}
+              value={inputData.passport_no}
+              disabled={editable}
               onChange={(e) => getInputData(e)}
               placeholder="Enter Passport No"
               style={{ fontSize: "15px", border: "none" }}
@@ -219,7 +226,8 @@ function Profile() {
             <textarea
               className="inputBox shadow  "
               name="address"
-              value={address}
+              value={inputData.address}
+              disabled={editable}
               onChange={(e) => getInputData(e)}
               placeholder="Enter Address"
               style={{ fontSize: "15px", border: "none" }}
