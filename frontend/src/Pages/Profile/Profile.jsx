@@ -25,7 +25,7 @@ function Profile() {
 
   const loggedData = JSON.parse(localStorage.getItem("userData"));
 
-  const { data, error ,isValidating} = useFrappeGetDocList("Student", {
+  const { data, error, isValidating } = useFrappeGetDocList("Student", {
     fields: [
       "name",
       "name1",
@@ -45,22 +45,8 @@ function Profile() {
     filters: [["email", "=", loggedData.email]],
   });
 
-  const {
-    name,
-    name1,
-    address,
-    dob,
-    gender,
-    status,
-    country,
-    email,
-    phone,
-    qualifications,
-    passport_no,
-  } = data[0];
-
   useEffect(() => {
-    setInputData(data[0]);
+    if (data) setInputData(data[0]);
   }, []);
 
   const getInputData = (e) => {
@@ -77,9 +63,9 @@ function Profile() {
   const handleEdit = () => {
     setEditable(!editable);
     if (editable == false) {
-      updateDoc("Student", name, userData)
-        .then(()=>alert("Updated"))
-        .catch(() => alert("Error"));
+      updateDoc("Student", data[0].name, userData)
+        .then(() => alert("Updated"))
+        .catch((error) => console.log(error.message));
     }
   };
 
@@ -206,7 +192,7 @@ function Profile() {
                 disabled={editable}
                 style={{ fontSize: "15px", border: "none" }}
               >
-                <option selected>{gender}</option>
+                <option selected>{inputData.gender}</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 <option value="Other">Other</option>
@@ -228,7 +214,7 @@ function Profile() {
               className="inputBox shadow "
               type="date"
               name="dob"
-              value={dob}
+              value={inputData.dob}
               disabled={editable}
               onChange={(e) => getInputData(e)}
               placeholder="Select DOB"
@@ -243,7 +229,7 @@ function Profile() {
               className="inputBox shadow "
               type="text"
               name="PassportNo"
-              value={passport_no}
+              value={inputData.passport_no}
               disabled={editable}
               onChange={(e) => getInputData(e)}
               placeholder="Enter Passport No"
@@ -260,7 +246,7 @@ function Profile() {
             <textarea
               className="inputBox shadow  "
               name="address"
-              value={address}
+              value={inputData.address}
               disabled={editable}
               onChange={(e) => getInputData(e)}
               placeholder="Enter Address"

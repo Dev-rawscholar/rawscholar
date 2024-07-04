@@ -10,18 +10,37 @@ import style from "./NavbarComponent.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+
+
 function NavbarComponent() {
   const [islogged, setIslogged] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (localStorage.getItem("userData")) setIslogged(true);
   });
 
   const logout = () => {
-    localStorage.removeItem("userData");
-    navigate('/')
-    setIslogged(false)
+    confirmAlert({
+      title: "Confirm to submit",
+      message: "Are you sure to logout",
+      buttons: [
+        {
+          label: "Logout",
+          onClick: () => {
+            localStorage.removeItem("userData");
+            navigate("/");
+            setIslogged(false);
+          },
+        },
+        {
+          label: "Cancel",
+          onClick: () => {},
+        },
+      ],
+    });
   };
 
   return (
