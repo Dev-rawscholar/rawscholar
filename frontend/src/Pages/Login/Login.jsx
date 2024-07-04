@@ -3,10 +3,12 @@ import { Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { useFrappeGetDocList } from "frappe-react-sdk";
 
+
 import Logo from "../../assets/Logo.svg";
 import StudyIllustration from "../../assets/StudyIllustration.svg";
 
 import "./Login.css";
+import { toast } from "react-toastify";
 
 function Login({ setShow }) {
   useEffect(() => {
@@ -35,11 +37,11 @@ function Login({ setShow }) {
   const login = () => {
     const { email, password } = inputData;
     if (!email || !password) {
-      alert("Fill the form");
+      toast.warning(" Please Fill the form");
     } else if (data[0]?.email === email) {
       if (data[0]?.password === password) {
         const { email, name1 } = data[0];
-        alert("Logged in");
+        toast.success("Logged in Successfully");
         localStorage.setItem("userData", JSON.stringify({ email, name1 }));
         navigate("/");
       } else {
@@ -64,7 +66,7 @@ function Login({ setShow }) {
           <p className="m-0">Email</p>
           <input
             className="inputBox"
-            type="text"
+            type="email"
             name="email"
             placeholder="Enter Email"
             onChange={(e) => getInputData(e)}

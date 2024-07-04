@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { FrappeProvider } from "frappe-react-sdk";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import Home from "./Pages/Home/Home";
 import Countries from "./Pages/Countries/Countries";
@@ -53,6 +55,19 @@ function App() {
         <Route path="*" element={<PageNotFound setShow={setShow} />} />
       </Routes>
       {show && <FooterComponent />}
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition:Slide
+      />
     </FrappeProvider>
   );
 }

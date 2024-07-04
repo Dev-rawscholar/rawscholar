@@ -1,33 +1,17 @@
 import { Link } from "react-router-dom";
 import edit from "../../assets/Edit.svg";
-import save from "../../assets/Save.svg";
 import ellipse from "../../assets/profile image/Ellipse.svg";
 import frame from "../../assets/profile image/Frame.svg";
 import upload from "../../assets/profile image/upload.svg";
-import { useFrappeGetDocList, useFrappeUpdateDoc } from "frappe-react-sdk";
-import { useContext, useEffect, useState } from "react";
+import { useFrappeGetDocList } from "frappe-react-sdk";
+import { useContext, useState } from "react";
 import { userContext } from "../../Components/ContextShare";
 
 function Profile() {
-  const { userData, setUserData } = useContext(userContext);
+  const { userData } = useContext(userContext);
 
-  const [editable, setEditable] = useState(false);
-
-  const [inputData, setInputData] = useState({
-    name1: "",
-    address: "",
-    dob: "",
-    gender: "",
-    email: "",
-    phone: "",
-    passport_no: "",
-  });
-
-  const loggedData = JSON.parse(localStorage.getItem("userData"));
-
-  const { data, error ,isValidating} = useFrappeGetDocList("Student", {
+  const { data, error } = useFrappeGetDocList("Student", {
     fields: [
-      "name",
       "name1",
       "address",
       "dob",
@@ -42,11 +26,12 @@ function Profile() {
       "photo",
       "files",
     ],
-    filters: [["email", "=", loggedData.email]],
+    filters: [["email", "=", userData.email]],
   });
 
+  console.log(userData, data);
+
   const {
-    name,
     name1,
     address,
     dob,
@@ -57,30 +42,24 @@ function Profile() {
     phone,
     qualifications,
     passport_no,
+    notes,
+    photo,
+    files,
   } = data[0];
 
-  useEffect(() => {
-    setInputData(data[0]);
-  }, []);
+  const [inputData, setInputData] = useState({
+    name1: "",
+    address: "",
+    dob: "",
+    gender: "",
+    email: "",
+    phone: "",
+    passport_no: "",
+  });
 
   const getInputData = (e) => {
     const { name, value } = e.target;
     setInputData({ ...inputData, [name]: value });
-  };
-
-  useEffect(() => {
-    setUserData(inputData);
-  }, [inputData]);
-
-  const { updateDoc } = useFrappeUpdateDoc();
-
-  const handleEdit = () => {
-    setEditable(!editable);
-    if (editable == false) {
-      updateDoc("Student", name, userData)
-        .then(()=>alert("Updated"))
-        .catch(() => alert("Error"));
-    }
   };
 
   return (
@@ -89,7 +68,7 @@ function Profile() {
         <h2
           style={{ color: "#067BC2", fontWeight: "bolder", marginTop: "50px" }}
         >
-          Hello {userData?.name1} 👋
+          Hello {name1} 👋
         </h2>
         <p className="mt-4">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. In enim
@@ -100,32 +79,19 @@ function Profile() {
         <div className="titleBar d-flex shapeParent mt-5 ">
           <div className="shape"></div>
           <h2 className="fs-4 ms-4 fw-bold">Personal Details</h2>
-          <button
-            className="ms-auto py-2 px-3 shadow border"
+          <Link
+            className="ms-auto py-2  px-3 shadow  "
             style={{
               backgroundColor: "#067BC2",
               borderRadius: "20px",
               textDecoration: "none",
-              width: "110px",
             }}
-            onClick={() => handleEdit()}
           >
-            {editable ? (
-              <div>
-                <span className="p-2" style={{ color: "white" }}>
-                  Edit
-                </span>
-                <img src={edit} alt="" />
-              </div>
-            ) : (
-              <div>
-                <span className="p-2" style={{ color: "white" }}>
-                  Save
-                </span>
-                <img src={save} alt="" width={20} />
-              </div>
-            )}
-          </button>
+            <span className="p-2" style={{ color: "white" }}>
+              Edit
+            </span>
+            <img src={edit} alt="" />
+          </Link>
         </div>
       </div>
       <div className="row p-3">
@@ -160,8 +126,7 @@ function Profile() {
                 className="inputBox shadow "
                 type="text"
                 name="name1"
-                value={inputData.name1}
-                disabled={editable}
+                value={name1}
                 onChange={(e) => getInputData(e)}
                 placeholder="Enter Name"
                 style={{ fontSize: "15px", border: "none" }}
@@ -174,8 +139,7 @@ function Profile() {
                 className="inputBox shadow "
                 type="email"
                 name="email"
-                value={inputData.email}
-                disabled
+                value={email}
                 onChange={(e) => getInputData(e)}
                 placeholder="Enter Mail ID"
                 style={{ fontSize: "15px", border: "none" }}
@@ -188,8 +152,7 @@ function Profile() {
                 className="inputBox shadow "
                 type="number"
                 name="phone"
-                value={inputData.phone}
-                disabled={editable}
+                value={phone}
                 onChange={(e) => getInputData(e)}
                 placeholder="Enter PhoneNo"
                 style={{ fontSize: "15px", border: "none", appearance: "none" }}
@@ -202,8 +165,6 @@ function Profile() {
                 className="inputBox shadow "
                 aria-label="Default select example"
                 name="gender"
-                onChange={(e) => getInputData(e)}
-                disabled={editable}
                 style={{ fontSize: "15px", border: "none" }}
               >
                 <option selected>{gender}</option>
@@ -229,7 +190,6 @@ function Profile() {
               type="date"
               name="dob"
               value={dob}
-              disabled={editable}
               onChange={(e) => getInputData(e)}
               placeholder="Select DOB"
               style={{ fontSize: "15px", border: "none", color: "gray" }}
@@ -244,7 +204,6 @@ function Profile() {
               type="text"
               name="PassportNo"
               value={passport_no}
-              disabled={editable}
               onChange={(e) => getInputData(e)}
               placeholder="Enter Passport No"
               style={{ fontSize: "15px", border: "none" }}
@@ -261,7 +220,6 @@ function Profile() {
               className="inputBox shadow  "
               name="address"
               value={address}
-              disabled={editable}
               onChange={(e) => getInputData(e)}
               placeholder="Enter Address"
               style={{ fontSize: "15px", border: "none" }}
@@ -273,32 +231,19 @@ function Profile() {
         <div className="titleBar d-flex shapeParent mt-5 ">
           <div className="shape"></div>
           <h2 className="fs-4 ms-4 fw-bold">Education Info</h2>
-          <button
-            className="ms-auto py-2  px-3 shadow border "
+          <Link
+            className="ms-auto py-2  px-3 shadow  "
             style={{
               backgroundColor: "#067BC2",
               borderRadius: "20px",
               textDecoration: "none",
-              width: "110px",
             }}
-            onClick={() => handleEdit()}
           >
-            {editable ? (
-              <div>
-                <span className="p-2" style={{ color: "white" }}>
-                  Edit
-                </span>
-                <img src={edit} alt="" />
-              </div>
-            ) : (
-              <div>
-                <span className="p-2" style={{ color: "white" }}>
-                  Save
-                </span>
-                <img src={save} alt="" width={20} />
-              </div>
-            )}
-          </button>
+            <span className="p-2" style={{ color: "white" }}>
+              Edit
+            </span>
+            <img src={edit} alt="" />
+          </Link>
         </div>
       </div>
 
@@ -323,7 +268,6 @@ function Profile() {
               className="inputBox shadow "
               type="text"
               name="grade"
-              disabled={editable}
               placeholder="%"
               style={{
                 fontSize: "15px",
@@ -342,7 +286,6 @@ function Profile() {
               className="inputBox shadow "
               type="text"
               name="grade"
-              disabled={editable}
               placeholder=""
               style={{
                 fontSize: "15px",
@@ -369,7 +312,6 @@ function Profile() {
               className="inputBox shadow "
               type="text"
               name="grade"
-              disabled={editable}
               placeholder="%"
               style={{
                 fontSize: "15px",
@@ -388,7 +330,6 @@ function Profile() {
               className="inputBox shadow "
               type="text"
               name="grade"
-              disabled={editable}
               placeholder=""
               style={{
                 fontSize: "15px",
@@ -417,7 +358,6 @@ function Profile() {
               className="inputBox shadow "
               type="text"
               name="grade"
-              disabled={editable}
               placeholder="%"
               style={{
                 fontSize: "15px",
@@ -436,7 +376,6 @@ function Profile() {
               className="inputBox shadow "
               type="text"
               name="grade"
-              disabled={editable}
               placeholder=""
               style={{
                 fontSize: "15px",
@@ -463,7 +402,6 @@ function Profile() {
               className="inputBox shadow "
               type="text"
               name="grade"
-              disabled={editable}
               placeholder="%"
               style={{
                 fontSize: "15px",
@@ -482,7 +420,6 @@ function Profile() {
               className="inputBox shadow "
               type="text"
               name="grade"
-              disabled={editable}
               placeholder=""
               style={{
                 fontSize: "15px",
@@ -500,32 +437,19 @@ function Profile() {
         <div className="titleBar d-flex shapeParent mt-5 ">
           <div className="shape"></div>
           <h2 className="fs-4 ms-4 fw-bold">Upload Documents </h2>
-          <button
-            className="ms-auto py-2  px-3 shadow border"
+          <Link
+            className="ms-auto py-2  px-3 shadow  "
             style={{
               backgroundColor: "#067BC2",
               borderRadius: "20px",
               textDecoration: "none",
-              width: "110px",
             }}
-            onClick={() => handleEdit()}
           >
-            {editable ? (
-              <div>
-                <span className="p-2" style={{ color: "white" }}>
-                  Edit
-                </span>
-                <img src={edit} alt="" />
-              </div>
-            ) : (
-              <div>
-                <span className="p-2" style={{ color: "white" }}>
-                  Save
-                </span>
-                <img src={save} alt="" width={20} />
-              </div>
-            )}
-          </button>
+            <span className="p-2 " style={{ color: "white" }}>
+              Edit
+            </span>
+            <img src={edit} alt="" />
+          </Link>
         </div>
       </div>
       <div className="row">
