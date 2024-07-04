@@ -6,6 +6,7 @@ import Logo from "../../assets/Logo.svg";
 import StudyIllustration from "../../assets/StudyIllustration.svg";
 import "./Signup.css";
 import { useFrappeCreateDoc, useFrappeGetDocList } from "frappe-react-sdk";
+import { toast } from "react-toastify";
 
 function Signup({ setShow }) {
   useEffect(() => {
@@ -33,9 +34,9 @@ function Signup({ setShow }) {
     const { name1, email, phone, password, confirmPassword } = inputData;
 
     if (!name1 || !email || !phone || !password || !confirmPassword) {
-      alert("Fill the form");
+      toast.warning("Fill the form");
     } else if (password !== confirmPassword) {
-      alert("Passwords doesn't match");
+      toast.warning("Passwords doesn't match");
     } else {
       createDoc("Student", {
         name1,
@@ -45,12 +46,12 @@ function Signup({ setShow }) {
       })
         .then(() => {
           localStorage.setItem("userData", JSON.stringify({name1, email}));
-          alert(`${name1} account created`);
+          toast.success(`${name1} account created`);
           navigate("/");
         })
         .catch((error) => {
           console.error(error);
-          alert(`${name1} already exists`);
+          toast.warning(`${name1} already exists`);
         });
     }
   };
