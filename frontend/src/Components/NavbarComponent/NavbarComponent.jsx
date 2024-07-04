@@ -7,11 +7,12 @@ import Search from "../../assets/icons/Search.svg";
 import Profile from "../../assets/Profile.svg";
 
 import style from "./NavbarComponent.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 function NavbarComponent() {
   const [islogged, setIslogged] = useState(false);
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (localStorage.getItem("userData")) setIslogged(true);
@@ -19,6 +20,7 @@ function NavbarComponent() {
 
   const logout = () => {
     localStorage.removeItem("userData");
+    navigate('/')
     setIslogged(false)
   };
 

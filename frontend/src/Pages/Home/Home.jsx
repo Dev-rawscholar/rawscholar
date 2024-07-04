@@ -16,17 +16,12 @@ import university3 from "../../assets/universities/university3.svg";
 import university4 from "../../assets/universities/university4.svg";
 
 import styles from "./Home.module.css";
-import { useContext, useEffect } from "react";
-import { userContext } from "../../Components/ContextShare";
+import { useEffect } from "react";
 
 function Home({ setShow }) {
   useEffect(() => {
     setShow(true);
   });
-
-  const { userData, setUserData } = useContext(userContext);
-
-  if (userData) console.log(userData);
 
   return (
     <>

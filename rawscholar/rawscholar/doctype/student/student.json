@@ -52,7 +52,7 @@
    "fieldname": "gender",
    "fieldtype": "Select",
    "label": "Gender",
-   "options": "--select--\nMale\nFemale"
+   "options": "--select--\nMale\nFemale\nOthers"
   },
   {
    "fieldname": "status",
@@ -165,7 +165,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-22 12:32:31.779757",
+ "modified": "2024-07-04 17:27:23.594482",
  "modified_by": "Administrator",
  "module": "Rawscholar",
  "name": "Student",
