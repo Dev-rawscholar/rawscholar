@@ -7,14 +7,12 @@ import Logo from "../../assets/Logo.svg";
 import StudyIllustration from "../../assets/StudyIllustration.svg";
 
 import "./Login.css";
-import { userContext } from "../../Components/ContextShare";
 
 function Login({ setShow }) {
   useEffect(() => {
     setShow(false);
   });
 
-  const { userData, setUserData } = useContext(userContext);
   const navigate = useNavigate();
 
   const [inputData, setInputData] = useState({
@@ -28,32 +26,29 @@ function Login({ setShow }) {
   };
 
   const { data, error } = useFrappeGetDocList("Student", {
-    fields: ["email","password"],
+    fields: ["email", "password", "name1"],
     filters: inputData.email ? [["email", "=", inputData.email]] : [],
   });
 
   if (error) console.log(error);
 
   const login = () => {
-     const { email, password } = inputData;
-     if (!email || !password) {
-       alert("Fill the form");
-     } else if (data[0]?.email === email) {
-       if (data[0]?.password === password) {
-         const { email } = data[0];
-         setUserData({ email });
-         alert("Logged in");
-         localStorage.setItem("userData", userData);
-         navigate("/");
-       } else {
-         alert("Wrong password");
-       }
-     } else {
-       alert("No account found");
-     }
+    const { email, password } = inputData;
+    if (!email || !password) {
+      alert("Fill the form");
+    } else if (data[0]?.email === email) {
+      if (data[0]?.password === password) {
+        const { email, name1 } = data[0];
+        alert("Logged in");
+        localStorage.setItem("userData", JSON.stringify({ email, name1 }));
+        navigate("/");
+      } else {
+        alert("Wrong password");
+      }
+    } else {
+      alert("No account found");
+    }
   };
-
-  console.log(userData);
 
   return (
     <div className="containerlogin d-flex justify-content-center align-items-center">

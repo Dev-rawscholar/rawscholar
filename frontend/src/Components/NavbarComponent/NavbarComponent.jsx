@@ -8,17 +8,18 @@ import Profile from "../../assets/Profile.svg";
 
 import style from "./NavbarComponent.module.css";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { userContext } from "../ContextShare";
+import { useEffect, useState } from "react";
 
 function NavbarComponent() {
-  const { userData, setUserData } = useContext(userContext);
-  if (localStorage.getItem("userData"))
-    setUserData(localStorage.getItem("userData"));
+  const [islogged, setIslogged] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem("userData")) setIslogged(true);
+  });
 
   const logout = () => {
     localStorage.removeItem("userData");
-    window.location.reload();
+    setIslogged(false)
   };
 
   return (
@@ -48,7 +49,7 @@ function NavbarComponent() {
               </button>
             </div>
             <div className="mx-auto">
-              {userData ? (
+              {islogged ? (
                 <div className="d-flex gap-3">
                   <div
                     className="rounded-circle border"
