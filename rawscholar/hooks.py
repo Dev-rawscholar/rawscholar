@@ -16,6 +16,7 @@ fixtures = [
     {"dt": "Qualification Type"},
     {"dt": "Workspace"},
     {"dt": "Role"},
+    {"dt": "Custom DocPerm"},
 ]
 
 
