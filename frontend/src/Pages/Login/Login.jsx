@@ -7,6 +7,7 @@ import Logo from "../../assets/Logo.svg";
 import StudyIllustration from "../../assets/StudyIllustration.svg";
 
 import "./Login.css";
+import { toast } from "react-toastify";
 
 function Login({ setShow }) {
   useEffect(() => {
@@ -35,18 +36,18 @@ function Login({ setShow }) {
   const login = () => {
     const { email, password } = inputData;
     if (!email || !password) {
-      alert("Fill the form");
+      toast.warning("Fill the form");
     } else if (data[0]?.email === email) {
       if (data[0]?.password === password) {
         const { email, name1 } = data[0];
-        alert("Logged in");
+        toast.success("Logged in");
         localStorage.setItem("userData", JSON.stringify({ email, name1 }));
         navigate("/");
       } else {
-        alert("Wrong password");
+        toast.error("Wrong password");
       }
     } else {
-      alert("No account found");
+      toast.error("No account found");
     }
   };
 

@@ -7,6 +7,7 @@ import upload from "../../assets/profile image/upload.svg";
 import { useFrappeGetDocList, useFrappeUpdateDoc } from "frappe-react-sdk";
 import { useContext, useEffect, useState } from "react";
 import { userContext } from "../../Components/ContextShare";
+import { toast } from "react-toastify";
 
 function Profile() {
   const { userData, setUserData } = useContext(userContext);
@@ -64,7 +65,7 @@ function Profile() {
     setEditable(!editable);
     if (editable == false) {
       updateDoc("Student", data[0].name, userData)
-        .then(() => alert("Updated"))
+        .then(() => toast.success("Edited successfully"))
         .catch((error) => console.log(error.message));
     }
   };

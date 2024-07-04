@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import { toast } from "react-toastify";
 
 
 function NavbarComponent() {
@@ -33,6 +34,7 @@ function NavbarComponent() {
             localStorage.removeItem("userData");
             setIslogged(false);
             navigate("/");
+            toast.success("you have been logged out ")
           },
         },
         {
