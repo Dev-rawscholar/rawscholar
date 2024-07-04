@@ -19,7 +19,7 @@ function Universities({ setShow }) {
   const { countryData } = useContext(countryContext);
 
   const { data, error } = useFrappeGetDocList("University", {
-    fields: ["country", "university", "type_of_university", "location", "image"],
+    fields: ["country", "university", "type_of_university", "location"],
     filters: countryData ? [["country", "=", countryData.name]] : [],
     limit_start: pageIndex,
     limit: 12,
