@@ -11,6 +11,7 @@ import { toast } from "react-toastify";
 function Profile() {
   const { userData } = useContext(userContext);
 
+<<<<<<< HEAD
   const [editable, setEditable] = useState(false);
 
   const [inputData, setInputData] = useState({
@@ -26,6 +27,9 @@ function Profile() {
   const loggedData = JSON.parse(localStorage.getItem("userData"));
 
   const { data, error, isValidating } = useFrappeGetDocList("Student", {
+=======
+  const { data, error } = useFrappeGetDocList("Student", {
+>>>>>>> 14d58fd (toaster added)
     fields: [
       "name1",
       "address",
@@ -44,15 +48,46 @@ function Profile() {
     filters: [["email", "=", userData.email]],
   });
 
+<<<<<<< HEAD
   useEffect(() => {
     if (data) setInputData(data[0]);
   }, []);
+=======
+  console.log(userData, data);
+
+  const {
+    name1,
+    address,
+    dob,
+    gender,
+    status,
+    country,
+    email,
+    phone,
+    qualifications,
+    passport_no,
+    notes,
+    photo,
+    files,
+  } = data[0];
+
+  const [inputData, setInputData] = useState({
+    name1: "",
+    address: "",
+    dob: "",
+    gender: "",
+    email: "",
+    phone: "",
+    passport_no: "",
+  });
+>>>>>>> 14d58fd (toaster added)
 
   const getInputData = (e) => {
     const { name, value } = e.target;
     setInputData({ ...inputData, [name]: value });
   };
 
+<<<<<<< HEAD
   useEffect(() => {
     setUserData(inputData);
   }, [inputData]);
@@ -68,6 +103,8 @@ function Profile() {
     }
   };
 
+=======
+>>>>>>> 14d58fd (toaster added)
   return (
     <div className="container">
       <div className="p-2">
@@ -195,8 +232,12 @@ function Profile() {
               className="inputBox shadow "
               type="date"
               name="dob"
+<<<<<<< HEAD
               value={inputData.dob}
               disabled={editable}
+=======
+              value={dob}
+>>>>>>> 14d58fd (toaster added)
               onChange={(e) => getInputData(e)}
               placeholder="Select DOB"
               style={{ fontSize: "15px", border: "none", color: "gray" }}
@@ -210,8 +251,12 @@ function Profile() {
               className="inputBox shadow "
               type="text"
               name="PassportNo"
+<<<<<<< HEAD
               value={inputData.passport_no}
               disabled={editable}
+=======
+              value={passport_no}
+>>>>>>> 14d58fd (toaster added)
               onChange={(e) => getInputData(e)}
               placeholder="Enter Passport No"
               style={{ fontSize: "15px", border: "none" }}
@@ -227,8 +272,12 @@ function Profile() {
             <textarea
               className="inputBox shadow  "
               name="address"
+<<<<<<< HEAD
               value={inputData.address}
               disabled={editable}
+=======
+              value={address}
+>>>>>>> 14d58fd (toaster added)
               onChange={(e) => getInputData(e)}
               placeholder="Enter Address"
               style={{ fontSize: "15px", border: "none" }}
