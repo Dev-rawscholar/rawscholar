@@ -116,7 +116,7 @@ function Profile() {
         </div>
       </div>
       <div className="row p-3">
-        <div className="col-lg-2">
+        <div className="col-lg-2 d-flex justify-content-center">
           <div
             style={{
               position: "relative",
