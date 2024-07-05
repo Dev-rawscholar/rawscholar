@@ -52,12 +52,14 @@
    "fieldname": "gender",
    "fieldtype": "Select",
    "label": "Gender",
-   "options": "--select--\nMale\nFemale\nOthers"
+   "options": "--select--\nMale\nFemale"
   },
   {
+   "default": "New",
    "fieldname": "status",
    "fieldtype": "Select",
-   "label": "Status"
+   "label": "Status",
+   "options": "New"
   },
   {
    "fieldname": "country",
@@ -165,7 +167,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-04 17:27:23.594482",
+ "modified": "2024-07-05 15:41:35.339517",
  "modified_by": "Administrator",
  "module": "Rawscholar",
  "name": "Student",
@@ -181,18 +183,6 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Guest",
    "share": 1,
    "write": 1
   }

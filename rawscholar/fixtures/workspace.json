@@ -1,61 +1,25 @@
 [
  {
-  "charts": [
-   {
-    "chart_name": "Courses",
-    "label": "Course",
-    "parent": "Hub",
-    "parentfield": "charts",
-    "parenttype": "Workspace"
-   },
-   {
-    "chart_name": "Country",
-    "label": "Country",
-    "parent": "Hub",
-    "parentfield": "charts",
-    "parenttype": "Workspace"
-   }
-  ],
-  "content": "[{\"id\":\"DeosNPFl9d\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Course\",\"col\":6}},{\"id\":\"G_ZO0z8uwE\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Country\",\"col\":6}},{\"id\":\"mQR4hco8iv\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"ydBcxPb53J\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Hub</span>\",\"col\":12}},{\"id\":\"AfBRCsrmpO\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Courses\",\"col\":3}},{\"id\":\"GB4zwyzlXy\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Universities\",\"col\":3}},{\"id\":\"FRjtwmHt9A\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Countries\",\"col\":3}},{\"id\":\"6WFRi5Fw19\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Students\",\"col\":3}},{\"id\":\"FsN6yzFvab\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"ehDa84EZ6I\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Shortcuts <br></b></span>\",\"col\":12}},{\"id\":\"Zmxp7EH768\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Country\",\"col\":3}},{\"id\":\"Asr2cuVdj-\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"University\",\"col\":3}},{\"id\":\"rLcv2MVAFp\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Student\",\"col\":3}},{\"id\":\"NT3B06VJ1E\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Course\",\"col\":3}}]",
+  "charts": [],
+  "content": "[{\"id\":\"Vsxf7z4U3f\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Applications</span>\",\"col\":12}},{\"id\":\"PWYRW3vrYW\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Applications\",\"col\":4}}]",
   "custom_blocks": [],
   "docstatus": 0,
   "doctype": "Workspace",
   "for_user": "",
   "hide_custom": 0,
-  "icon": "quantity-1",
-  "indicator_color": "",
+  "icon": "file",
+  "indicator_color": "green",
   "is_hidden": 0,
-  "label": "Hub",
+  "label": "Applications",
   "links": [],
-  "modified": "2024-06-29 12:24:35.494005",
+  "modified": "2024-07-05 15:14:43.496357",
   "module": "Rawscholar",
-  "name": "Hub",
+  "name": "Applications",
   "number_cards": [
    {
-    "label": "Universities",
-    "number_card_name": "University",
-    "parent": "Hub",
-    "parentfield": "number_cards",
-    "parenttype": "Workspace"
-   },
-   {
-    "label": "Courses",
-    "number_card_name": "Course",
-    "parent": "Hub",
-    "parentfield": "number_cards",
-    "parenttype": "Workspace"
-   },
-   {
-    "label": "Students",
-    "number_card_name": "Student",
-    "parent": "Hub",
-    "parentfield": "number_cards",
-    "parenttype": "Workspace"
-   },
-   {
-    "label": "Countries",
-    "number_card_name": "Country",
-    "parent": "Hub",
+    "label": "Applications",
+    "number_card_name": "Application",
+    "parent": "Applications",
     "parentfield": "number_cards",
     "parenttype": "Workspace"
    }
@@ -64,8 +28,84 @@
   "public": 1,
   "quick_lists": [],
   "restrict_to_domain": null,
-  "roles": [],
-  "sequence_id": 28.0,
+  "roles": [
+   {
+    "parent": "Applications",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "Application Staff"
+   }
+  ],
+  "sequence_id": 1.0,
+  "shortcuts": [],
+  "title": "Applications"
+ },
+ {
+  "charts": [],
+  "content": "[{\"id\":\"ydBcxPb53J\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Hub</span>\",\"col\":12}},{\"id\":\"6WFRi5Fw19\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Students\",\"col\":4}},{\"id\":\"wz5iI7Q8Ap\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"New Students\",\"col\":4}},{\"id\":\"AfBRCsrmpO\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Courses\",\"col\":4}},{\"id\":\"GB4zwyzlXy\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Universities\",\"col\":4}},{\"id\":\"FRjtwmHt9A\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Countries\",\"col\":4}},{\"id\":\"FsN6yzFvab\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"ehDa84EZ6I\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Shortcuts <br></b></span>\",\"col\":12}},{\"id\":\"Zmxp7EH768\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Country\",\"col\":3}},{\"id\":\"Asr2cuVdj-\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"University\",\"col\":3}},{\"id\":\"rLcv2MVAFp\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Student\",\"col\":3}},{\"id\":\"NT3B06VJ1E\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Course\",\"col\":3}}]",
+  "custom_blocks": [],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "quality-3",
+  "indicator_color": "",
+  "is_hidden": 0,
+  "label": "Counsellors",
+  "links": [],
+  "modified": "2024-07-05 15:46:40.101370",
+  "module": "Rawscholar",
+  "name": "Counsellors",
+  "number_cards": [
+   {
+    "label": "Universities",
+    "number_card_name": "University",
+    "parent": "Counsellors",
+    "parentfield": "number_cards",
+    "parenttype": "Workspace"
+   },
+   {
+    "label": "New Students",
+    "number_card_name": "new student",
+    "parent": "Counsellors",
+    "parentfield": "number_cards",
+    "parenttype": "Workspace"
+   },
+   {
+    "label": "Courses",
+    "number_card_name": "Course",
+    "parent": "Counsellors",
+    "parentfield": "number_cards",
+    "parenttype": "Workspace"
+   },
+   {
+    "label": "Students",
+    "number_card_name": "Student",
+    "parent": "Counsellors",
+    "parentfield": "number_cards",
+    "parenttype": "Workspace"
+   },
+   {
+    "label": "Countries",
+    "number_card_name": "Country",
+    "parent": "Counsellors",
+    "parentfield": "number_cards",
+    "parenttype": "Workspace"
+   }
+  ],
+  "parent_page": "",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [
+   {
+    "parent": "Counsellors",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "Counsellor"
+   }
+  ],
+  "sequence_id": 0.0,
   "shortcuts": [
    {
     "color": "Grey",
@@ -75,7 +115,7 @@
     "kanban_board": null,
     "label": "Country",
     "link_to": "Countries",
-    "parent": "Hub",
+    "parent": "Counsellors",
     "parentfield": "shortcuts",
     "parenttype": "Workspace",
     "restrict_to_domain": null,
@@ -91,7 +131,7 @@
     "kanban_board": null,
     "label": "University",
     "link_to": "University",
-    "parent": "Hub",
+    "parent": "Counsellors",
     "parentfield": "shortcuts",
     "parenttype": "Workspace",
     "restrict_to_domain": null,
@@ -107,7 +147,7 @@
     "kanban_board": null,
     "label": "Course",
     "link_to": "Courses",
-    "parent": "Hub",
+    "parent": "Counsellors",
     "parentfield": "shortcuts",
     "parenttype": "Workspace",
     "restrict_to_domain": null,
@@ -123,7 +163,7 @@
     "kanban_board": null,
     "label": "Student",
     "link_to": "Student",
-    "parent": "Hub",
+    "parent": "Counsellors",
     "parentfield": "shortcuts",
     "parenttype": "Workspace",
     "restrict_to_domain": null,
@@ -132,6 +172,6 @@
     "url": null
    }
   ],
-  "title": "Hub"
+  "title": "Counsellors"
  }
 ]
