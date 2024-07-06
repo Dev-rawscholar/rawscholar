@@ -292,7 +292,7 @@ function Profile() {
       {/* education info */}
       <div className=" row ">
         <div className="col"></div>
-        <div className="col-lg-5 ">
+        <div className="col-lg-5  ">
           <div className="form-group d-lg-flex align-items-center gap-3 p-2">
             <label
               className=" d-flex align-items-center"
@@ -341,7 +341,7 @@ function Profile() {
           </div>
           <div className="form-group d-lg-flex align-items-center gap-3 p-2">
             <label
-              className=" d-flex align-items-center"
+              className="d-flex align-items-center"
               style={{ color: "#067BC2", width: "110px", height: "43px" }}
             >
               12th Grade
