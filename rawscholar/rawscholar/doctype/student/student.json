@@ -59,7 +59,7 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "New"
+   "options": "New\nOpened"
   },
   {
    "fieldname": "country",
@@ -86,6 +86,7 @@
    "columns": 4,
    "fieldname": "qualifications",
    "fieldtype": "Table",
+   "hidden": 1,
    "label": "Qualifications",
    "options": "Qualification"
   },
@@ -167,7 +168,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-05 15:41:35.339517",
+ "modified": "2024-07-06 11:07:21.829446",
  "modified_by": "Administrator",
  "module": "Rawscholar",
  "name": "Student",
@@ -183,6 +184,18 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Guest",
    "share": 1,
    "write": 1
   }
