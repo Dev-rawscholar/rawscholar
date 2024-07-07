@@ -4,50 +4,59 @@ import save from "../../assets/Save.svg";
 import ellipse from "../../assets/profile image/Ellipse.svg";
 import frame from "../../assets/profile image/Frame.svg";
 import upload from "../../assets/profile image/upload.svg";
-import { useFrappeGetDocList, useFrappeUpdateDoc } from "frappe-react-sdk";
+import { useFrappeGetDoc, useFrappeUpdateDoc } from "frappe-react-sdk";
 import { useContext, useEffect, useState } from "react";
 import { userContext } from "../../Components/ContextShare";
 import { toast } from "react-toastify";
 
-function Profile() {
+function Profile({ setShow }) {
+  useEffect(() => {
+    setShow(true);
+  }, []);
   const { userData, setUserData } = useContext(userContext);
 
   const [editable, setEditable] = useState(true);
 
-  const [inputData, setInputData] = useState({
-    name1: "",
-    address: "",
-    dob: "",
-    gender: "",
-    email: "",
-    phone: "",
-    passport_no: "",
-  });
+  const [inputData, setInputData] = useState({});
 
-  const loggedData = JSON.parse(localStorage.getItem("userData"));
+  const [qualifications, setQualifications] = useState([]);
 
-  const { data, error, isValidating } = useFrappeGetDocList("Student", {
-    fields: [
-      "name",
-      "name1",
-      "address",
-      "dob",
-      "gender",
-      "status",
-      "country",
-      "email",
-      "phone",
-      "qualifications",
-      "passport_no",
-      "notes",
-      "photo",
-      "files",
-    ],
-    filters: [["email", "=", loggedData.email]],
-  });
+  let loggedData = JSON.parse(localStorage.getItem("userData"));
+
+  const { data } = useFrappeGetDoc("Student", loggedData.name);
 
   useEffect(() => {
-    if (data) setInputData(data[0]);
+    if (data) {
+      setInputData(data);
+      setTenthData({
+        ...tenthData,
+        parent: data.name,
+        parenttype: data.doctype,
+        cgpa: data.qualifications[0].cgpa,
+        percentage: data.qualifications[0].percentage,
+      });
+      setTwelfthData({
+        ...twelfthData,
+        parent: data.name,
+        parenttype: data.doctype,
+        cgpa: data.qualifications[2].cgpa,
+        percentage: data.qualifications[2].percentage,
+      });
+      setBachelorsData({
+        ...bachelorsData,
+        parent: data.name,
+        parenttype: data.doctype,
+        cgpa: data.qualifications[1].cgpa,
+        percentage: data.qualifications[1].percentage,
+      });
+      setMastersData({
+        ...mastersData,
+        parent: data.name,
+        parenttype: data.doctype,
+        cgpa: data.qualifications[3].cgpa,
+        percentage: data.qualifications[3].percentage,
+      });
+    }
   }, [data]);
 
   const getInputData = (e) => {
@@ -61,10 +70,94 @@ function Profile() {
 
   const { updateDoc } = useFrappeUpdateDoc();
 
+  const [tenthData, setTenthData] = useState({
+    parent: "",
+    parenttype: "",
+    parentfield: "qualifications",
+    qualification: "10th",
+    percentage: "",
+    cgpa: "",
+    specifics: "",
+    completion_year: "",
+  });
+
+  const [twelfthData, setTwelfthData] = useState({
+    parent: "",
+    parenttype: "",
+    parentfield: "qualifications",
+    qualification: "12th",
+    percentage: "",
+    cgpa: "",
+    specifics: "",
+    completion_year: "",
+  });
+
+  const [bachelorsData, setBachelorsData] = useState({
+    parent: "",
+    parenttype: "",
+    parentfield: "qualifications",
+    qualification: "Bachelors",
+    percentage: "",
+    cgpa: "",
+    specifics: "",
+    completion_year: "",
+  });
+
+  const [mastersData, setMastersData] = useState({
+    parent: "",
+    parenttype: "",
+    parentfield: "qualifications",
+    qualification: "Masters",
+    percentage: "",
+    cgpa: "",
+    specifics: "",
+    completion_year: "",
+  });
+
+  const get10thQualification = (e) => {
+    const { name, value } = e.target;
+    setTenthData({
+      ...tenthData,
+      [name]: value,
+    });
+  };
+
+  const get12thQualification = (e) => {
+    const { name, value } = e.target;
+    setTwelfthData({
+      ...twelfthData,
+      [name]: value,
+    });
+  };
+
+  const getBachelorsQualification = (e) => {
+    const { name, value } = e.target;
+    setBachelorsData({
+      ...bachelorsData,
+      [name]: value,
+    });
+  };
+
+  const getMastersQualification = (e) => {
+    const { name, value } = e.target;
+    setMastersData({
+      ...mastersData,
+      [name]: value,
+    });
+  };
+
+  useEffect(() => {
+    setQualifications([tenthData, twelfthData, bachelorsData, mastersData]);
+  }, [tenthData, twelfthData, bachelorsData, mastersData]);
+
+  useEffect(() => {
+    setUserData({ ...userData, qualifications });
+  }, [qualifications]);
+
   const handleEdit = () => {
     setEditable(!editable);
     if (editable == false) {
-      updateDoc("Student", data[0].name, userData)
+      updateDoc("Student", data.name, userData)
         .then(() => toast.success("Edited successfully"))
         .catch((error) => console.log(error.message));
     }
@@ -76,7 +169,7 @@ function Profile() {
         <h2
           style={{ color: "#067BC2", fontWeight: "bolder", marginTop: "50px" }}
         >
-          Hello {userData?.name1} 👋
+          Hello {inputData.name1} 👋
         </h2>
         <p className="mt-4">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. In enim
@@ -116,7 +209,7 @@ function Profile() {
         </div>
       </div>
       <div className="row p-3">
-        <div className="col-lg-2">
+        <div className="col-lg-2 d-flex justify-content-center">
           <div
             style={{
               position: "relative",
@@ -147,7 +240,7 @@ function Profile() {
                 className="inputBox shadow "
                 type="text"
                 name="name1"
-                value={inputData.name1}
+                value={inputData.name1 || ""}
                 disabled={editable}
                 onChange={(e) => getInputData(e)}
                 placeholder="Enter Name"
@@ -161,7 +254,7 @@ function Profile() {
                 className="inputBox shadow "
                 type="email"
                 name="email"
-                value={inputData.email}
+                value={inputData.email || ""}
                 disabled
                 onChange={(e) => getInputData(e)}
                 placeholder="Enter Mail ID"
@@ -175,7 +268,7 @@ function Profile() {
                 className="inputBox shadow "
                 type="number"
                 name="phone"
-                value={inputData.phone}
+                value={inputData.phone || ""}
                 disabled={editable}
                 onChange={(e) => getInputData(e)}
                 placeholder="Enter PhoneNo"
@@ -193,7 +286,9 @@ function Profile() {
                 disabled={editable}
                 style={{ fontSize: "15px", border: "none" }}
               >
-                <option selected>{inputData.gender}</option>
+                <option defaultValue={inputData.gender || ""}>
+                  {inputData.gender || ""}
+                </option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 <option value="Other">Other</option>
@@ -215,7 +310,7 @@ function Profile() {
               className="inputBox shadow "
               type="date"
               name="dob"
-              value={inputData.dob}
+              value={inputData.dob || ""}
               disabled={editable}
               onChange={(e) => getInputData(e)}
               placeholder="Select DOB"
@@ -230,7 +325,7 @@ function Profile() {
               className="inputBox shadow "
               type="text"
               name="PassportNo"
-              value={inputData.passport_no}
+              value={inputData.passport_no || ""}
               disabled={editable}
               onChange={(e) => getInputData(e)}
               placeholder="Enter Passport No"
@@ -247,7 +342,7 @@ function Profile() {
             <textarea
               className="inputBox shadow  "
               name="address"
-              value={inputData.address}
+              value={inputData.address || ""}
               disabled={editable}
               onChange={(e) => getInputData(e)}
               placeholder="Enter Address"
@@ -292,7 +387,7 @@ function Profile() {
       {/* education info */}
       <div className=" row ">
         <div className="col"></div>
-        <div className="col-lg-5 ">
+        <div className="col-lg-5  ">
           <div className="form-group d-lg-flex align-items-center gap-3 p-2">
             <label
               className=" d-flex align-items-center"
@@ -308,8 +403,10 @@ function Profile() {
             </label>
             <input
               className="inputBox shadow "
-              type="text"
-              name="grade"
+              type="number"
+              name="percentage"
+              value={tenthData.percentage || ""}
+              onChange={(e) => get10thQualification(e)}
               disabled={editable}
               placeholder="%"
               style={{
@@ -327,8 +424,10 @@ function Profile() {
             </label>
             <input
               className="inputBox shadow "
-              type="text"
-              name="grade"
+              type="number"
+              name="cgpa"
+              value={tenthData.cgpa || ""}
+              onChange={(e) => get10thQualification(e)}
               disabled={editable}
               placeholder=""
               style={{
@@ -341,7 +440,7 @@ function Profile() {
           </div>
           <div className="form-group d-lg-flex align-items-center gap-3 p-2">
             <label
-              className=" d-flex align-items-center"
+              className="d-flex align-items-center"
               style={{ color: "#067BC2", width: "110px", height: "43px" }}
             >
               12th Grade
@@ -354,8 +453,10 @@ function Profile() {
             </label>
             <input
               className="inputBox shadow "
-              type="text"
-              name="grade"
+              type="number"
+              name="percentage"
+              value={twelfthData.percentage || ""}
+              onChange={(e) => get12thQualification(e)}
               disabled={editable}
               placeholder="%"
               style={{
@@ -373,8 +474,10 @@ function Profile() {
             </label>
             <input
               className="inputBox shadow "
-              type="text"
-              name="grade"
+              type="number"
+              name="cgpa"
+              value={twelfthData.cgpa || ""}
+              onChange={(e) => get12thQualification(e)}
               disabled={editable}
               placeholder=""
               style={{
@@ -402,8 +505,10 @@ function Profile() {
             </label>
             <input
               className="inputBox shadow "
-              type="text"
-              name="grade"
+              type="number"
+              name="percentage"
+              value={bachelorsData.percentage || ""}
+              onChange={(e) => getBachelorsQualification(e)}
               disabled={editable}
               placeholder="%"
               style={{
@@ -421,8 +526,10 @@ function Profile() {
             </label>
             <input
               className="inputBox shadow "
-              type="text"
-              name="grade"
+              type="number"
+              name="cgpa"
+              value={bachelorsData.cgpa || ""}
+              onChange={(e) => getBachelorsQualification(e)}
               disabled={editable}
               placeholder=""
               style={{
@@ -448,8 +555,10 @@ function Profile() {
             </label>
             <input
               className="inputBox shadow "
-              type="text"
-              name="grade"
+              type="number"
+              name="percentage"
+              value={mastersData.percentage || ""}
+              onChange={(e) => getMastersQualification(e)}
               disabled={editable}
               placeholder="%"
               style={{
@@ -467,8 +576,10 @@ function Profile() {
             </label>
             <input
               className="inputBox shadow "
-              type="text"
-              name="grade"
+              type="number"
+              name="cgpa"
+              value={mastersData.cgpa || ""}
+              onChange={(e) => getMastersQualification(e)}
               disabled={editable}
               placeholder=""
               style={{
