@@ -1,7 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import { useFrappeGetDocList } from "frappe-react-sdk";
+import { useFrappeGetDoc, useFrappeGetDocList } from "frappe-react-sdk";
+
+
 
 import Logo from "../../assets/Logo.svg";
 import StudyIllustration from "../../assets/StudyIllustration.svg";
@@ -26,25 +28,22 @@ function Login({ setShow }) {
     setInputData({ ...inputData, [name]: value });
   };
 
-  const { data, error } = useFrappeGetDocList("Student", {
-    fields: ["email", "password", "name1"],
-    filters: inputData.email ? [["email", "=", inputData.email]] : [],
-  });
+  let loggedEmail = inputData.email;
 
-  if (error) console.log(error);
+  const { data } = useFrappeGetDoc("Student", loggedEmail);
 
   const login = () => {
     const { email, password } = inputData;
     if (!email || !password) {
-      toast.warning("Fill the form");
+      toast.warning("Please Fill the form");
     } else if (data[0]?.email === email) {
       if (data[0]?.password === password) {
         const { email, name1 } = data[0];
-        toast.success("Logged in");
+        toast.success("Logged in Successfully");
         localStorage.setItem("userData", JSON.stringify({ email, name1 }));
         navigate("/");
       } else {
-        toast.error("Wrong password");
+        toast.error("Invalid credentials");
       }
     } else {
       toast.error("No account found");
@@ -65,7 +64,8 @@ function Login({ setShow }) {
           <p className="m-0">Email</p>
           <input
             className="inputBox"
-            type="text"
+            type="email"
+            type="email"
             name="email"
             placeholder="Enter Email"
             onChange={(e) => getInputData(e)}
@@ -90,10 +90,8 @@ function Login({ setShow }) {
         >
           Login
         </Button>
-        <Link to="/forgotpassword">
-          <a style={{ fontSize: "13px" }} href="/">
-            Forgotten Password?
-          </a>
+        <Link to="/forgotpassword" style={{ fontSize: "13px" }}>
+          Forgotten Password?
         </Link>
         <p className=" mt-5" style={{ fontSize: "13px" }}>
           Don’t have account yet?

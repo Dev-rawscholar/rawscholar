@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import { FrappeProvider } from "frappe-react-sdk";
-
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import Home from "./Pages/Home/Home";
 import Countries from "./Pages/Countries/Countries";

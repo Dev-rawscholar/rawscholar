@@ -36,7 +36,7 @@ function Signup({ setShow }) {
     if (!name1 || !email || !phone || !password || !confirmPassword) {
       toast.warning("Fill the form");
     } else if (password !== confirmPassword) {
-      toast.error("invalid credentials");
+      toast.warning("Passwords doesn't match");
     } else {
       createDoc("Student", {
         name1,
