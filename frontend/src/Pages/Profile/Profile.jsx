@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import edit from "../../assets/Edit.svg";
+import save from "../../assets/Save.svg";
 import ellipse from "../../assets/profile image/Ellipse.svg";
 import frame from "../../assets/profile image/Frame.svg";
 import upload from "../../assets/profile image/upload.svg";
@@ -7,11 +7,19 @@ import { useFrappeGetDoc, useFrappeUpdateDoc } from "frappe-react-sdk";
 import { useContext, useEffect, useState } from "react";
 import { userContext } from "../../Components/ContextShare";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 function Profile({ setShow }) {
   useEffect(() => {
     setShow(true);
-  }, []);
+    if (!localStorage.getItem("userData")) {
+      navigate("/login");
+      toast.warning("Please login or sign-up before continuing");
+    }
+  });
+
+  const navigate = useNavigate();
+
   const { userData, setUserData } = useContext(userContext);
 
   const [editable, setEditable] = useState(true);
@@ -19,10 +27,10 @@ function Profile({ setShow }) {
   const [inputData, setInputData] = useState({});
 
   const [qualifications, setQualifications] = useState([]);
-  
+
   let loggedData = JSON.parse(localStorage.getItem("userData"));
 
-  const { data } = useFrappeGetDoc("Student", loggedData.name);
+  const { data } = useFrappeGetDoc("Student", loggedData?.name);
 
   useEffect(() => {
     if (data) {
@@ -31,29 +39,29 @@ function Profile({ setShow }) {
         ...tenthData,
         parent: data.name,
         parenttype: data.doctype,
-        cgpa: data.qualifications[0].cgpa,
-        percentage: data.qualifications[0].percentage,
+        cgpa: data.qualifications[0]?.cgpa,
+        percentage: data.qualifications[0]?.percentage,
       });
       setTwelfthData({
         ...twelfthData,
         parent: data.name,
         parenttype: data.doctype,
-        cgpa: data.qualifications[2].cgpa,
-        percentage: data.qualifications[2].percentage,
+        cgpa: data.qualifications[2]?.cgpa,
+        percentage: data.qualifications[2]?.percentage,
       });
       setBachelorsData({
         ...bachelorsData,
         parent: data.name,
         parenttype: data.doctype,
-        cgpa: data.qualifications[1].cgpa,
-        percentage: data.qualifications[1].percentage,
+        cgpa: data.qualifications[1]?.cgpa,
+        percentage: data.qualifications[1]?.percentage,
       });
       setMastersData({
         ...mastersData,
         parent: data.name,
         parenttype: data.doctype,
-        cgpa: data.qualifications[3].cgpa,
-        percentage: data.qualifications[3].percentage,
+        cgpa: data.qualifications[3]?.cgpa,
+        percentage: data.qualifications[3]?.percentage,
       });
     }
   }, [data]);
@@ -156,9 +164,13 @@ function Profile({ setShow }) {
   const handleEdit = () => {
     setEditable(!editable);
     if (editable == false) {
+      console.log(userData);
       updateDoc("Student", data.name, userData)
         .then(() => toast.success("Edited successfully"))
-        .catch((error) => console.log(error.message));
+        .catch((error) => {
+          toast.warning("No changes made");
+          console.log(error.message);
+        });
     }
   };
 
@@ -179,19 +191,39 @@ function Profile({ setShow }) {
         <div className="titleBar d-flex shapeParent mt-5 ">
           <div className="shape"></div>
           <h2 className="fs-4 ms-4 fw-bold">Personal Details</h2>
-          <Link
-            className="ms-auto py-2  px-3 shadow  "
-            style={{
-              backgroundColor: "#067BC2",
-              borderRadius: "20px",
-              textDecoration: "none",
-            }}
-          >
-            <span className="p-2" style={{ color: "white" }}>
-              Edit
-            </span>
-            <img src={edit} alt="" />
-          </Link>
+          {editable ? (
+            <button
+              className="ms-auto py-2  px-3 shadow border "
+              style={{
+                backgroundColor: "#067BC2",
+                borderRadius: "20px",
+                textDecoration: "none",
+                width: "7rem",
+              }}
+              onClick={() => handleEdit()}
+            >
+              <span className="p-2" style={{ color: "white" }}>
+                Edit
+              </span>
+              <img src={edit} alt="" />
+            </button>
+          ) : (
+            <button
+              className="ms-auto py-2  px-3 shadow border "
+              style={{
+                backgroundColor: "#067BC2",
+                borderRadius: "20px",
+                textDecoration: "none",
+                width: "7rem",
+              }}
+              onClick={() => handleEdit()}
+            >
+              <span className="p-2" style={{ color: "white" }}>
+                Save
+              </span>
+              <img src={save} alt="" height={20} />
+            </button>
+          )}
         </div>
       </div>
       <div className="row p-3">
@@ -268,11 +300,11 @@ function Profile({ setShow }) {
                 className="inputBox shadow "
                 aria-label="Default select example"
                 name="gender"
+                disabled={editable}
+                onChange={(e) => getInputData(e)}
+                value={inputData.gender || ""}
                 style={{ fontSize: "15px", border: "none" }}
               >
-                <option defaultValue={inputData.gender || ""}>
-                  {inputData.gender || ""}
-                </option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 <option value="Other">Other</option>
@@ -339,19 +371,39 @@ function Profile({ setShow }) {
         <div className="titleBar d-flex shapeParent mt-5 ">
           <div className="shape"></div>
           <h2 className="fs-4 ms-4 fw-bold">Education Info</h2>
-          <Link
-            className="ms-auto py-2  px-3 shadow  "
-            style={{
-              backgroundColor: "#067BC2",
-              borderRadius: "20px",
-              textDecoration: "none",
-            }}
-          >
-            <span className="p-2" style={{ color: "white" }}>
-              Edit
-            </span>
-            <img src={edit} alt="" />
-          </Link>
+          {editable ? (
+            <button
+              className="ms-auto py-2  px-3 shadow border "
+              style={{
+                backgroundColor: "#067BC2",
+                borderRadius: "20px",
+                textDecoration: "none",
+                width: "7rem",
+              }}
+              onClick={() => handleEdit()}
+            >
+              <span className="p-2" style={{ color: "white" }}>
+                Edit
+              </span>
+              <img src={edit} alt="" />
+            </button>
+          ) : (
+            <button
+              className="ms-auto py-2  px-3 shadow border "
+              style={{
+                backgroundColor: "#067BC2",
+                borderRadius: "20px",
+                textDecoration: "none",
+                width: "7rem",
+              }}
+              onClick={() => handleEdit()}
+            >
+              <span className="p-2" style={{ color: "white" }}>
+                Save
+              </span>
+              <img src={save} alt="" height={20} />
+            </button>
+          )}
         </div>
       </div>
 
@@ -481,7 +533,6 @@ function Profile({ setShow }) {
               value={bachelorsData.percentage || ""}
               onChange={(e) => getBachelorsQualification(e)}
               disabled={editable}
-
               placeholder="%"
               style={{
                 fontSize: "15px",
@@ -570,19 +621,39 @@ function Profile({ setShow }) {
         <div className="titleBar d-flex shapeParent mt-5 ">
           <div className="shape"></div>
           <h2 className="fs-4 ms-4 fw-bold">Upload Documents </h2>
-          <Link
-            className="ms-auto py-2  px-3 shadow  "
-            style={{
-              backgroundColor: "#067BC2",
-              borderRadius: "20px",
-              textDecoration: "none",
-            }}
-          >
-            <span className="p-2 " style={{ color: "white" }}>
-              Edit
-            </span>
-            <img src={edit} alt="" />
-          </Link>
+          {editable ? (
+            <button
+              className="ms-auto py-2  px-3 shadow border "
+              style={{
+                backgroundColor: "#067BC2",
+                borderRadius: "20px",
+                textDecoration: "none",
+                width: "7rem",
+              }}
+              onClick={() => handleEdit()}
+            >
+              <span className="p-2" style={{ color: "white" }}>
+                Edit
+              </span>
+              <img src={edit} alt="" />
+            </button>
+          ) : (
+            <button
+              className="ms-auto py-2  px-3 shadow border "
+              style={{
+                backgroundColor: "#067BC2",
+                borderRadius: "20px",
+                textDecoration: "none",
+                width: "7rem",
+              }}
+              onClick={() => handleEdit()}
+            >
+              <span className="p-2" style={{ color: "white" }}>
+                Save
+              </span>
+              <img src={save} alt="" height={20} />
+            </button>
+          )}
         </div>
       </div>
       <div className="row">
@@ -601,7 +672,7 @@ function Profile({ setShow }) {
             >
               CV/Resume*
             </label>
-            <Link
+            <button
               className=" py-2  px-3 shadow  "
               style={{
                 borderRadius: "20px",
@@ -612,7 +683,7 @@ function Profile({ setShow }) {
               <span className="p-2" style={{ color: "#39C6B5" }}>
                 Upload
               </span>
-            </Link>
+            </button>
           </div>
           <div className="form-group d-lg-flex align-items-center gap-3 p-2">
             <label
@@ -621,7 +692,7 @@ function Profile({ setShow }) {
             >
               SOP*
             </label>
-            <Link
+            <button
               className=" py-2  px-3 shadow  "
               style={{
                 borderRadius: "20px",
@@ -632,7 +703,7 @@ function Profile({ setShow }) {
               <span className="p-2" style={{ color: "#39C6B5" }}>
                 Upload
               </span>
-            </Link>
+            </button>
           </div>
           <div className="form-group d-lg-flex align-items-center gap-3 p-2">
             <label
@@ -641,7 +712,7 @@ function Profile({ setShow }) {
             >
               LOR*
             </label>
-            <Link
+            <button
               className=" py-2  px-3 shadow  "
               style={{
                 borderRadius: "20px",
@@ -652,7 +723,7 @@ function Profile({ setShow }) {
               <span className="p-2" style={{ color: "#39C6B5" }}>
                 Upload
               </span>
-            </Link>
+            </button>
           </div>
           <div className="form-group d-lg-flex align-items-center gap-3 p-2">
             <label
@@ -661,7 +732,7 @@ function Profile({ setShow }) {
             >
               Passport*
             </label>
-            <Link
+            <button
               className=" py-2  px-3 shadow  "
               style={{
                 borderRadius: "20px",
@@ -672,7 +743,7 @@ function Profile({ setShow }) {
               <span className="p-2" style={{ color: "#39C6B5" }}>
                 Upload
               </span>
-            </Link>
+            </button>
           </div>
         </div>
         {/* Academic certificate */}
@@ -690,7 +761,7 @@ function Profile({ setShow }) {
             >
               10th Grade*
             </label>
-            <Link
+            <button
               className=" py-2  px-3 shadow  "
               style={{
                 borderRadius: "20px",
@@ -701,7 +772,7 @@ function Profile({ setShow }) {
               <span className="p-2" style={{ color: "#39C6B5" }}>
                 Upload
               </span>
-            </Link>
+            </button>
           </div>
           <div className="form-group d-lg-flex align-items-center gap-3 p-2">
             <label
@@ -710,7 +781,7 @@ function Profile({ setShow }) {
             >
               12th Grade*
             </label>
-            <Link
+            <button
               className=" py-2  px-3 shadow  "
               style={{
                 borderRadius: "20px",
@@ -721,7 +792,7 @@ function Profile({ setShow }) {
               <span className="p-2" style={{ color: "#39C6B5" }}>
                 Upload
               </span>
-            </Link>
+            </button>
           </div>
           <div className="form-group d-lg-flex align-items-center gap-3 p-2">
             <label
@@ -730,7 +801,7 @@ function Profile({ setShow }) {
             >
               Bachelors
             </label>
-            <Link
+            <button
               className=" py-2  px-3 shadow  "
               style={{
                 borderRadius: "20px",
@@ -741,7 +812,7 @@ function Profile({ setShow }) {
               <span className="p-2" style={{ color: "#39C6B5" }}>
                 Upload
               </span>
-            </Link>
+            </button>
           </div>
           <div className="form-group d-lg-flex align-items-center gap-3 p-2">
             <label
@@ -750,7 +821,7 @@ function Profile({ setShow }) {
             >
               Masters
             </label>
-            <Link
+            <button
               className=" py-2  px-3 shadow  "
               style={{
                 borderRadius: "20px",
@@ -761,7 +832,7 @@ function Profile({ setShow }) {
               <span className="p-2" style={{ color: "#39C6B5" }}>
                 Upload
               </span>
-            </Link>
+            </button>
           </div>
         </div>
         {/* Additional Documents */}
@@ -779,7 +850,7 @@ function Profile({ setShow }) {
             >
               Documents 1
             </label>
-            <Link
+            <button
               className=" py-2  px-3 shadow  "
               style={{
                 borderRadius: "20px",
@@ -790,7 +861,7 @@ function Profile({ setShow }) {
               <span className="p-2" style={{ color: "#39C6B5" }}>
                 Upload
               </span>
-            </Link>
+            </button>
           </div>
           <div className="form-group d-lg-flex align-items-center gap-3 p-2">
             <label
@@ -799,7 +870,7 @@ function Profile({ setShow }) {
             >
               Documents 2
             </label>
-            <Link
+            <button
               className=" py-2  px-3 shadow  "
               style={{
                 borderRadius: "20px",
@@ -810,7 +881,7 @@ function Profile({ setShow }) {
               <span className="p-2" style={{ color: "#39C6B5" }}>
                 Upload
               </span>
-            </Link>
+            </button>
           </div>
           <div className="form-group d-lg-flex align-items-center gap-3 p-2">
             <label
@@ -819,7 +890,7 @@ function Profile({ setShow }) {
             >
               Documents 3
             </label>
-            <Link
+            <button
               className=" py-2  px-3 shadow"
               style={{
                 borderRadius: "20px",
@@ -830,7 +901,7 @@ function Profile({ setShow }) {
               <span className="p-2" style={{ color: "#39C6B5" }}>
                 Upload
               </span>
-            </Link>
+            </button>
           </div>
         </div>
       </div>

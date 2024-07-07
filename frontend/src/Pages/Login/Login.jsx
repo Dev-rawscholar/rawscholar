@@ -1,9 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import { useFrappeGetDoc, useFrappeGetDocList } from "frappe-react-sdk";
-
-
+import { useFrappeGetDoc } from "frappe-react-sdk";
 
 import Logo from "../../assets/Logo.svg";
 import StudyIllustration from "../../assets/StudyIllustration.svg";
@@ -31,16 +29,20 @@ function Login({ setShow }) {
   let loggedEmail = inputData.email;
 
   const { data } = useFrappeGetDoc("Student", loggedEmail);
+  console.log(data);
 
   const login = () => {
     const { email, password } = inputData;
     if (!email || !password) {
       toast.warning("Please Fill the form");
-    } else if (data[0]?.email === email) {
-      if (data[0]?.password === password) {
-        const { email, name1 } = data[0];
+    } else if (data?.email === email) {
+      if (data?.password === password) {
+        const { email, name1, name } = data;
         toast.success("Logged in Successfully");
-        localStorage.setItem("userData", JSON.stringify({ email, name1 }));
+        localStorage.setItem(
+          "userData",
+          JSON.stringify({ email, name1, name })
+        );
         navigate("/");
       } else {
         toast.error("Invalid credentials");

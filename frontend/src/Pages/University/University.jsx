@@ -7,11 +7,16 @@ import {
   universityContext,
 } from "../../Components/ContextShare";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
-function University() {
-  useEffect(()=>{
+function University({ setShow }) {
+  useEffect(() => {
     setShow(true);
-  })
+    if (!localStorage.getItem("userData")) {
+      navigate("/login");
+      toast.warning("Please login or sign-up before continuing");
+    }
+  }, []);
 
   const navigate = useNavigate();
   const { unviersityData } = useContext(universityContext);
@@ -83,7 +88,7 @@ function University() {
             <div
               className="courseCard rounded shadow p-5 col-lg-5"
               key={i}
-              onClick={()=>gotoCourse(course)}
+              onClick={() => gotoCourse(course)}
             >
               <div className="courseTitle mb-4 fw-bold">
                 <h5 className="fw-bold">{course.course}</h5>
