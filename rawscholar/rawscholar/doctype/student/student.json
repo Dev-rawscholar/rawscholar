@@ -58,7 +58,8 @@
   {
    "fieldname": "status",
    "fieldtype": "Select",
-   "label": "Status"
+   "label": "Status",
+   "options": "New\nOpened"
   },
   {
    "fieldname": "country",
@@ -85,6 +86,7 @@
    "columns": 4,
    "fieldname": "qualifications",
    "fieldtype": "Table",
+   "hidden": 1,
    "label": "Qualifications",
    "options": "Qualification"
   },
