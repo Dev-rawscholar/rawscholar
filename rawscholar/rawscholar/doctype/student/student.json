@@ -2,6 +2,7 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
+ "autoname": "field:email",
  "creation": "2024-06-10 09:34:21.721338",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -57,7 +58,8 @@
   {
    "fieldname": "status",
    "fieldtype": "Select",
-   "label": "Status"
+   "label": "Status",
+   "options": "New\nOpened"
   },
   {
    "fieldname": "country",
@@ -84,6 +86,7 @@
    "columns": 4,
    "fieldname": "qualifications",
    "fieldtype": "Table",
+   "hidden": 1,
    "label": "Qualifications",
    "options": "Qualification"
   },
@@ -165,10 +168,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-04 17:27:23.594482",
+ "modified": "2024-07-06 12:38:18.820982",
  "modified_by": "Administrator",
  "module": "Rawscholar",
  "name": "Student",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

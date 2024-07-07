@@ -26,7 +26,10 @@
   {
    "fieldname": "course",
    "fieldtype": "Data",
+   "in_filter": 1,
+   "in_global_search": 1,
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Course "
   },
   {
@@ -66,13 +69,15 @@
   {
    "fieldname": "university",
    "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_list_view": 1,
    "label": "University",
    "options": "University"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-19 12:34:09.939711",
+ "modified": "2024-07-06 11:11:35.884031",
  "modified_by": "Administrator",
  "module": "Rawscholar",
  "name": "Courses",
@@ -105,7 +110,10 @@
    "write": 1
   }
  ],
+ "search_fields": "course",
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "course"
 }

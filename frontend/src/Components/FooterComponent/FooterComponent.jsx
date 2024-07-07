@@ -94,7 +94,7 @@ function FooterComponent() {
                   src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15718.366065807206!2d76.2863634!3d9.9679031!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80f6e2077d2c286d%3A0xcd50ca008f5bb0c4!2sRawscholar!5e0!3m2!1sen!2sin!4v1717440092189!5m2!1sen!2sin"
                   width="300"
                   height="200"
-                  className="rounded d-none d-sm-block"
+                  className="rounded d-none d-sm-block shadow"
                   title="location map"
                   style={{ border: "0" }}
                   loading="lazy"

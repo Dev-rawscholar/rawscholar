@@ -3,6 +3,10 @@ import { FrappeProvider } from "frappe-react-sdk";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 import Home from "./Pages/Home/Home";
 import Countries from "./Pages/Countries/Countries";
 import NavbarComponent from "./Components/NavbarComponent/NavbarComponent";
@@ -57,7 +61,7 @@ function App() {
       {show && <FooterComponent />}
       <ToastContainer
         position="top-right"
-        autoClose={2000}
+        autoClose={2500}
         hideProgressBar
         newestOnTop={false}
         closeOnClick

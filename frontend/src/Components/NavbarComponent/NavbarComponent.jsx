@@ -14,7 +14,6 @@ import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import { toast } from "react-toastify";
 
-
 function NavbarComponent() {
   const [islogged, setIslogged] = useState(false);
   const navigate = useNavigate();
@@ -26,15 +25,15 @@ function NavbarComponent() {
   const logout = () => {
     confirmAlert({
       title: "Confirm to submit",
-      message: "Are you sure to logout",
+      message: "Are you sure you want to logout?",
       buttons: [
         {
           label: "Logout",
           onClick: () => {
             localStorage.removeItem("userData");
-            navigate("/");
             setIslogged(false);
-            toast.success("You have been signed out!")
+            navigate("/");
+            toast.success("You have been logged out!");
           },
         },
         {
@@ -95,17 +94,16 @@ function NavbarComponent() {
                   </button>
                 </div>
               ) : (
-                <Link to="/signup">
-                  <button
-                    className="btn rounded-pill"
-                    style={{
-                      backgroundColor: "#067bc2",
-                      color: "white",
-                      width: "100px",
-                    }}
-                  >
-                    Sign Up
-                  </button>
+                <Link
+                  to="/signup"
+                  className="btn rounded-pill"
+                  style={{
+                    backgroundColor: "#067bc2",
+                    color: "white",
+                    width: "100px",
+                  }}
+                >
+                  Sign Up
                 </Link>
               )}
             </div>

@@ -1,0 +1,87 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"ydBcxPb53J\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Hub</span>\",\"col\":12}},{\"id\":\"6WFRi5Fw19\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Students\",\"col\":4}},{\"id\":\"wz5iI7Q8Ap\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"New Students\",\"col\":4}},{\"id\":\"FRjtwmHt9A\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Countries\",\"col\":4}},{\"id\":\"GB4zwyzlXy\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Universities\",\"col\":6}},{\"id\":\"AfBRCsrmpO\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Courses\",\"col\":6}},{\"id\":\"FsN6yzFvab\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"ehDa84EZ6I\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Shortcuts <br></b></span>\",\"col\":12}},{\"id\":\"Zmxp7EH768\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Country\",\"col\":3}},{\"id\":\"Asr2cuVdj-\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"University\",\"col\":3}},{\"id\":\"rLcv2MVAFp\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Student\",\"col\":3}},{\"id\":\"NT3B06VJ1E\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Course\",\"col\":3}}]",
+ "creation": "2024-07-01 12:08:23.517745",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "quality-3",
+ "idx": 2,
+ "indicator_color": "",
+ "is_hidden": 0,
+ "label": "Counsellors",
+ "links": [],
+ "modified": "2024-07-06 13:34:55.204608",
+ "modified_by": "Administrator",
+ "module": "Rawscholar",
+ "name": "Counsellors",
+ "number_cards": [
+  {
+   "label": "Universities",
+   "number_card_name": "University"
+  },
+  {
+   "label": "New Students",
+   "number_card_name": "new student"
+  },
+  {
+   "label": "Courses",
+   "number_card_name": "Course"
+  },
+  {
+   "label": "Students",
+   "number_card_name": "Student"
+  },
+  {
+   "label": "Countries",
+   "number_card_name": "Country"
+  }
+ ],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "Counsellor"
+  }
+ ],
+ "sequence_id": 0.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Country",
+   "link_to": "Countries",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "University",
+   "link_to": "University",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Course",
+   "link_to": "Courses",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Student",
+   "link_to": "Student",
+   "stats_filter": "[]",
+   "type": "DocType"
+  }
+ ],
+ "title": "Counsellors"
+}

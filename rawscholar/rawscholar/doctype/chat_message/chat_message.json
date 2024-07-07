@@ -1,29 +1,24 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:qualification",
- "creation": "2024-06-14 11:40:12.693795",
+ "creation": "2024-07-06 21:34:15.664996",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "qualification"
+  "section_break_1tqd"
  ],
  "fields": [
   {
-   "fieldname": "qualification",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Qualification",
-   "unique": 1
+   "fieldname": "section_break_1tqd",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-06 11:08:41.140477",
+ "modified": "2024-07-06 21:34:15.664996",
  "modified_by": "Administrator",
  "module": "Rawscholar",
- "name": "Qualification Type",
- "naming_rule": "By fieldname",
+ "name": "Chat Message",
  "owner": "Administrator",
  "permissions": [
   {
@@ -35,18 +30,6 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Guest",
    "share": 1,
    "write": 1
   }

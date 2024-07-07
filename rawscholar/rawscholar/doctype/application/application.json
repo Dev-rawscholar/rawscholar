@@ -5,17 +5,53 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "section_break_vyjx"
+  "section_break_vyjx",
+  "student",
+  "country",
+  "university",
+  "course",
+  "status"
  ],
  "fields": [
   {
    "fieldname": "section_break_vyjx",
    "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "student",
+   "fieldtype": "Link",
+   "label": "Student",
+   "options": "Student"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Link",
+   "label": "Country",
+   "options": "Countries"
+  },
+  {
+   "fieldname": "course",
+   "fieldtype": "Link",
+   "label": "Course",
+   "options": "Courses"
+  },
+  {
+   "default": "New",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "New\nOpened"
+  },
+  {
+   "fieldname": "university",
+   "fieldtype": "Link",
+   "label": "University",
+   "options": "University"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-29 13:34:37.246888",
+ "modified": "2024-07-06 11:10:30.998258",
  "modified_by": "Administrator",
  "module": "Rawscholar",
  "name": "Application",

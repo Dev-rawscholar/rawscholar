@@ -8,7 +8,7 @@ import {
 } from "../../Components/ContextShare";
 import { useNavigate } from "react-router-dom";
 
-function University({ setShow }) {
+function University() {
   useEffect(()=>{
     setShow(true);
   })

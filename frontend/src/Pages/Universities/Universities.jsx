@@ -8,7 +8,7 @@ import {
   universityContext,
 } from "../../Components/ContextShare";
 
-function Universities({ setShow }) {
+function Universities() {
   useEffect(() => {
     setShow(true);
   });
