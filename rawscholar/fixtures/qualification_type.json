@@ -1,1 +1,30 @@
-[]
+[
+ {
+  "docstatus": 0,
+  "doctype": "Qualification Type",
+  "modified": "2024-07-07 00:50:20.698175",
+  "name": "Bachelors",
+  "qualification": "Bachelors"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Qualification Type",
+  "modified": "2024-07-07 00:50:27.726450",
+  "name": "Masters",
+  "qualification": "Masters"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Qualification Type",
+  "modified": "2024-07-06 13:09:13.796572",
+  "name": "12th",
+  "qualification": "12th"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Qualification Type",
+  "modified": "2024-07-06 13:08:59.013198",
+  "name": "10th",
+  "qualification": "10th"
+ }
+]

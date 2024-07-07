@@ -1,5 +1,6 @@
 [
  {
+  "attach_image_rhlj": null,
   "country": "France",
   "docstatus": 0,
   "doctype": "Countries",
@@ -7,13 +8,7 @@
   "name": "France"
  },
  {
-  "country": "Ireland",
-  "docstatus": 0,
-  "doctype": "Countries",
-  "modified": "2024-06-18 11:27:10.573725",
-  "name": "Ireland"
- },
- {
+  "attach_image_rhlj": null,
   "country": "UK",
   "docstatus": 0,
   "doctype": "Countries",
@@ -21,10 +16,51 @@
   "name": "UK"
  },
  {
+  "attach_image_rhlj": null,
+  "country": "Ireland",
+  "docstatus": 0,
+  "doctype": "Countries",
+  "modified": "2024-06-18 11:27:10.573725",
+  "name": "Ireland"
+ },
+ {
+  "attach_image_rhlj": null,
   "country": "Germany",
   "docstatus": 0,
   "doctype": "Countries",
   "modified": "2024-06-18 11:08:56.866244",
   "name": "Germany"
+ },
+ {
+  "attach_image_rhlj": null,
+  "country": "Malta",
+  "docstatus": 0,
+  "doctype": "Countries",
+  "modified": "2024-07-02 23:29:18.880358",
+  "name": "Malta"
+ },
+ {
+  "attach_image_rhlj": null,
+  "country": "Latvia",
+  "docstatus": 0,
+  "doctype": "Countries",
+  "modified": "2024-07-02 23:29:26.840123",
+  "name": "Latvia"
+ },
+ {
+  "attach_image_rhlj": null,
+  "country": "Lithuania",
+  "docstatus": 0,
+  "doctype": "Countries",
+  "modified": "2024-07-02 23:29:34.495424",
+  "name": "Lithuania"
+ },
+ {
+  "attach_image_rhlj": "",
+  "country": "Hungary",
+  "docstatus": 0,
+  "doctype": "Countries",
+  "modified": "2024-07-02 23:32:38.035469",
+  "name": "Hungary"
  }
 ]
