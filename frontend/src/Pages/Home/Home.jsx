@@ -71,7 +71,7 @@ function Home({ setShow }) {
             <img src={diploma2} height="60" alt="card 3" />
             <div>
               <h5 className={styles.cardHeading}>Scholarships</h5>
-              <p className={styles.cardText} x>
+              <p className={styles.cardText}>
                 Get the right scholarship you deserve. We will take you to the
                 immense opportunities of scholarship for a brighter future.
               </p>
@@ -86,7 +86,6 @@ function Home({ setShow }) {
               className="rounded"
               src="https://www.youtube.com/embed/QfBasFOvhyI?si=VPPZBM6Pph3J-WQ6"
               title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             ></iframe>
           </div>
           <div className="col-lg-6 py-4 px-5 shadow rounded shapeParent">

@@ -2,6 +2,7 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
+ "autoname": "field:email",
  "creation": "2024-06-10 09:34:21.721338",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -52,14 +53,12 @@
    "fieldname": "gender",
    "fieldtype": "Select",
    "label": "Gender",
-   "options": "--select--\nMale\nFemale"
+   "options": "--select--\nMale\nFemale\nOthers"
   },
   {
-   "default": "New",
    "fieldname": "status",
    "fieldtype": "Select",
-   "label": "Status",
-   "options": "New"
+   "label": "Status"
   },
   {
    "fieldname": "country",
@@ -167,10 +166,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-05 15:41:35.339517",
+ "modified": "2024-07-06 12:38:18.820982",
  "modified_by": "Administrator",
  "module": "Rawscholar",
  "name": "Student",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
@@ -183,6 +183,18 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Guest",
    "share": 1,
    "write": 1
   }

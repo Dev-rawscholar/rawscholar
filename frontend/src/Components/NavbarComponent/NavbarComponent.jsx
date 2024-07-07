@@ -10,10 +10,9 @@ import style from "./NavbarComponent.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-import { confirmAlert } from 'react-confirm-alert'; // Import
-import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import { confirmAlert } from "react-confirm-alert"; // Import
+import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 import { toast } from "react-toastify";
-
 
 function NavbarComponent() {
   const [islogged, setIslogged] = useState(false);
@@ -26,7 +25,7 @@ function NavbarComponent() {
   const logout = () => {
     confirmAlert({
       title: "Confirm to submit",
-      message: "Are you sure to logout",
+      message: "Are you sure you want to logout?",
       buttons: [
         {
           label: "Logout",
@@ -34,7 +33,7 @@ function NavbarComponent() {
             localStorage.removeItem("userData");
             setIslogged(false);
             navigate("/");
-            toast.success("you have been logged out ")
+            toast.success("You have been logged out ");
           },
         },
         {
@@ -95,17 +94,16 @@ function NavbarComponent() {
                   </button>
                 </div>
               ) : (
-                <Link to="/signup">
-                  <button
-                    className="btn rounded-pill"
-                    style={{
-                      backgroundColor: "#067bc2",
-                      color: "white",
-                      width: "100px",
-                    }}
-                  >
-                    Sign Up
-                  </button>
+                <Link
+                  to="/signup"
+                  className="btn rounded-pill"
+                  style={{
+                    backgroundColor: "#067bc2",
+                    color: "white",
+                    width: "100px",
+                  }}
+                >
+                  Sign Up
                 </Link>
               )}
             </div>
