@@ -37,29 +37,29 @@ function Profile({ setShow }) {
       setInputData(data);
       setTenthData({
         ...tenthData,
-        parent: data.name,
-        parenttype: data.doctype,
+        parent: data?.name,
+        parenttype: data?.doctype,
         cgpa: data.qualifications[0]?.cgpa,
         percentage: data.qualifications[0]?.percentage,
       });
       setTwelfthData({
         ...twelfthData,
-        parent: data.name,
-        parenttype: data.doctype,
+        parent: data?.name,
+        parenttype: data?.doctype,
         cgpa: data.qualifications[2]?.cgpa,
         percentage: data.qualifications[2]?.percentage,
       });
       setBachelorsData({
         ...bachelorsData,
-        parent: data.name,
-        parenttype: data.doctype,
+        parent: data?.name,
+        parenttype: data?.doctype,
         cgpa: data.qualifications[1]?.cgpa,
         percentage: data.qualifications[1]?.percentage,
       });
       setMastersData({
         ...mastersData,
-        parent: data.name,
-        parenttype: data.doctype,
+        parent: data?.name,
+        parenttype: data?.doctype,
         cgpa: data.qualifications[3]?.cgpa,
         percentage: data.qualifications[3]?.percentage,
       });
