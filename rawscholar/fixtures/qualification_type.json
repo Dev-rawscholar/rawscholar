@@ -2,29 +2,8 @@
  {
   "docstatus": 0,
   "doctype": "Qualification Type",
-  "modified": "2024-07-07 16:04:04.134375",
+  "modified": "2024-07-06 10:51:04.977576",
   "name": "10th",
   "qualification": "10th"
- },
- {
-  "docstatus": 0,
-  "doctype": "Qualification Type",
-  "modified": "2024-07-07 16:04:11.228901",
-  "name": "12th",
-  "qualification": "12th"
- },
- {
-  "docstatus": 0,
-  "doctype": "Qualification Type",
-  "modified": "2024-07-07 16:04:17.544192",
-  "name": "Bachelors",
-  "qualification": "Bachelors"
- },
- {
-  "docstatus": 0,
-  "doctype": "Qualification Type",
-  "modified": "2024-07-07 16:04:23.890381",
-  "name": "Masters",
-  "qualification": "Masters"
  }
 ]
