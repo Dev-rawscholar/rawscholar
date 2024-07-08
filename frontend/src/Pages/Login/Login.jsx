@@ -67,7 +67,6 @@ function Login({ setShow }) {
           <input
             className="inputBox"
             type="email"
-            type="email"
             name="email"
             placeholder="Enter Email"
             onChange={(e) => getInputData(e)}
