@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"Vsxf7z4U3f\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Applications</span>\",\"col\":12}},{\"id\":\"PWYRW3vrYW\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Applications\",\"col\":4}},{\"id\":\"j7SzfxuqrD\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"New Applications\",\"col\":4}},{\"id\":\"I-4U-DeL9Y\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"student\",\"col\":4}}]",
+ "content": "[{\"id\":\"Vsxf7z4U3f\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Applications</span>\",\"col\":12}},{\"id\":\"PWYRW3vrYW\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Applications\",\"col\":4}}]",
  "creation": "2024-07-05 12:49:43.697130",
  "custom_blocks": [],
  "docstatus": 0,
@@ -13,19 +13,11 @@
  "is_hidden": 0,
  "label": "Applications",
  "links": [],
- "modified": "2024-07-06 13:11:00.197108",
+ "modified": "2024-07-08 10:16:02.252707",
  "modified_by": "Administrator",
  "module": "Rawscholar",
  "name": "Applications",
  "number_cards": [
-  {
-   "label": "New Applications",
-   "number_card_name": "New Applications"
-  },
-  {
-   "label": "student",
-   "number_card_name": "Student"
-  },
   {
    "label": "Applications",
    "number_card_name": "Application"
