@@ -22,6 +22,7 @@ import Profile from "./Pages/Profile/Profile";
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import "./App.css";
+import Test from "./Pages/Test/Test";
 
 function App() {
   const [show, setShow] = useState(true);
@@ -53,6 +54,7 @@ function App() {
         <Route path="/contactus" element={<Contactus setShow={setShow} />} />
         <Route path="/faq" element={<Faq setShow={setShow} />} />
         <Route path="*" element={<PageNotFound setShow={setShow} />} />
+        <Route path="/test" element={<Test setShow={setShow} />} />
       </Routes>
       {show && <FooterComponent />}
       <ToastContainer
