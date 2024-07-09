@@ -10,9 +10,11 @@ import style from "./NavbarComponent.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-import { confirmAlert } from 'react-confirm-alert'; // Import
-import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import { confirmAlert } from "react-confirm-alert"; // Import
+import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 import { toast } from "react-toastify";
+
+import { useFrappeGetDocCount, useFrappeGetDocList } from "frappe-react-sdk";
 
 function NavbarComponent() {
   const [islogged, setIslogged] = useState(false);
@@ -44,6 +46,21 @@ function NavbarComponent() {
     });
   };
 
+  //----------------------------------Search----------------------------------------------
+
+  // const [searchTerm, setSearchTerm] = useState("");
+  // const { data, mutate } = useFrappeGetDocList("Courses", {
+  //   filters: [["course", "=", "mba"]],
+  // });
+
+  // const handleSearch = () => {
+  //   console.log(searchTerm);
+  //   mutate();
+  //   console.log(data);
+  // };
+
+  // --------------------------------------------------------------------------------------
+
   return (
     <Navbar expand="lg shadow-sm">
       <Container>
@@ -65,8 +82,10 @@ function NavbarComponent() {
                 className={style.searchBox}
                 type="text"
                 placeholder="Search Colleges and Courses"
-              />
+                // onChange={(e) => setSearchTerm(e.target.value)}
+                />
               <button className={style.search}>
+                 {/* onClick={handleSearch} in button */}
                 <img src={Search} alt="Search" />
               </button>
             </div>

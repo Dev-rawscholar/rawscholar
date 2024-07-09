@@ -30,7 +30,7 @@ function Profile({ setShow }) {
 
   let loggedData = JSON.parse(localStorage.getItem("userData"));
 
-  const { data } = useFrappeGetDoc("Student", loggedData?.name);
+  const { data } = useFrappeGetDoc("Student", loggedData?.email);
 
   useEffect(() => {
     if (data) {
@@ -253,7 +253,7 @@ function Profile({ setShow }) {
           <form action="">
             {/* name */}
             <div className="form-group d-lg-flex align-items-center gap-3 p-2">
-              <label style={{ color: "#067BC2", width: "70px" }}>Name</label>
+              <label style={{ color: "#067BC2", width: "100px" }}>Name</label>
               <input
                 className="inputBox shadow "
                 type="text"
@@ -267,7 +267,9 @@ function Profile({ setShow }) {
             </div>
             {/* mail id */}
             <div className="form-group d-lg-flex align-items-center gap-3 p-2">
-              <label style={{ color: "#067BC2", width: "70px" }}>Mail ID</label>
+              <label style={{ color: "#067BC2", width: "100px" }}>
+                Mail ID
+              </label>
               <input
                 className="inputBox shadow "
                 type="email"
@@ -281,7 +283,9 @@ function Profile({ setShow }) {
             </div>
             {/* phone number */}
             <div className="form-group d-lg-flex align-items-center gap-3 p-2">
-              <label style={{ color: "#067BC2", width: "70px" }}>PhoneNo</label>
+              <label style={{ color: "#067BC2", width: "100px" }}>
+                Phone No
+              </label>
               <input
                 className="inputBox shadow "
                 type="number"
@@ -295,7 +299,7 @@ function Profile({ setShow }) {
             </div>
             {/* gender */}
             <div className="form-group d-lg-flex align-items-center gap-3 p-2">
-              <label style={{ color: "#067BC2", width: "70px" }}>Gender</label>
+              <label style={{ color: "#067BC2", width: "100px" }}>Gender</label>
               <select
                 className="inputBox shadow "
                 aria-label="Default select example"
@@ -318,7 +322,7 @@ function Profile({ setShow }) {
           <div className="form-group d-lg-flex align-items-center gap-3 p-2">
             <label
               className=" d-flex align-items-center"
-              style={{ color: "#067BC2", width: "70px", height: "43px" }}
+              style={{ color: "#067BC2", width: "100px" }}
             >
               DOB
             </label>
@@ -334,7 +338,7 @@ function Profile({ setShow }) {
             />
           </div>
           <div className="form-group d-lg-flex align-items-center gap-3 p-2">
-            <label className="" style={{ color: "#067BC2", width: "70px" }}>
+            <label className="" style={{ color: "#067BC2", width: "100px" }}>
               Passport No
             </label>
             <input
@@ -351,7 +355,7 @@ function Profile({ setShow }) {
           <div className="form-group d-lg-flex align-items-center gap-3 p-2">
             <label
               className=" d-flex"
-              style={{ color: "#067BC2", width: "70px", height: "43px" }}
+              style={{ color: "#067BC2", width: "100px" }}
             >
               Address
             </label>
@@ -673,7 +677,7 @@ function Profile({ setShow }) {
               CV/Resume*
             </label>
             <button
-              className=" py-2  px-3 shadow  "
+              className=" py-2  px-3 shadow border"
               style={{
                 borderRadius: "20px",
                 textDecoration: "none",
@@ -693,7 +697,7 @@ function Profile({ setShow }) {
               SOP*
             </label>
             <button
-              className=" py-2  px-3 shadow  "
+              className=" py-2  px-3 shadow border"
               style={{
                 borderRadius: "20px",
                 textDecoration: "none",
@@ -713,7 +717,7 @@ function Profile({ setShow }) {
               LOR*
             </label>
             <button
-              className=" py-2  px-3 shadow  "
+              className=" py-2  px-3 shadow border"
               style={{
                 borderRadius: "20px",
                 textDecoration: "none",
@@ -733,7 +737,7 @@ function Profile({ setShow }) {
               Passport*
             </label>
             <button
-              className=" py-2  px-3 shadow  "
+              className=" py-2  px-3 shadow border"
               style={{
                 borderRadius: "20px",
                 textDecoration: "none",
@@ -762,7 +766,7 @@ function Profile({ setShow }) {
               10th Grade*
             </label>
             <button
-              className=" py-2  px-3 shadow  "
+              className=" py-2  px-3 shadow border"
               style={{
                 borderRadius: "20px",
                 textDecoration: "none",
@@ -782,7 +786,7 @@ function Profile({ setShow }) {
               12th Grade*
             </label>
             <button
-              className=" py-2  px-3 shadow  "
+              className=" py-2  px-3 shadow border"
               style={{
                 borderRadius: "20px",
                 textDecoration: "none",
@@ -802,7 +806,7 @@ function Profile({ setShow }) {
               Bachelors
             </label>
             <button
-              className=" py-2  px-3 shadow  "
+              className=" py-2  px-3 shadow border"
               style={{
                 borderRadius: "20px",
                 textDecoration: "none",
@@ -822,7 +826,7 @@ function Profile({ setShow }) {
               Masters
             </label>
             <button
-              className=" py-2  px-3 shadow  "
+              className=" py-2  px-3 shadow border"
               style={{
                 borderRadius: "20px",
                 textDecoration: "none",
@@ -851,7 +855,7 @@ function Profile({ setShow }) {
               Documents 1
             </label>
             <button
-              className=" py-2  px-3 shadow  "
+              className=" py-2  px-3 shadow border"
               style={{
                 borderRadius: "20px",
                 textDecoration: "none",
@@ -871,7 +875,7 @@ function Profile({ setShow }) {
               Documents 2
             </label>
             <button
-              className=" py-2  px-3 shadow  "
+              className=" py-2  px-3 shadow border"
               style={{
                 borderRadius: "20px",
                 textDecoration: "none",
@@ -891,7 +895,7 @@ function Profile({ setShow }) {
               Documents 3
             </label>
             <button
-              className=" py-2  px-3 shadow"
+              className=" py-2  px-3 shadow border"
               style={{
                 borderRadius: "20px",
                 textDecoration: "none",
