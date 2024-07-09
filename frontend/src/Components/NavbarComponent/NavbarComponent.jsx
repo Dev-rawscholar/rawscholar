@@ -15,6 +15,7 @@ import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 import { toast } from "react-toastify";
 
 import { useFrappeGetDocCount, useFrappeGetDocList } from "frappe-react-sdk";
+import axios from "axios";
 
 function NavbarComponent() {
   const [islogged, setIslogged] = useState(false);
@@ -48,16 +49,24 @@ function NavbarComponent() {
 
   //----------------------------------Search----------------------------------------------
 
-  // const [searchTerm, setSearchTerm] = useState("");
-  // const { data, mutate } = useFrappeGetDocList("Courses", {
-  //   filters: [["course", "=", "mba"]],
-  // });
+  const { data, mutate } = useFrappeGetDocList("Courses", {
+    fields: [
+      "course",
+      "university",
+      "duration",
+      "mode",
+      "fee",
+      "level",
+      "exam_accepted",
+    ],
+    limit: 36951,
+  });
+  const [searchTerm, setSearchTerm] = useState("");
 
-  // const handleSearch = () => {
-  //   console.log(searchTerm);
-  //   mutate();
-  //   console.log(data);
-  // };
+  const handleSearch = () => {
+    console.log(searchTerm);
+    console.log(data);
+  };
 
   // --------------------------------------------------------------------------------------
 
@@ -82,10 +91,10 @@ function NavbarComponent() {
                 className={style.searchBox}
                 type="text"
                 placeholder="Search Colleges and Courses"
-                // onChange={(e) => setSearchTerm(e.target.value)}
-                />
-              <button className={style.search}>
-                 {/* onClick={handleSearch} in button */}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+              <button className={style.search} onClick={handleSearch}>
+                {/* onClick={handleSearch} in button */}
                 <img src={Search} alt="Search" />
               </button>
             </div>
