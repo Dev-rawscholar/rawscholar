@@ -8,7 +8,7 @@ import ContextShare from "./Components/ContextShare.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ContextShare>
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.VITE_BASE_PATH}>
         <App />
       </BrowserRouter>
     </ContextShare>
