@@ -23,6 +23,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 
 import "./App.css";
 import Test from "./Pages/Test/Test";
+import Search from "./Pages/Search/Search";
 
 function App() {
   const [show, setShow] = useState(true);
@@ -51,6 +52,7 @@ function App() {
           element={<ForgotPassword setShow={setShow} />}
         />
         <Route path="/profile" element={<Profile setShow={setShow} />} />
+        <Route path="/search" element={<Search setShow={setShow} />} />
         <Route path="/contactus" element={<Contactus setShow={setShow} />} />
         <Route path="/faq" element={<Faq setShow={setShow} />} />
         <Route path="*" element={<PageNotFound setShow={setShow} />} />

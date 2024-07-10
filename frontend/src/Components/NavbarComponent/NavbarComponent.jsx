@@ -8,17 +8,18 @@ import Profile from "../../assets/Profile.svg";
 
 import style from "./NavbarComponent.module.css";
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { confirmAlert } from "react-confirm-alert"; // Import
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 import { toast } from "react-toastify";
 
-import { useFrappeGetDocCount, useFrappeGetDocList } from "frappe-react-sdk";
-import axios from "axios";
+import { useFrappeGetDocList } from "frappe-react-sdk";
+import { searchContext } from "../ContextShare";
 
 function NavbarComponent() {
   const [islogged, setIslogged] = useState(false);
+  const { searchTerm, setSearchTerm } = useContext(searchContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -49,23 +50,11 @@ function NavbarComponent() {
 
   //----------------------------------Search----------------------------------------------
 
-  const { data, mutate } = useFrappeGetDocList("Courses", {
-    fields: [
-      "course",
-      "university",
-      "duration",
-      "mode",
-      "fee",
-      "level",
-      "exam_accepted",
-    ],
-    limit: 36951,
-  });
-  const [searchTerm, setSearchTerm] = useState("");
+  const [inputSearch, setInputSearch] = useState("");
 
   const handleSearch = () => {
-    console.log(searchTerm);
-    console.log(data);
+    setSearchTerm(inputSearch);
+    if (inputSearch != "") navigate("/search");
   };
 
   // --------------------------------------------------------------------------------------
@@ -91,7 +80,7 @@ function NavbarComponent() {
                 className={style.searchBox}
                 type="text"
                 placeholder="Search Colleges and Courses"
-                onChange={(e) => setSearchTerm(e.target.value)}
+                onChange={(e) => setInputSearch(e.target.value.toLowerCase())}
               />
               <button className={style.search} onClick={handleSearch}>
                 {/* onClick={handleSearch} in button */}

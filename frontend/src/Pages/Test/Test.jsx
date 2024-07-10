@@ -8,6 +8,7 @@
 //   useFrappeUpdateDoc,
 // } from "frappe-react-sdk";
 
+
 const Test = () => {
   const makePayment = async () => {
     const response = await fetch("/api/create-razorpay-order", {
@@ -100,16 +101,14 @@ const Test = () => {
   return (
     <>
       <div>
-        <button
-          className="mt-2 w-100"
-          style={{ fontSize: "25px" }}
-          onClick={() => makePayment()}
-        >
-          Pay
-        </button>
-      </div>
-
-      
+      <button
+        className="mt-2 w-100"
+        style={{ fontSize: "25px" }}
+        onClick={() => makePayment()}
+      >
+        Pay
+      </button>
+    </div>
       {/* {isLoading ? (
         <h1>Loading</h1>
       ) : (

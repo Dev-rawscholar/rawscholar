@@ -1,15 +1,15 @@
 import { useEffect } from "react";
-import notfound from "../../assets/notfound.png";
+import pageNotFound from "../../assets/pageNotFound.svg";
 import { Link } from "react-router-dom";
 
 function PageNotFound({ setShow }) {
-  useEffect(()=>{
+  useEffect(() => {
     setShow(true);
-  })
+  });
   return (
     <section id="notFoundSection">
-      <div className="container text-center my-5">
-        <img src={notfound} alt="Not Found" />
+      <div className="container text-center my-5 py-4">
+        <img src={pageNotFound} alt="Page Not Found" />
         <h1
           style={{
             color: "#39C6B5",

@@ -11,7 +11,6 @@
     "copy-html-entry": "cp ../rawscholar/public/frontend/index.html ../rawscholar/www/frontend.html"
   },
   "dependencies": {
-    "axios": "^1.7.2",
     "bootstrap": "^5.3.3",
     "frappe-react-sdk": "^1.7.0",
     "react": "^18.2.0",
@@ -19,6 +18,7 @@
     "react-confirm-alert": "^3.0.6",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.1",
+    "react-spinners": "^0.14.1",
     "react-toastify": "^10.0.5"
   },
   "devDependencies": {
