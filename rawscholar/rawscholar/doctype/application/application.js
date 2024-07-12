@@ -19,9 +19,7 @@ frappe.ui.form.on("Application", {
             }
         })
         frm.add_custom_button(__("Student Profile"), function () {
-            // Check if the student field is set
             if (frm.doc.student) {
-                // Open the Student doctype form using the value from the student field
                 frappe.set_route('Form', 'Student', frm.doc.student);
             } else {
                 frappe.msgprint(__('Please select a student first.'));
