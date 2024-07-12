@@ -51,7 +51,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-06 11:10:30.998258",
+ "modified": "2024-07-12 15:12:17.040808",
  "modified_by": "Administrator",
  "module": "Rawscholar",
  "name": "Application",
@@ -72,5 +72,6 @@
  ],
  "sort_field": "creation",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "student"
 }
