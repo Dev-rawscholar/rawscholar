@@ -5,6 +5,16 @@ frappe.ui.form.on("Student", {
     refresh: async function (frm) {
       $(".notes-section").remove();
       $(".open-activities").remove();
+
+    //   frm.add_custom_button(__("Create Application"), function () {
+    //     if (frm.doc.name1) {
+    //         frappe.new_doc('Application');
+    //         console.log("hello")
+    //     } else {
+    //         frappe.msgprint(__('Please select a student first.'));
+    //     }
+    // });
+    
   
       let notes = frm.doc.notes || [];
       notes.sort(function (a, b) {
