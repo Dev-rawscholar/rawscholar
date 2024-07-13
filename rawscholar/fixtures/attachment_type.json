@@ -9,13 +9,6 @@
  {
   "docstatus": 0,
   "doctype": "Attachment Type",
-  "modified": "2024-07-04 09:55:34.847827",
-  "name": "12th Grade",
-  "name1": "12th Grade"
- },
- {
-  "docstatus": 0,
-  "doctype": "Attachment Type",
   "modified": "2024-07-04 09:56:19.801021",
   "name": "Bachelors",
   "name1": "Bachelors"
@@ -54,5 +47,12 @@
   "modified": "2024-07-04 09:59:10.329354",
   "name": "Passport",
   "name1": "Passport"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Attachment Type",
+  "modified": "2024-07-04 09:55:34.847827",
+  "name": "12th Grade",
+  "name1": "12th Grade"
  }
 ]

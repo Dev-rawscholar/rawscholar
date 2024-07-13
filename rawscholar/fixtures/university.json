@@ -2893,17 +2893,6 @@
   "university": "University of Limerick, Limerick"
  },
  {
-  "country": "France",
-  "docstatus": 0,
-  "doctype": "University",
-  "image": null,
-  "location": "Rhone-Alpes, France",
-  "modified": "2024-06-18 13:10:26.084335",
-  "name": "Grenoble Alpes University, Grenoble",
-  "type_of_university": "Government university since 1339",
-  "university": "Grenoble Alpes University, Grenoble"
- },
- {
   "country": "UK",
   "docstatus": 0,
   "doctype": "University",
@@ -4871,6 +4860,17 @@
   "name": "Ukrainian Free University, Munich",
   "type_of_university": "Private University since 1921",
   "university": "Ukrainian Free University, Munich"
+ },
+ {
+  "country": "France",
+  "docstatus": 0,
+  "doctype": "University",
+  "image": null,
+  "location": "Rhone-Alpes, France",
+  "modified": "2024-06-18 13:10:26.084335",
+  "name": "Grenoble Alpes University, Grenoble",
+  "type_of_university": "Government university since 1339",
+  "university": "Grenoble Alpes University, Grenoble"
  },
  {
   "country": "Germany",

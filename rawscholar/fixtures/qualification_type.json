@@ -5,26 +5,5 @@
   "modified": "2024-07-06 10:51:04.977576",
   "name": "10th",
   "qualification": "10th"
- },
- {
-  "docstatus": 0,
-  "doctype": "Qualification Type",
-  "modified": "2024-07-09 11:06:09.903165",
-  "name": "12th",
-  "qualification": "12th"
- },
- {
-  "docstatus": 0,
-  "doctype": "Qualification Type",
-  "modified": "2024-07-09 11:06:17.758138",
-  "name": "Bachelors",
-  "qualification": "Bachelors"
- },
- {
-  "docstatus": 0,
-  "doctype": "Qualification Type",
-  "modified": "2024-07-09 11:06:30.341751",
-  "name": "Masters",
-  "qualification": "Masters"
  }
 ]
