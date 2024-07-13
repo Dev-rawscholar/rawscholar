@@ -2,12 +2,17 @@ import edit from "../../assets/Edit.svg";
 import save from "../../assets/Save.svg";
 import ellipse from "../../assets/profile image/Ellipse.svg";
 import frame from "../../assets/profile image/Frame.svg";
-import upload from "../../assets/profile image/upload.svg";
-import { useFrappeGetDoc, useFrappeUpdateDoc } from "frappe-react-sdk";
+import uploadImg from "../../assets/profile image/upload.svg";
+import {
+  useFrappeFileUpload,
+  useFrappeGetDoc,
+  useFrappeUpdateDoc,
+} from "frappe-react-sdk";
 import { useContext, useEffect, useState } from "react";
 import { userContext } from "../../Components/ContextShare";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { BeatLoader } from "react-spinners";
 
 function Profile({ setShow }) {
   useEffect(() => {
@@ -22,15 +27,23 @@ function Profile({ setShow }) {
 
   const { userData, setUserData } = useContext(userContext);
 
+  const [tenthData, setTenthData] = useState({});
+  const [twelfthData, setTwelfthData] = useState({});
+  const [bachelorsData, setBachelorsData] = useState({});
+  const [mastersData, setMastersData] = useState({});
+  const [qualifications, setQualifications] = useState([]);
+  const [file, setFile] = useState(null);
+
   const [editable, setEditable] = useState(true);
 
   const [inputData, setInputData] = useState({});
 
-  const [qualifications, setQualifications] = useState([]);
-
   let loggedData = JSON.parse(localStorage.getItem("userData"));
 
-  const { data } = useFrappeGetDoc("Student", loggedData?.email);
+  const { data, mutate } = useFrappeGetDoc("Student", loggedData?.email);
+  // console.log(data);
+  const { updateDoc } = useFrappeUpdateDoc();
+  const { upload, progress, loading } = useFrappeFileUpload();
 
   useEffect(() => {
     if (data) {
@@ -39,6 +52,8 @@ function Profile({ setShow }) {
         ...tenthData,
         parent: data?.name,
         parenttype: data?.doctype,
+        parentfield: "qualifications",
+        qualification: "10th",
         cgpa: data.qualifications[0]?.cgpa,
         percentage: data.qualifications[0]?.percentage,
       });
@@ -46,20 +61,26 @@ function Profile({ setShow }) {
         ...twelfthData,
         parent: data?.name,
         parenttype: data?.doctype,
-        cgpa: data.qualifications[2]?.cgpa,
-        percentage: data.qualifications[2]?.percentage,
+        parentfield: "qualifications",
+        qualification: "12th",
+        cgpa: data.qualifications[1]?.cgpa,
+        percentage: data.qualifications[1]?.percentage,
       });
       setBachelorsData({
         ...bachelorsData,
         parent: data?.name,
         parenttype: data?.doctype,
-        cgpa: data.qualifications[1]?.cgpa,
-        percentage: data.qualifications[1]?.percentage,
+        parentfield: "qualifications",
+        qualification: "Bachelors",
+        cgpa: data.qualifications[2]?.cgpa,
+        percentage: data.qualifications[2]?.percentage,
       });
       setMastersData({
         ...mastersData,
         parent: data?.name,
         parenttype: data?.doctype,
+        parentfield: "qualifications",
+        qualification: "Masters",
         cgpa: data.qualifications[3]?.cgpa,
         percentage: data.qualifications[3]?.percentage,
       });
@@ -74,52 +95,6 @@ function Profile({ setShow }) {
   useEffect(() => {
     setUserData(inputData);
   }, [inputData]);
-
-  const { updateDoc } = useFrappeUpdateDoc();
-
-  const [tenthData, setTenthData] = useState({
-    parent: "",
-    parenttype: "",
-    parentfield: "qualifications",
-    qualification: "10th",
-    percentage: "",
-    cgpa: "",
-    specifics: "",
-    completion_year: "",
-  });
-
-  const [twelfthData, setTwelfthData] = useState({
-    parent: "",
-    parenttype: "",
-    parentfield: "qualifications",
-    qualification: "12th",
-    percentage: "",
-    cgpa: "",
-    specifics: "",
-    completion_year: "",
-  });
-
-  const [bachelorsData, setBachelorsData] = useState({
-    parent: "",
-    parenttype: "",
-    parentfield: "qualifications",
-    qualification: "Bachelors",
-    percentage: "",
-    cgpa: "",
-    specifics: "",
-    completion_year: "",
-  });
-
-  const [mastersData, setMastersData] = useState({
-    parent: "",
-    parenttype: "",
-    parentfield: "qualifications",
-    qualification: "Masters",
-    percentage: "",
-    cgpa: "",
-    specifics: "",
-    completion_year: "",
-  });
 
   const get10thQualification = (e) => {
     const { name, value } = e.target;
@@ -164,9 +139,11 @@ function Profile({ setShow }) {
   const handleEdit = () => {
     setEditable(!editable);
     if (editable == false) {
-      console.log(userData);
       updateDoc("Student", data.name, userData)
-        .then(() => toast.success("Edited successfully"))
+        .then(() => {
+          toast.success("Edited successfully");
+          mutate();
+        })
         .catch((error) => {
           toast.warning("No changes made");
           console.log(error.message);
@@ -174,6 +151,26 @@ function Profile({ setShow }) {
     }
   };
 
+  useEffect(() => {
+    if (file?.photo) {
+      console.log(file.photo);
+      if(data.photo){
+        
+      }
+      upload(file.photo, {
+        is_private: 1,
+      }).then((res) => {
+        console.log(res.file_url);
+        updateDoc("Student", data.name, { photo: res.file_url }).then(() => {
+          toast.success("Profile picture updated successfully");
+        });
+        mutate();
+      });
+    } else if (file) {
+    }
+  }, [file]);
+
+  console.log(progress);
   return (
     <div className="container">
       <div className="p-2">
@@ -236,15 +233,42 @@ function Profile({ setShow }) {
             }}
             className="rounded-circle"
           >
+            {loading && (
+              <BeatLoader
+                color="#39C6B5"
+                size={20}
+                style={{
+                  position: "absolute",
+                  top: "50%",
+                  left: "75%",
+                  transform: "translate(-50%,-50%)",
+                  width: "100%",
+                }}
+              />
+            )}
             <img
-              src={ellipse}
+              src={data?.photo}
               className="rounded-circle"
               alt="rounded image"
               style={{ width: "100%", height: "100%" }}
             />
-            <div style={{ position: "absolute", bottom: "0", right: "0" }}>
+            <input
+              type="file"
+              name="photo"
+              onChange={(e) => {
+                if (e.target.files) {
+                  setFile({ [e.target.name]: e.target.files[0] });
+                }
+              }}
+              id="photo"
+              style={{ display: "none" }}
+            />
+            <label
+              htmlFor="photo"
+              style={{ position: "absolute", bottom: "0", right: "0" }}
+            >
               <img src={frame} className="" alt="rounded image" />
-            </div>
+            </label>
           </div>
         </div>
         <div className="col-lg-5">
@@ -625,39 +649,6 @@ function Profile({ setShow }) {
         <div className="titleBar d-flex shapeParent mt-5 ">
           <div className="shape"></div>
           <h2 className="fs-4 ms-4 fw-bold">Upload Documents </h2>
-          {editable ? (
-            <button
-              className="ms-auto py-2  px-3 shadow border "
-              style={{
-                backgroundColor: "#067BC2",
-                borderRadius: "20px",
-                textDecoration: "none",
-                width: "7rem",
-              }}
-              onClick={() => handleEdit()}
-            >
-              <span className="p-2" style={{ color: "white" }}>
-                Edit
-              </span>
-              <img src={edit} alt="" />
-            </button>
-          ) : (
-            <button
-              className="ms-auto py-2  px-3 shadow border "
-              style={{
-                backgroundColor: "#067BC2",
-                borderRadius: "20px",
-                textDecoration: "none",
-                width: "7rem",
-              }}
-              onClick={() => handleEdit()}
-            >
-              <span className="p-2" style={{ color: "white" }}>
-                Save
-              </span>
-              <img src={save} alt="" height={20} />
-            </button>
-          )}
         </div>
       </div>
       <div className="row">
@@ -676,18 +667,30 @@ function Profile({ setShow }) {
             >
               CV/Resume*
             </label>
-            <button
+            <input
+              type="file"
+              name="CV/Resume"
+              onChange={(e) => {
+                if (e.target.files) {
+                  setFile({ [e.target.name]: e.target.files[0] });
+                }
+              }}
+              id="CV/Resume"
+              style={{ display: "none" }}
+            />
+            <label
+              htmlFor="CV/Resume"
               className=" py-2  px-3 shadow border"
               style={{
                 borderRadius: "20px",
                 textDecoration: "none",
               }}
             >
-              <img style={{ width: "30px" }} src={upload} alt="" />
+              <img style={{ width: "30px" }} src={uploadImg} alt="" />
               <span className="p-2" style={{ color: "#39C6B5" }}>
                 Upload
               </span>
-            </button>
+            </label>
           </div>
           <div className="form-group d-lg-flex align-items-center gap-3 p-2">
             <label
@@ -703,7 +706,7 @@ function Profile({ setShow }) {
                 textDecoration: "none",
               }}
             >
-              <img style={{ width: "30px" }} src={upload} alt="" />
+              <img style={{ width: "30px" }} src={uploadImg} alt="" />
               <span className="p-2" style={{ color: "#39C6B5" }}>
                 Upload
               </span>
@@ -723,7 +726,7 @@ function Profile({ setShow }) {
                 textDecoration: "none",
               }}
             >
-              <img style={{ width: "30px" }} src={upload} alt="" />
+              <img style={{ width: "30px" }} src={uploadImg} alt="" />
               <span className="p-2" style={{ color: "#39C6B5" }}>
                 Upload
               </span>
@@ -743,7 +746,7 @@ function Profile({ setShow }) {
                 textDecoration: "none",
               }}
             >
-              <img style={{ width: "30px" }} src={upload} alt="" />
+              <img style={{ width: "30px" }} src={uploadImg} alt="" />
               <span className="p-2" style={{ color: "#39C6B5" }}>
                 Upload
               </span>
@@ -772,7 +775,7 @@ function Profile({ setShow }) {
                 textDecoration: "none",
               }}
             >
-              <img style={{ width: "30px" }} src={upload} alt="" />
+              <img style={{ width: "30px" }} src={uploadImg} alt="" />
               <span className="p-2" style={{ color: "#39C6B5" }}>
                 Upload
               </span>
@@ -792,7 +795,7 @@ function Profile({ setShow }) {
                 textDecoration: "none",
               }}
             >
-              <img style={{ width: "30px" }} src={upload} alt="" />
+              <img style={{ width: "30px" }} src={uploadImg} alt="" />
               <span className="p-2" style={{ color: "#39C6B5" }}>
                 Upload
               </span>
@@ -812,7 +815,7 @@ function Profile({ setShow }) {
                 textDecoration: "none",
               }}
             >
-              <img style={{ width: "30px" }} src={upload} alt="" />
+              <img style={{ width: "30px" }} src={uploadImg} alt="" />
               <span className="p-2" style={{ color: "#39C6B5" }}>
                 Upload
               </span>
@@ -832,7 +835,7 @@ function Profile({ setShow }) {
                 textDecoration: "none",
               }}
             >
-              <img style={{ width: "30px" }} src={upload} alt="" />
+              <img style={{ width: "30px" }} src={uploadImg} alt="" />
               <span className="p-2" style={{ color: "#39C6B5" }}>
                 Upload
               </span>
@@ -861,7 +864,7 @@ function Profile({ setShow }) {
                 textDecoration: "none",
               }}
             >
-              <img style={{ width: "30px" }} src={upload} alt="" />
+              <img style={{ width: "30px" }} src={uploadImg} alt="" />
               <span className="p-2" style={{ color: "#39C6B5" }}>
                 Upload
               </span>
@@ -881,7 +884,7 @@ function Profile({ setShow }) {
                 textDecoration: "none",
               }}
             >
-              <img style={{ width: "30px" }} src={upload} alt="" />
+              <img style={{ width: "30px" }} src={uploadImg} alt="" />
               <span className="p-2" style={{ color: "#39C6B5" }}>
                 Upload
               </span>
@@ -901,7 +904,7 @@ function Profile({ setShow }) {
                 textDecoration: "none",
               }}
             >
-              <img style={{ width: "30px" }} src={upload} alt="" />
+              <img style={{ width: "30px" }} src={uploadImg} alt="" />
               <span className="p-2" style={{ color: "#39C6B5" }}>
                 Upload
               </span>

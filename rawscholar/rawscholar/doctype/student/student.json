@@ -2,6 +2,7 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
+ "autoname": "field:email",
  "creation": "2024-06-10 09:34:21.721338",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -176,10 +177,11 @@
    "link_fieldname": "Student"
   }
  ],
- "modified": "2024-07-13 12:02:47.202366",
+ "modified": "2024-07-13 17:39:30.487031",
  "modified_by": "Administrator",
  "module": "Rawscholar",
  "name": "Student",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
