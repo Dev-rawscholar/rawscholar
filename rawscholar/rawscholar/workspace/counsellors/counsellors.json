@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"ydBcxPb53J\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Hub</span>\",\"col\":12}},{\"id\":\"6WFRi5Fw19\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Students\",\"col\":4}},{\"id\":\"wz5iI7Q8Ap\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"New Students\",\"col\":4}},{\"id\":\"FRjtwmHt9A\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Countries\",\"col\":4}},{\"id\":\"GB4zwyzlXy\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Universities\",\"col\":6}},{\"id\":\"AfBRCsrmpO\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Courses\",\"col\":6}},{\"id\":\"FsN6yzFvab\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"ehDa84EZ6I\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Shortcuts <br></b></span>\",\"col\":12}},{\"id\":\"Zmxp7EH768\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Country\",\"col\":3}},{\"id\":\"Asr2cuVdj-\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"University\",\"col\":3}},{\"id\":\"rLcv2MVAFp\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Student\",\"col\":3}},{\"id\":\"NT3B06VJ1E\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Course\",\"col\":3}}]",
+ "content": "[{\"id\":\"ydBcxPb53J\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Hub</span>\",\"col\":12}},{\"id\":\"6WFRi5Fw19\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Students\",\"col\":4}},{\"id\":\"wz5iI7Q8Ap\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"New Students\",\"col\":4}},{\"id\":\"FRjtwmHt9A\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Countries\",\"col\":4}},{\"id\":\"GB4zwyzlXy\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Universities\",\"col\":4}},{\"id\":\"AfBRCsrmpO\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Courses\",\"col\":4}},{\"id\":\"bt7qjhL2YJ\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"To-Do\",\"col\":4}},{\"id\":\"FsN6yzFvab\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"ehDa84EZ6I\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Shortcuts <br></b></span>\",\"col\":12}},{\"id\":\"Zmxp7EH768\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Country\",\"col\":3}},{\"id\":\"Asr2cuVdj-\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"University\",\"col\":3}},{\"id\":\"rLcv2MVAFp\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Student\",\"col\":3}},{\"id\":\"NT3B06VJ1E\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Course\",\"col\":3}}]",
  "creation": "2024-07-01 12:08:23.517745",
  "custom_blocks": [],
  "docstatus": 0,
@@ -13,7 +13,7 @@
  "is_hidden": 0,
  "label": "Counsellors",
  "links": [],
- "modified": "2024-07-06 13:34:55.204608",
+ "modified": "2024-07-12 17:13:14.450553",
  "modified_by": "Administrator",
  "module": "Rawscholar",
  "name": "Counsellors",
@@ -21,6 +21,10 @@
   {
    "label": "Universities",
    "number_card_name": "University"
+  },
+  {
+   "label": "To-Do",
+   "number_card_name": "TO-DO"
   },
   {
    "label": "New Students",
