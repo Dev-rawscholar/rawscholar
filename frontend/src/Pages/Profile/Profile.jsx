@@ -284,7 +284,7 @@ function Profile({ setShow }) {
               />
               <label
                 htmlFor="photo"
-                style={{ position: "absolute", bottom: "0", right: "0" }}
+                style={{ position: "absolute", bottom: "0", right: "0", cursor:"pointer"}}
               >
                 <img src={frame} className="" alt="rounded image" />
               </label>
@@ -712,6 +712,7 @@ function Profile({ setShow }) {
                 style={{
                   borderRadius: "20px",
                   textDecoration: "none",
+                  cursor:"pointer"
                 }}
               >
                 <img
@@ -752,6 +753,7 @@ function Profile({ setShow }) {
                 style={{
                   borderRadius: "20px",
                   textDecoration: "none",
+                  cursor:"pointer"
                 }}
               >
                 <img
@@ -792,6 +794,7 @@ function Profile({ setShow }) {
                 style={{
                   borderRadius: "20px",
                   textDecoration: "none",
+                  cursor:"pointer"
                 }}
               >
                 <img
@@ -832,6 +835,7 @@ function Profile({ setShow }) {
                 style={{
                   borderRadius: "20px",
                   textDecoration: "none",
+                  cursor:"pointer"
                 }}
               >
                 <img
@@ -881,6 +885,7 @@ function Profile({ setShow }) {
                 style={{
                   borderRadius: "20px",
                   textDecoration: "none",
+                  cursor:"pointer"
                 }}
               >
                 <img
@@ -921,6 +926,7 @@ function Profile({ setShow }) {
                 style={{
                   borderRadius: "20px",
                   textDecoration: "none",
+                  cursor:"pointer"
                 }}
               >
                 <img
@@ -961,6 +967,7 @@ function Profile({ setShow }) {
                 style={{
                   borderRadius: "20px",
                   textDecoration: "none",
+                  cursor:"pointer"
                 }}
               >
                 <img
@@ -1001,6 +1008,7 @@ function Profile({ setShow }) {
                 style={{
                   borderRadius: "20px",
                   textDecoration: "none",
+                  cursor:"pointer"
                 }}
               >
                 <img
@@ -1050,6 +1058,7 @@ function Profile({ setShow }) {
                 style={{
                   borderRadius: "20px",
                   textDecoration: "none",
+                  cursor:"pointer"
                 }}
               >
                 <img
@@ -1090,6 +1099,7 @@ function Profile({ setShow }) {
                 style={{
                   borderRadius: "20px",
                   textDecoration: "none",
+                  cursor:"pointer"
                 }}
               >
                 <img
@@ -1130,6 +1140,7 @@ function Profile({ setShow }) {
                 style={{
                   borderRadius: "20px",
                   textDecoration: "none",
+                  cursor:"pointer"
                 }}
               >
                 <img

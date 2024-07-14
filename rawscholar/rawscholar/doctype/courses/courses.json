@@ -2,7 +2,6 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "format:COR-{####}",
  "creation": "2024-06-12 12:25:11.838484",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -77,11 +76,10 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-06 11:11:35.884031",
+ "modified": "2024-07-14 18:39:34.507243",
  "modified_by": "Administrator",
  "module": "Rawscholar",
  "name": "Courses",
- "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

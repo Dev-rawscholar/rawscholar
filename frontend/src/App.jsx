@@ -24,6 +24,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Test from "./Pages/Test/Test";
 import Search from "./Pages/Search/Search";
+import Application from "./Pages/Application/Application";
 
 function App() {
   const [show, setShow] = useState(true);
@@ -55,6 +56,7 @@ function App() {
         <Route path="/search" element={<Search setShow={setShow} />} />
         <Route path="/contactus" element={<Contactus setShow={setShow} />} />
         <Route path="/faq" element={<Faq setShow={setShow} />} />
+        <Route path="/user/applications" element={<Application setShow={setShow}/>}/>
         <Route path="*" element={<PageNotFound setShow={setShow} />} />
         <Route path="/test" element={<Test setShow={setShow} />} />
       </Routes>
