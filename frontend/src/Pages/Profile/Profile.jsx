@@ -2,7 +2,7 @@ import edit from "../../assets/Edit.svg";
 import save from "../../assets/Save.svg";
 import profileImg from "../../assets/profile image/Profile.svg";
 import frame from "../../assets/profile image/Frame.svg";
-import uploadImg from "../../assets/profile image/Upload.svg";
+import uploadImg from "../../assets/profile image/uploadImg.svg";
 import {
   useFrappeFileUpload,
   useFrappeGetDoc,
