@@ -4,7 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 
 import Logo from "../../assets/Logo.svg";
 import Search from "../../assets/icons/Search.svg";
-import Profile from "../../assets/Profile.svg";
+import Profile from "../../assets/profile image/Profile.svg";
 
 import style from "./NavbarComponent.module.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -14,16 +14,19 @@ import { confirmAlert } from "react-confirm-alert"; // Import
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 import { toast } from "react-toastify";
 
-import { useFrappeGetDocList } from "frappe-react-sdk";
+import { useFrappeGetDoc } from "frappe-react-sdk";
 import { searchContext } from "../ContextShare";
 
 function NavbarComponent() {
   const [islogged, setIslogged] = useState(false);
   const { searchTerm, setSearchTerm } = useContext(searchContext);
   const navigate = useNavigate();
+  let loggedData = JSON.parse(localStorage.getItem("userData"));
+
+  const { data } = useFrappeGetDoc("Student", loggedData?.email);
 
   useEffect(() => {
-    if (localStorage.getItem("userData")) setIslogged(true);
+    if (loggedData) setIslogged(true);
   });
 
   const logout = () => {
@@ -83,7 +86,6 @@ function NavbarComponent() {
                 onChange={(e) => setInputSearch(e.target.value.toLowerCase())}
               />
               <button className={style.search} onClick={handleSearch}>
-                {/* onClick={handleSearch} in button */}
                 <img src={Search} alt="Search" />
               </button>
             </div>
@@ -92,10 +94,15 @@ function NavbarComponent() {
                 <div className="d-flex gap-3">
                   <div
                     className="rounded-circle border"
-                    style={{ height: "40px" }}
+                    style={{ height: "40px", width: "40px" }}
                   >
                     <Link to="/profile">
-                      <img src={Profile} alt="" style={{ height: "100%" }} />
+                      <img
+                        className="rounded-circle border"
+                        src={data?.photo || Profile}
+                        alt="Profile photo"
+                        style={{ height: "100%", width: "100%" }}
+                      />
                     </Link>
                   </div>
                   <button
