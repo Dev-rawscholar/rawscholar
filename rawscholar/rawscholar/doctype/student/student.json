@@ -30,7 +30,8 @@
   "open_activities_html",
   "all_activities_section",
   "all_activities_html",
-  "others_tab"
+  "others_tab",
+  "interested_courses"
  ],
  "fields": [
   {
@@ -148,9 +149,10 @@
    "label": "All Activities HTML"
   },
   {
+   "columns": 4,
    "fieldname": "others_tab",
    "fieldtype": "Tab Break",
-   "label": "Application",
+   "label": "Courses",
    "show_dashboard": 1
   },
   {
@@ -167,6 +169,13 @@
    "fieldname": "attachments_section",
    "fieldtype": "Section Break",
    "label": "Attachments"
+  },
+  {
+   "columns": 6,
+   "fieldname": "interested_courses",
+   "fieldtype": "Table",
+   "label": "Interested Courses",
+   "options": "Interested Courses"
   }
  ],
  "image_field": "photo",
@@ -177,7 +186,7 @@
    "link_fieldname": "Student"
   }
  ],
- "modified": "2024-07-13 17:39:30.487031",
+ "modified": "2024-07-15 11:01:23.222759",
  "modified_by": "Administrator",
  "module": "Rawscholar",
  "name": "Student",

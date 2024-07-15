@@ -45,7 +45,7 @@ function Signup({ setShow }) {
         password,
       })
         .then(() => {
-          localStorage.setItem("userData", JSON.stringify({name1, email}));
+          localStorage.setItem("userData", JSON.stringify({ name1, email }));
           toast.success(`${name1} account created`);
           navigate("/");
         })
@@ -76,6 +76,7 @@ function Signup({ setShow }) {
             className="inputBox"
             type="text"
             name="name1"
+            required
             onChange={(e) => getInputData(e)}
             placeholder="Enter Full Name"
             style={{ fontSize: "15px" }}
@@ -89,6 +90,7 @@ function Signup({ setShow }) {
             className="inputBox"
             type="email"
             name="email"
+            required
             onChange={(e) => getInputData(e)}
             placeholder="Enter Email"
             style={{ fontSize: "15px" }}
@@ -102,6 +104,7 @@ function Signup({ setShow }) {
             className="inputBox"
             type="number"
             name="phone"
+            required
             onChange={(e) => getInputData(e)}
             placeholder="Enter Phone Number"
             style={{ fontSize: "15px" }}
@@ -116,6 +119,7 @@ function Signup({ setShow }) {
             className="inputBox"
             type="password"
             name="password"
+            required
             onChange={(e) => getInputData(e)}
             placeholder="Enter Password"
             style={{ fontSize: "15px" }}
@@ -129,6 +133,7 @@ function Signup({ setShow }) {
             className="inputBox"
             type="password"
             name="confirmPassword"
+            required
             onChange={(e) => getInputData(e)}
             placeholder="Enter Password"
             style={{ fontSize: "15px" }}

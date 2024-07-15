@@ -1,4 +1,3 @@
-import germany from "../../assets/flags/germany.png";
 import { useNavigate } from "react-router-dom";
 import { useFrappeGetDocList } from "frappe-react-sdk";
 import { useContext, useEffect } from "react";
@@ -26,16 +25,16 @@ function Countries({ setShow }) {
           <h3 className="ms-4">Countries</h3>
         </div>
         <div className="d-flex flex-wrap justify-content-center align-items-center column-gap-3 my-5">
-          {data?.map((country, i) => (
+          {data?.map((country) => (
             <div
               onClick={() => goToCountry(country)}
               style={{ textDecoration: "none" }}
-              key={i}
+              key={country.name}
             >
               <div>
                 <img
-                  src="https://lh3.googleusercontent.com/drive-viewer/AKGpihZy8mMQkh3JTmRCNnVgh3IqHoxKtNZso5Rha9VcBSt_Lq9nv-FrZ0afGqyhcjbHG-Riy2M3-Afo1JLGJ5Ap8qq7Q0j2Om1MNw4=s2560"
-                  height={180}
+                  src={country.image || ""}
+                  width={250}
                   alt="Country pic"
                   className="rounded border"
                 />

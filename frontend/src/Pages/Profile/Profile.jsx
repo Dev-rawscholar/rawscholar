@@ -43,7 +43,7 @@ function Profile({ setShow }) {
   const { data, mutate } = useFrappeGetDoc("Student", loggedData?.email);
   // console.log(data);
   const { updateDoc } = useFrappeUpdateDoc();
-  const { upload, progress, loading } = useFrappeFileUpload();
+  const { upload, loading } = useFrappeFileUpload();
 
   useEffect(() => {
     if (data) {
@@ -144,7 +144,7 @@ function Profile({ setShow }) {
           toast.success("Edited successfully");
           mutate();
         })
-        .catch((error) => {
+        .catch(() => {
           toast.warning("No changes made");
         });
     }
@@ -284,7 +284,12 @@ function Profile({ setShow }) {
               />
               <label
                 htmlFor="photo"
-                style={{ position: "absolute", bottom: "0", right: "0", cursor:"pointer"}}
+                style={{
+                  position: "absolute",
+                  bottom: "0",
+                  right: "0",
+                  cursor: "pointer",
+                }}
               >
                 <img src={frame} className="" alt="rounded image" />
               </label>
@@ -676,6 +681,7 @@ function Profile({ setShow }) {
             <h2 className="fs-4 ms-4 fw-bold">Upload Documents </h2>
           </div>
         </div>
+
         <div className="row">
           {/* General Documents */}
           <div className="col-sm-4">
@@ -712,7 +718,7 @@ function Profile({ setShow }) {
                 style={{
                   borderRadius: "20px",
                   textDecoration: "none",
-                  cursor:"pointer"
+                  cursor: "pointer",
                 }}
               >
                 <img
@@ -753,7 +759,7 @@ function Profile({ setShow }) {
                 style={{
                   borderRadius: "20px",
                   textDecoration: "none",
-                  cursor:"pointer"
+                  cursor: "pointer",
                 }}
               >
                 <img
@@ -794,7 +800,7 @@ function Profile({ setShow }) {
                 style={{
                   borderRadius: "20px",
                   textDecoration: "none",
-                  cursor:"pointer"
+                  cursor: "pointer",
                 }}
               >
                 <img
@@ -835,7 +841,7 @@ function Profile({ setShow }) {
                 style={{
                   borderRadius: "20px",
                   textDecoration: "none",
-                  cursor:"pointer"
+                  cursor: "pointer",
                 }}
               >
                 <img
@@ -885,7 +891,7 @@ function Profile({ setShow }) {
                 style={{
                   borderRadius: "20px",
                   textDecoration: "none",
-                  cursor:"pointer"
+                  cursor: "pointer",
                 }}
               >
                 <img
@@ -926,7 +932,7 @@ function Profile({ setShow }) {
                 style={{
                   borderRadius: "20px",
                   textDecoration: "none",
-                  cursor:"pointer"
+                  cursor: "pointer",
                 }}
               >
                 <img
@@ -967,7 +973,7 @@ function Profile({ setShow }) {
                 style={{
                   borderRadius: "20px",
                   textDecoration: "none",
-                  cursor:"pointer"
+                  cursor: "pointer",
                 }}
               >
                 <img
@@ -1008,7 +1014,7 @@ function Profile({ setShow }) {
                 style={{
                   borderRadius: "20px",
                   textDecoration: "none",
-                  cursor:"pointer"
+                  cursor: "pointer",
                 }}
               >
                 <img
@@ -1058,7 +1064,7 @@ function Profile({ setShow }) {
                 style={{
                   borderRadius: "20px",
                   textDecoration: "none",
-                  cursor:"pointer"
+                  cursor: "pointer",
                 }}
               >
                 <img
@@ -1099,7 +1105,7 @@ function Profile({ setShow }) {
                 style={{
                   borderRadius: "20px",
                   textDecoration: "none",
-                  cursor:"pointer"
+                  cursor: "pointer",
                 }}
               >
                 <img
@@ -1140,7 +1146,7 @@ function Profile({ setShow }) {
                 style={{
                   borderRadius: "20px",
                   textDecoration: "none",
-                  cursor:"pointer"
+                  cursor: "pointer",
                 }}
               >
                 <img
@@ -1154,6 +1160,22 @@ function Profile({ setShow }) {
                 </span>
               </label>
             </div>
+          </div>
+        </div>
+        <div className="row p-2">
+          <div className="titleBar d-flex shapeParent mt-5 ">
+            <div className="shape" style={{ height: "25px" }}></div>
+            <h2 className="fs-5 ms-4">Uploaded Documents</h2>
+          </div>
+          <div className="d-flex flex-wrap column-gap-5 p-3">
+            {data?.files.length ? (
+              data?.files?.map((item) => <p>📜{item.attachment_type}</p>)
+            ) : (
+              <p className="text-danger fw-bold">
+                * No documents uploaded. Kindly upload your documents to
+                complete your profile
+              </p>
+            )}
           </div>
         </div>
       </div>

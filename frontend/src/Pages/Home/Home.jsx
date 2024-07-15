@@ -162,7 +162,7 @@ function Home({ setShow }) {
               to="/universities"
               className={`${styles.titleTag} ms-auto py-2 px-3 shadow`}
             >
-              View all 1900+ University
+              View all University
             </Link>
           </div>
           <div className="universityList d-lg-flex flex-wrap gap-5">
@@ -257,7 +257,7 @@ function Home({ setShow }) {
               to="/universities"
               className={`${styles.titleTag} ms-auto py-2 px-3 shadow`}
             >
-              View all 1900+ University
+              View all University
             </Link>
           </div>
           <div className="universityList d-lg-flex justify-content-between gap-5">

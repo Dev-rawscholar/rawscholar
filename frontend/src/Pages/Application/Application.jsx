@@ -8,7 +8,7 @@ function Application({ setShow }) {
   let loggedData = JSON.parse(localStorage.getItem("userData"));
   const { data } = useFrappeGetDocList("Application", {
     fields: ["name", "student", "country", "university", "course", "status"],
-    filters: [["student", "=", loggedData.name]],
+    filters: [["student", "=", loggedData.name1]],
   });
 
   console.log(data);
