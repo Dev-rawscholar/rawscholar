@@ -266,7 +266,9 @@ function Profile({ setShow }) {
                 />
               )}
               <img
-                src={data?.photo || profileImg}
+                src={
+                  `https://rawscholar1.frappe.cloud${data?.photo}` || profileImg
+                }
                 className="rounded-circle"
                 alt="rounded image"
                 style={{ width: "100%", height: "100%" }}

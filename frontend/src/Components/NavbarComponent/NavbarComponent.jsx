@@ -99,7 +99,10 @@ function NavbarComponent() {
                     <Link to="/profile">
                       <img
                         className="rounded-circle border"
-                        src={data?.photo || Profile}
+                        src={
+                          `https://rawscholar1.frappe.cloud${data?.photo}` ||
+                          Profile
+                        }
                         alt="Profile photo"
                         style={{ height: "100%", width: "100%" }}
                       />
