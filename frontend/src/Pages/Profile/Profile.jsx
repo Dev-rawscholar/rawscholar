@@ -198,10 +198,11 @@ function Profile({ setShow }) {
             Hello {inputData.name1} 👋
           </h2>
           <p className="mt-4">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. In enim
-            voluptatum a quos fuga aperiam id reiciendis deserunt beatae,
-            dolores, quis sint cum eum exercitationem harum laboriosam
-            doloremque tempore hic.
+            Get what you deserve. Never miss an opportunity & don't fall for
+            sparking words by consultancies. we will guide you in right path.
+            Never missopportunity & don't fall for sparking words by
+            consultancies. Never miss an opportunity & don't fall for sparking
+            words by consultancies.
           </p>
           <div className="titleBar d-flex shapeParent mt-5 ">
             <div className="shape"></div>
@@ -267,7 +268,7 @@ function Profile({ setShow }) {
               <img
                 src={
                   data.photo
-                    ? `https://rawscholar1.frappe.cloud${data?.photo}`
+                    ? `https://rawscholar1.frappe.cloud${data.photo}`
                     : profileImg
                 }
                 className="rounded-circle"
