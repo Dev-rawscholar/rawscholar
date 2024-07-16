@@ -2,7 +2,6 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "field:email",
  "creation": "2024-06-10 09:34:21.721338",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -30,8 +29,7 @@
   "open_activities_html",
   "all_activities_section",
   "all_activities_html",
-  "others_tab",
-  "interested_courses"
+  "others_tab"
  ],
  "fields": [
   {
@@ -149,10 +147,9 @@
    "label": "All Activities HTML"
   },
   {
-   "columns": 4,
    "fieldname": "others_tab",
    "fieldtype": "Tab Break",
-   "label": "Courses",
+   "label": "Application",
    "show_dashboard": 1
   },
   {
@@ -163,19 +160,13 @@
   {
    "fieldname": "password",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Password"
   },
   {
    "fieldname": "attachments_section",
    "fieldtype": "Section Break",
    "label": "Attachments"
-  },
-  {
-   "columns": 6,
-   "fieldname": "interested_courses",
-   "fieldtype": "Table",
-   "label": "Interested Courses",
-   "options": "Interested Courses"
   }
  ],
  "image_field": "photo",
@@ -186,11 +177,10 @@
    "link_fieldname": "Student"
   }
  ],
- "modified": "2024-07-15 11:01:23.222759",
+ "modified": "2024-07-16 13:31:03.514237",
  "modified_by": "Administrator",
  "module": "Rawscholar",
  "name": "Student",
- "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

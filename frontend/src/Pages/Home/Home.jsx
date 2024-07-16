@@ -90,11 +90,11 @@ function Home({ setShow }) {
           <div className="col-lg-6 py-4 px-5 shadow rounded shapeParent">
             <div className="d-flex">
               <div className="shape"></div>
-              <h5 className="fs-4 fw-bold">How it works</h5>
+              <h5 className="fs-4">How it works</h5>
             </div>
             <div
               className="p-2 d-flex align-items-center"
-              style={{ height: "90%" }}
+              style={{ height: "80%" }}
             >
               <p>
                 Raw Scholar is available to all students who wish to study
@@ -113,7 +113,7 @@ function Home({ setShow }) {
         <div className="countriesContainer ">
           <div className={`${styles.titleBar} d-flex shapeParent`}>
             <div className="shape"></div>
-            <h2 className="fs-4 ms-4 fw-bold">Major Countries</h2>
+            <h2 className="fs-4 ms-4">Major Countries</h2>
             <Link
               to="/countries"
               className={`${styles.titleTag} ms-auto py-2 px-3 shadow`}
@@ -156,7 +156,7 @@ function Home({ setShow }) {
         <div className="universityContainer my-5">
           <div className={`${styles.titleBar} d-flex shapeParent`}>
             <div className="shape"></div>
-            <h2 className="fs-4 ms-4 fw-bold">Major University</h2>
+            <h2 className="fs-4 ms-4">Major University</h2>
             <Link
               to="/universities"
               className={`${styles.titleTag} ms-auto py-2 px-3 shadow`}
@@ -233,7 +233,7 @@ function Home({ setShow }) {
         <div className="aboutusContainer shadow">
           <div className={`${styles.titleBar} d-flex py-4 m-0 shapeParent`}>
             <div className="shape"></div>
-            <h2 className="fs-4 ms-4 fw-bold">About Us</h2>
+            <h2 className="fs-4 ms-4">About Us</h2>
           </div>
           <p className="aboutusText px-5 pb-5">
             We aim for the upliftment of a community with better opportunities.
@@ -251,7 +251,7 @@ function Home({ setShow }) {
         <div className="universityContainer my-5">
           <div className={`${styles.titleBar} d-flex shapeParent`}>
             <div className="shape"></div>
-            <h2 className="fs-4 ms-4 fw-bold">Popular Universities</h2>
+            <h2 className="fs-4 ms-4">Popular Universities</h2>
             <Link
               to="/universities"
               className={`${styles.titleTag} ms-auto py-2 px-3 shadow`}
