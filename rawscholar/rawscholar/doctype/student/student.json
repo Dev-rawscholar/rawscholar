@@ -29,7 +29,8 @@
   "open_activities_html",
   "all_activities_section",
   "all_activities_html",
-  "others_tab"
+  "others_tab",
+  "interested_courses"
  ],
  "fields": [
   {
@@ -167,6 +168,12 @@
    "fieldname": "attachments_section",
    "fieldtype": "Section Break",
    "label": "Attachments"
+  },
+  {
+   "fieldname": "interested_courses",
+   "fieldtype": "Table",
+   "label": "Interested Courses",
+   "options": "Interested Courses"
   }
  ],
  "image_field": "photo",
@@ -177,7 +184,7 @@
    "link_fieldname": "Student"
   }
  ],
- "modified": "2024-07-16 15:22:56.769264",
+ "modified": "2024-07-16 16:28:00.804169",
  "modified_by": "Administrator",
  "module": "Rawscholar",
  "name": "Student",

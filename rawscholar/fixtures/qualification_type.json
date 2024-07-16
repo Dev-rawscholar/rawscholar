@@ -2,29 +2,29 @@
  {
   "docstatus": 0,
   "doctype": "Qualification Type",
-  "modified": "2024-07-06 10:51:04.977576",
-  "name": "10th",
-  "qualification": "10th"
- },
- {
-  "docstatus": 0,
-  "doctype": "Qualification Type",
-  "modified": "2024-07-13 17:53:38.546563",
+  "modified": "2024-07-16 16:28:25.543925",
   "name": "12th",
   "qualification": "12th"
  },
  {
   "docstatus": 0,
   "doctype": "Qualification Type",
-  "modified": "2024-07-13 17:53:45.294607",
+  "modified": "2024-07-16 16:28:43.865686",
   "name": "Bachelors",
   "qualification": "Bachelors"
  },
  {
   "docstatus": 0,
   "doctype": "Qualification Type",
-  "modified": "2024-07-13 17:53:52.939584",
+  "modified": "2024-07-16 16:29:03.179328",
   "name": "Masters",
   "qualification": "Masters"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Qualification Type",
+  "modified": "2024-07-06 10:51:04.977576",
+  "name": "10th",
+  "qualification": "10th"
  }
 ]

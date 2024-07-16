@@ -399,6 +399,17 @@
   "country": "UK",
   "docstatus": 0,
   "doctype": "University",
+  "image": "https://www.abertay.ac.uk/media/olkjqtdd/logo_full-colour_a3.jpg",
+  "location": "Dundee, United Kingdom",
+  "modified": "2024-07-04 10:46:41.406653",
+  "name": "Abertay University, Dundee",
+  "type_of_university": "Government university since 1887",
+  "university": "Abertay University, Dundee"
+ },
+ {
+  "country": "UK",
+  "docstatus": 0,
+  "doctype": "University",
   "image": "https://logowik.com/content/uploads/images/aberystwyth-university3641.jpg",
   "location": "Ceredigion, United Kingdom",
   "modified": "2024-07-04 10:50:59.917295",
@@ -2457,6 +2468,17 @@
   "docstatus": 0,
   "doctype": "University",
   "image": null,
+  "location": "Worcestershire, United Kingdom",
+  "modified": "2024-06-18 13:10:39.505991",
+  "name": "University of Worcester, Worcester",
+  "type_of_university": "Government university since 2005",
+  "university": "University of Worcester, Worcester"
+ },
+ {
+  "country": "UK",
+  "docstatus": 0,
+  "doctype": "University",
+  "image": null,
   "location": "Greater London - Inner London, United Kingdom",
   "modified": "2024-06-18 13:10:39.533087",
   "name": "University of the Arts, London",
@@ -2561,6 +2583,17 @@
   "name": "American College, Dublin",
   "type_of_university": "Private college since 1993",
   "university": "American College, Dublin"
+ },
+ {
+  "country": "Ireland",
+  "docstatus": 0,
+  "doctype": "University",
+  "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7xNhSMcwPDykdzdEHw53fHcuSCtOzowZ5ew&s",
+  "location": "Causeway Coast and Glens, Ireland",
+  "modified": "2024-07-04 11:25:46.986391",
+  "name": "Atlantic Technological University, Sligo Campus",
+  "type_of_university": "Government university since 1970",
+  "university": "Atlantic Technological University, Sligo Campus"
  },
  {
   "country": "Ireland",
@@ -2781,6 +2814,17 @@
   "name": "St Patrick's Pontifical University, Maynooth",
   "type_of_university": "Government university since 1896",
   "university": "St Patrick's Pontifical University, Maynooth"
+ },
+ {
+  "country": "Ireland",
+  "docstatus": 0,
+  "doctype": "University",
+  "image": null,
+  "location": "Leinster, Ireland",
+  "modified": "2024-06-18 13:30:00.591262",
+  "name": "Technological University of the Shannon, Athlone Campus",
+  "type_of_university": "Private university since 1970",
+  "university": "Technological University of the Shannon, Athlone Campus"
  },
  {
   "country": "Ireland",
@@ -4832,50 +4876,6 @@
   "country": "Germany",
   "docstatus": 0,
   "doctype": "University",
-  "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmS1iW7P7x3xCQM9E0qpyXmfhCqNIuTZBsCQ&s",
-  "location": "Bavaria, Germany",
-  "modified": "2024-07-04 11:38:03.012455",
-  "name": "Bavarian University of Applied Sciences, Munich",
-  "type_of_university": "Government university since 1971",
-  "university": "Bavarian University of Applied Sciences, Munich"
- },
- {
-  "country": "UK",
-  "docstatus": 0,
-  "doctype": "University",
-  "image": null,
-  "location": "Worcestershire, United Kingdom",
-  "modified": "2024-06-18 13:10:39.505991",
-  "name": "University of Worcester, Worcester",
-  "type_of_university": "Government university since 2005",
-  "university": "University of Worcester, Worcester"
- },
- {
-  "country": "Ireland",
-  "docstatus": 0,
-  "doctype": "University",
-  "image": null,
-  "location": "Leinster, Ireland",
-  "modified": "2024-06-18 13:30:00.591262",
-  "name": "Technological University of the Shannon, Athlone Campus",
-  "type_of_university": "Private university since 1970",
-  "university": "Technological University of the Shannon, Athlone Campus"
- },
- {
-  "country": "UK",
-  "docstatus": 0,
-  "doctype": "University",
-  "image": "https://www.abertay.ac.uk/media/olkjqtdd/logo_full-colour_a3.jpg",
-  "location": "Dundee, United Kingdom",
-  "modified": "2024-07-04 10:46:41.406653",
-  "name": "Abertay University, Dundee",
-  "type_of_university": "Government university since 1887",
-  "university": "Abertay University, Dundee"
- },
- {
-  "country": "Germany",
-  "docstatus": 0,
-  "doctype": "University",
   "image": "https://studyqa.com/storage/media/upload/univers/934/97/uni_profile_93497.jpg",
   "location": "Baden-Württemberg, Germany",
   "modified": "2024-07-04 10:41:56.848168",
@@ -4884,14 +4884,14 @@
   "university": "Aalen University of Applied Sciences, Aalen"
  },
  {
-  "country": "Ireland",
+  "country": "Germany",
   "docstatus": 0,
   "doctype": "University",
-  "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7xNhSMcwPDykdzdEHw53fHcuSCtOzowZ5ew&s",
-  "location": "Causeway Coast and Glens, Ireland",
-  "modified": "2024-07-04 11:25:46.986391",
-  "name": "Atlantic Technological University, Sligo Campus",
-  "type_of_university": "Government university since 1970",
-  "university": "Atlantic Technological University, Sligo Campus"
+  "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmS1iW7P7x3xCQM9E0qpyXmfhCqNIuTZBsCQ&s",
+  "location": "Bavaria, Germany",
+  "modified": "2024-07-04 11:38:03.012455",
+  "name": "Bavarian University of Applied Sciences, Munich",
+  "type_of_university": "Government university since 1971",
+  "university": "Bavarian University of Applied Sciences, Munich"
  }
 ]

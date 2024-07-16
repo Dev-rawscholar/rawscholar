@@ -19,13 +19,13 @@
   },
   {
    "fieldname": "image",
-   "fieldtype": "Attach Image",
-   "label": "Image'"
+   "fieldtype": "Attach",
+   "label": "Image"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-15 10:47:34.904982",
+ "modified": "2024-07-16 16:31:01.527335",
  "modified_by": "Administrator",
  "module": "Rawscholar",
  "name": "Countries",
