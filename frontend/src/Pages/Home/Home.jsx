@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 // import heroImage from "../../assets/heroimg3.jpg";
-import heroImage from "../../assets/Studyabroad.svg";
+import heroImage from "../../assets/heroImg.png";
 // import elemet from "../../assets/elemet3.png";
 import find2 from "../../assets/find2.png";
 import passport2 from "../../assets/passport2.png";
@@ -29,15 +29,15 @@ function Home({ setShow }) {
         <div className={styles.hero}>
           <div className={styles.heroContent}>
             <div className={styles.heroText}>
-              <span style={{ color: "#39C6B5", fontWeight: "bold" }}>
-                ignite
-              </span>
+              <p style={{ color: "#39C6B5" }}>
+                Ignite
+              </p>
             </div>
             <div className={styles.heroText}>
-              <span>your academic journey</span>
+              <p>Your academic</p>
+              <p>Journey</p>
             </div>
           </div>
-          <img className="d-flex" alt="" />
           <div className={styles.heroImageDiv}>
             <img src={heroImage} alt="Hero" />
           </div>
@@ -93,7 +93,10 @@ function Home({ setShow }) {
               <div className="shape"></div>
               <h5 className="fs-4 fw-bold">How it works</h5>
             </div>
-            <div className="p-2">
+            <div
+              className="p-2 d-flex align-items-center"
+              style={{ height: "90%" }}
+            >
               <p>
                 Raw Scholar is available to all students who wish to study
                 abroad. Raw scholar is India’s 1st all inclusive platform in
@@ -104,9 +107,6 @@ function Home({ setShow }) {
                 entered this platform
               </p>
             </div>
-            <a href="/" style={{ color: "#067bc2", textDecoration: "none" }}>
-              Know more →
-            </a>
           </div>
         </div>
       </section>
@@ -119,7 +119,7 @@ function Home({ setShow }) {
               to="/countries"
               className={`${styles.titleTag} ms-auto py-2 px-3 shadow`}
             >
-              View all countries →
+              View all Countries
             </Link>
           </div>
           <div className="countriesList d-lg-flex flex-wrap text-center justify-content-between">

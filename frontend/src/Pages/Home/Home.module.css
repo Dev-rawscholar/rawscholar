@@ -3,7 +3,7 @@
 	overflow-x: hidden;
 	display: flex;
 	justify-content: end;
-	padding: 50px;
+	padding: 30px;
 }
 
 .heroContent {
@@ -13,7 +13,8 @@
 	top: 50%;
 	transform: translate(0%, -50%);
 	color: white;
-	font-size: 3.5rem;
+	font-size: 4rem;
+	font-weight: 900;
 }
 
 @media only screen and (max-width: 600px) {
@@ -23,24 +24,26 @@
 }
 
 .heroText {
-	font-weight: 900;
 	overflow: hidden;
 	white-space: nowrap;
-	color: #000000;
+	color: #36436a;
+}
+
+.heroText p {
+	margin-bottom: 0px;
 }
 
 .heroText:first-of-type {
-	animation: showup 4s infinite;
+	animation: showup 4s;
 }
 
 .heroText:last-of-type {
-	width: 0px;
-	animation: reveal 4s infinite;
+	animation: reveal 4s;
 }
 
-.heroText:last-of-type span {
-	margin-left: -355px;
-	animation: slidein 4s infinite;
+.heroText:last-of-type p {
+	margin-left: 0px;
+	animation: slidein 4s;
 }
 
 @keyframes showup {
@@ -54,7 +57,7 @@
 		opacity: 1;
 	}
 	100% {
-		opacity: 0;
+		opacity: 1;
 	}
 }
 
@@ -83,14 +86,14 @@
 		width: 0px;
 	}
 	30% {
-		width: 855px;
+		width: 100%;
 	}
 	80% {
 		opacity: 1;
 	}
 	100% {
-		opacity: 0;
-		width: 855px;
+		opacity: 1;
+		width: 100%;
 	}
 }
 
