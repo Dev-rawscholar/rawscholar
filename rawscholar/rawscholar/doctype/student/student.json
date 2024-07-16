@@ -59,7 +59,7 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "New\nOpened"
+   "options": "New\nCounsellor assigned\nCourse shortlisted\nDocuments collected\nApplication forwarded\nApplication submitted\nOffer Received/Rejected\nOffer accepted by student\nFee payment if any\nEnrolment and verification completed\nVisa checklist Given to students\nVisa Documentation Finished\nVisa submission\nVisa approved / Rejected\nTravel date"
   },
   {
    "fieldname": "country",
@@ -177,7 +177,7 @@
    "link_fieldname": "Student"
   }
  ],
- "modified": "2024-07-16 13:31:03.514237",
+ "modified": "2024-07-16 15:22:56.769264",
  "modified_by": "Administrator",
  "module": "Rawscholar",
  "name": "Student",
