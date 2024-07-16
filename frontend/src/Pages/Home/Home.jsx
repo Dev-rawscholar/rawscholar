@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 
-// import heroImage from "../../assets/heroimg3.jpg";
 import heroImage from "../../assets/heroImg.png";
-// import elemet from "../../assets/elemet3.png";
 import find2 from "../../assets/find2.png";
 import passport2 from "../../assets/passport2.png";
 import diploma2 from "../../assets/diploma2.png";
@@ -29,13 +27,14 @@ function Home({ setShow }) {
         <div className={styles.hero}>
           <div className={styles.heroContent}>
             <div className={styles.heroText}>
-              <p style={{ color: "#39C6B5" }}>
-                Ignite
-              </p>
+              <p style={{ color: "#39C6B5" }}>Ignite</p>
             </div>
             <div className={styles.heroText}>
               <p>Your academic</p>
               <p>Journey</p>
+              <Link to="/signup" className={styles.signup}>
+                Sign Up
+              </Link>
             </div>
           </div>
           <div className={styles.heroImageDiv}>
@@ -44,7 +43,7 @@ function Home({ setShow }) {
         </div>
       </section>
       <section className="working container">
-        <div className="cardContainer my-5 py-5 gap-5 d-lg-flex row-gap-3">
+        <div className="cardContainer my-5 gap-5 d-lg-flex row-gap-3">
           <div className="d-flex align-items-center gap-4 p-3 shadow rounded mb-4">
             <img src={find2} height="60" alt="card 1" />
             <div>

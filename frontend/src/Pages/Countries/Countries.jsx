@@ -24,11 +24,11 @@ function Countries({ setShow }) {
           <div className="shape"></div>
           <h3 className="ms-4">Countries</h3>
         </div>
-        <div className="d-flex flex-wrap justify-content-center align-items-center column-gap-3 my-5">
+        <div className="d-flex flex-wrap justify-content-evenly align-items-center column-gap-3 my-5">
           {data?.map((country) => (
             <div
               onClick={() => goToCountry(country)}
-              style={{ textDecoration: "none" }}
+              style={{ textDecoration: "none", width: "250px" }}
               key={country.name}
             >
               <div>
