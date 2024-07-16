@@ -72,7 +72,7 @@ function Search({ setShow }) {
         ) : (
           <div>
             {searchData?.length == 0 ? (
-              <div className="d-flex flex-column align-items-center justify-content-center fs-4 my-5 py-5">
+              <div className="d-flex flex-column align-items-center justify-content-center text-center fs-4 my-5 py-5">
                 <img
                   src={notFound}
                   alt="not found"

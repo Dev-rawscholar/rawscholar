@@ -192,7 +192,6 @@ function Profile({ setShow }) {
           <h2
             style={{
               color: "#067BC2",
-              fontWeight: "bolder",
               marginTop: "50px",
             }}
           >
@@ -206,7 +205,7 @@ function Profile({ setShow }) {
           </p>
           <div className="titleBar d-flex shapeParent mt-5 ">
             <div className="shape"></div>
-            <h2 className="fs-4 ms-4 fw-bold">Personal Details</h2>
+            <h2 className="fs-4 ms-4">Personal Details</h2>
             {editable ? (
               <button
                 className="ms-auto py-2  px-3 shadow border "
@@ -267,7 +266,7 @@ function Profile({ setShow }) {
               )}
               <img
                 src={
-                  data
+                  data.photo
                     ? `https://rawscholar1.frappe.cloud${data?.photo}`
                     : profileImg
                 }
@@ -299,7 +298,7 @@ function Profile({ setShow }) {
               </label>
             </div>
           </div>
-          <div className="col-lg-5">
+          <div className="col-md-6 col-lg-5">
             {/* input section */}
 
             <form action="">
@@ -376,7 +375,7 @@ function Profile({ setShow }) {
           </div>
           {/* next section  */}
 
-          <div className="col-5">
+          <div className="col-md-6 col-lg-5">
             <div className="form-group d-lg-flex align-items-center gap-3 p-2">
               <label
                 className=" d-flex align-items-center"
@@ -432,7 +431,7 @@ function Profile({ setShow }) {
         <div className="p-2 ">
           <div className="titleBar d-flex shapeParent mt-5 ">
             <div className="shape"></div>
-            <h2 className="fs-4 ms-4 fw-bold">Education Info</h2>
+            <h2 className="fs-4 ms-4">Education Info</h2>
             {editable ? (
               <button
                 className="ms-auto py-2  px-3 shadow border "
@@ -470,9 +469,9 @@ function Profile({ setShow }) {
         </div>
 
         {/* education info */}
-        <div className=" row ">
-          <div className="col"></div>
-          <div className="col-lg-5  ">
+        <div className="row ms-lg-0 ms-3">
+          <div className="col-lg-1"></div>
+          <div className="col-lg-5 col-6">
             <div className="form-group d-lg-flex align-items-center gap-3 p-2">
               <label
                 className=" d-flex align-items-center"
@@ -498,7 +497,7 @@ function Profile({ setShow }) {
                   fontSize: "15px",
                   border: "none",
                   color: "gray",
-                  width: "60px ",
+                  width: "70px ",
                 }}
               />
               <label
@@ -548,7 +547,7 @@ function Profile({ setShow }) {
                   fontSize: "15px",
                   border: "none",
                   color: "gray",
-                  width: "60px ",
+                  width: "70px ",
                 }}
               />
               <label
@@ -574,7 +573,7 @@ function Profile({ setShow }) {
               />
             </div>
           </div>
-          <div className="col-lg-5">
+          <div className="col-lg-5 col-6">
             <div className="form-group d-lg-flex align-items-center gap-3 p-2">
               <label
                 className=" d-flex align-items-center"
@@ -600,7 +599,7 @@ function Profile({ setShow }) {
                   fontSize: "15px",
                   border: "none",
                   color: "gray",
-                  width: "60px ",
+                  width: "70px ",
                 }}
               />
               <label
@@ -650,7 +649,7 @@ function Profile({ setShow }) {
                   fontSize: "15px",
                   border: "none",
                   color: "gray",
-                  width: "60px ",
+                  width: "70px ",
                 }}
               />
               <label
@@ -676,493 +675,511 @@ function Profile({ setShow }) {
               />
             </div>
           </div>
-          <div className="col"></div>
+          <div className="col-lg-1"></div>
         </div>
         {/* Upload Documents */}
         <div className="p-2 ">
           <div className="titleBar d-flex shapeParent mt-5 ">
             <div className="shape"></div>
-            <h2 className="fs-4 ms-4 fw-bold">Upload Documents </h2>
+            <h2 className="fs-4 ms-4">Upload Documents </h2>
           </div>
         </div>
 
         <div className="row">
           {/* General Documents */}
-          <div className="col-sm-4">
+          <div className="col-lg-4">
             <div className="p-2 ">
               <div className="titleBar d-flex shapeParent mt-5 ">
                 <div className="shape" style={{ height: "25px" }}></div>
                 <h2 className="fs-5 ms-4">General Documents</h2>
               </div>
             </div>
-            <div className="form-group d-lg-flex align-items-center gap-3 p-2">
-              <label
-                className=" d-flex align-items-center"
-                style={{ color: "#067BC2", width: "110px", height: "43px" }}
-              >
-                CV/Resume*
-              </label>
-              <input
-                type="file"
-                name="CV/Resume"
-                onChange={(e) => {
-                  if (e.target.files) {
-                    setFile({
-                      file: e.target.files[0],
-                      attachment_type: e.target.name,
-                    });
-                  }
-                }}
-                id="CV/Resume"
-                style={{ display: "none" }}
-              />
-              <label
-                htmlFor="CV/Resume"
-                className=" py-2  px-3 shadow border"
-                style={{
-                  borderRadius: "20px",
-                  textDecoration: "none",
-                  cursor: "pointer",
-                }}
-              >
-                <img
-                  style={{ width: "30px", backgroundColor: "#39C6B5" }}
-                  className="p-1 rounded-circle"
-                  src={uploadImg}
-                  alt=""
-                />
-                <span className="p-2" style={{ color: "#39C6B5" }}>
-                  Upload
-                </span>
-              </label>
-            </div>
-            <div className="form-group d-lg-flex align-items-center gap-3 p-2">
-              <label
-                className=" d-flex align-items-center"
-                style={{ color: "#067BC2", width: "110px", height: "43px" }}
-              >
-                SOP*
-              </label>
-              <input
-                type="file"
-                name="SOP"
-                onChange={(e) => {
-                  if (e.target.files) {
-                    setFile({
-                      file: e.target.files[0],
-                      attachment_type: e.target.name,
-                    });
-                  }
-                }}
-                id="SOP"
-                style={{ display: "none" }}
-              />
-              <label
-                htmlFor="SOP"
-                className=" py-2  px-3 shadow border"
-                style={{
-                  borderRadius: "20px",
-                  textDecoration: "none",
-                  cursor: "pointer",
-                }}
-              >
-                <img
-                  style={{ width: "30px", backgroundColor: "#39C6B5" }}
-                  className="p-1 rounded-circle"
-                  src={uploadImg}
-                  alt=""
-                />
-                <span className="p-2" style={{ color: "#39C6B5" }}>
-                  Upload
-                </span>
-              </label>
-            </div>
-            <div className="form-group d-lg-flex align-items-center gap-3 p-2">
-              <label
-                className=" d-flex align-items-center"
-                style={{ color: "#067BC2", width: "110px", height: "43px" }}
-              >
-                LOR*
-              </label>
-              <input
-                type="file"
-                name="LOR"
-                onChange={(e) => {
-                  if (e.target.files) {
-                    setFile({
-                      file: e.target.files[0],
-                      attachment_type: e.target.name,
-                    });
-                  }
-                }}
-                id="LOR"
-                style={{ display: "none" }}
-              />
-              <label
-                htmlFor="LOR"
-                className=" py-2  px-3 shadow border"
-                style={{
-                  borderRadius: "20px",
-                  textDecoration: "none",
-                  cursor: "pointer",
-                }}
-              >
-                <img
-                  style={{ width: "30px", backgroundColor: "#39C6B5" }}
-                  className="p-1 rounded-circle"
-                  src={uploadImg}
-                  alt=""
-                />
-                <span className="p-2" style={{ color: "#39C6B5" }}>
-                  Upload
-                </span>
-              </label>
-            </div>
-            <div className="form-group d-lg-flex align-items-center gap-3 p-2">
-              <label
-                className=" d-flex align-items-center"
-                style={{ color: "#067BC2", width: "110px", height: "43px" }}
-              >
-                Passport*
-              </label>
-              <input
-                type="file"
-                name="Passport"
-                onChange={(e) => {
-                  if (e.target.files) {
-                    setFile({
-                      file: e.target.files[0],
-                      attachment_type: e.target.name,
-                    });
-                  }
-                }}
-                id="Passport"
-                style={{ display: "none" }}
-              />
-              <label
-                htmlFor="Passport"
-                className=" py-2  px-3 shadow border"
-                style={{
-                  borderRadius: "20px",
-                  textDecoration: "none",
-                  cursor: "pointer",
-                }}
-              >
-                <img
-                  style={{ width: "30px", backgroundColor: "#39C6B5" }}
-                  className="p-1 rounded-circle"
-                  src={uploadImg}
-                  alt=""
-                />
-                <span className="p-2" style={{ color: "#39C6B5" }}>
-                  Upload
-                </span>
-              </label>
+            <div className="row">
+              <div className="col-6 col-lg-12">
+                <div className="form-group d-lg-flex align-items-center gap-3 p-2">
+                  <label
+                    className=" d-flex align-items-center"
+                    style={{ color: "#067BC2", width: "110px", height: "43px" }}
+                  >
+                    CV/Resume*
+                  </label>
+                  <input
+                    type="file"
+                    name="CV/Resume"
+                    onChange={(e) => {
+                      if (e.target.files) {
+                        setFile({
+                          file: e.target.files[0],
+                          attachment_type: e.target.name,
+                        });
+                      }
+                    }}
+                    id="CV/Resume"
+                    style={{ display: "none" }}
+                  />
+                  <label
+                    htmlFor="CV/Resume"
+                    className=" py-2  px-3 shadow border"
+                    style={{
+                      borderRadius: "20px",
+                      textDecoration: "none",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <img
+                      style={{ width: "30px", backgroundColor: "#39C6B5" }}
+                      className="p-1 rounded-circle"
+                      src={uploadImg}
+                      alt=""
+                    />
+                    <span className="p-2" style={{ color: "#39C6B5" }}>
+                      Upload
+                    </span>
+                  </label>
+                </div>
+                <div className="form-group d-lg-flex align-items-center gap-3 p-2">
+                  <label
+                    className=" d-flex align-items-center"
+                    style={{ color: "#067BC2", width: "110px", height: "43px" }}
+                  >
+                    SOP*
+                  </label>
+                  <input
+                    type="file"
+                    name="SOP"
+                    onChange={(e) => {
+                      if (e.target.files) {
+                        setFile({
+                          file: e.target.files[0],
+                          attachment_type: e.target.name,
+                        });
+                      }
+                    }}
+                    id="SOP"
+                    style={{ display: "none" }}
+                  />
+                  <label
+                    htmlFor="SOP"
+                    className=" py-2  px-3 shadow border"
+                    style={{
+                      borderRadius: "20px",
+                      textDecoration: "none",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <img
+                      style={{ width: "30px", backgroundColor: "#39C6B5" }}
+                      className="p-1 rounded-circle"
+                      src={uploadImg}
+                      alt=""
+                    />
+                    <span className="p-2" style={{ color: "#39C6B5" }}>
+                      Upload
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div className="col-6 col-lg-12">
+                <div className="form-group d-lg-flex align-items-center gap-3 p-2">
+                  <label
+                    className=" d-flex align-items-center"
+                    style={{ color: "#067BC2", width: "110px", height: "43px" }}
+                  >
+                    LOR*
+                  </label>
+                  <input
+                    type="file"
+                    name="LOR"
+                    onChange={(e) => {
+                      if (e.target.files) {
+                        setFile({
+                          file: e.target.files[0],
+                          attachment_type: e.target.name,
+                        });
+                      }
+                    }}
+                    id="LOR"
+                    style={{ display: "none" }}
+                  />
+                  <label
+                    htmlFor="LOR"
+                    className=" py-2  px-3 shadow border"
+                    style={{
+                      borderRadius: "20px",
+                      textDecoration: "none",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <img
+                      style={{ width: "30px", backgroundColor: "#39C6B5" }}
+                      className="p-1 rounded-circle"
+                      src={uploadImg}
+                      alt=""
+                    />
+                    <span className="p-2" style={{ color: "#39C6B5" }}>
+                      Upload
+                    </span>
+                  </label>
+                </div>
+                <div className="form-group d-lg-flex align-items-center gap-3 p-2">
+                  <label
+                    className=" d-flex align-items-center"
+                    style={{ color: "#067BC2", width: "110px", height: "43px" }}
+                  >
+                    Passport*
+                  </label>
+                  <input
+                    type="file"
+                    name="Passport"
+                    onChange={(e) => {
+                      if (e.target.files) {
+                        setFile({
+                          file: e.target.files[0],
+                          attachment_type: e.target.name,
+                        });
+                      }
+                    }}
+                    id="Passport"
+                    style={{ display: "none" }}
+                  />
+                  <label
+                    htmlFor="Passport"
+                    className=" py-2  px-3 shadow border"
+                    style={{
+                      borderRadius: "20px",
+                      textDecoration: "none",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <img
+                      style={{ width: "30px", backgroundColor: "#39C6B5" }}
+                      className="p-1 rounded-circle"
+                      src={uploadImg}
+                      alt=""
+                    />
+                    <span className="p-2" style={{ color: "#39C6B5" }}>
+                      Upload
+                    </span>
+                  </label>
+                </div>
+              </div>
             </div>
           </div>
           {/* Academic certificate */}
-          <div className="col-sm-4">
+          <div className="col-lg-4">
             <div className="p-2 ">
               <div className="titleBar d-flex shapeParent mt-5 ">
                 <div className="shape" style={{ height: "25px" }}></div>
                 <h2 className="fs-5 ms-4">Academic certificate</h2>
               </div>
             </div>
-            <div className="form-group d-lg-flex align-items-center gap-3 p-2">
-              <label
-                className=" d-flex align-items-center"
-                style={{ color: "#067BC2", width: "110px", height: "43px" }}
-              >
-                10th Grade*
-              </label>
-              <input
-                type="file"
-                name="10th Grade"
-                onChange={(e) => {
-                  if (e.target.files) {
-                    setFile({
-                      file: e.target.files[0],
-                      attachment_type: e.target.name,
-                    });
-                  }
-                }}
-                id="10th Grade"
-                style={{ display: "none" }}
-              />
-              <label
-                htmlFor="10th Grade"
-                className=" py-2  px-3 shadow border"
-                style={{
-                  borderRadius: "20px",
-                  textDecoration: "none",
-                  cursor: "pointer",
-                }}
-              >
-                <img
-                  style={{ width: "30px", backgroundColor: "#39C6B5" }}
-                  className="p-1 rounded-circle"
-                  src={uploadImg}
-                  alt=""
-                />
-                <span className="p-2" style={{ color: "#39C6B5" }}>
-                  Upload
-                </span>
-              </label>
-            </div>
-            <div className="form-group d-lg-flex align-items-center gap-3 p-2">
-              <label
-                className=" d-flex align-items-center"
-                style={{ color: "#067BC2", width: "110px", height: "43px" }}
-              >
-                12th Grade*
-              </label>
-              <input
-                type="file"
-                name="12th Grade"
-                onChange={(e) => {
-                  if (e.target.files) {
-                    setFile({
-                      file: e.target.files[0],
-                      attachment_type: e.target.name,
-                    });
-                  }
-                }}
-                id="12th Grade"
-                style={{ display: "none" }}
-              />
-              <label
-                htmlFor="12th Grade"
-                className=" py-2  px-3 shadow border"
-                style={{
-                  borderRadius: "20px",
-                  textDecoration: "none",
-                  cursor: "pointer",
-                }}
-              >
-                <img
-                  style={{ width: "30px", backgroundColor: "#39C6B5" }}
-                  className="p-1 rounded-circle"
-                  src={uploadImg}
-                  alt=""
-                />
-                <span className="p-2" style={{ color: "#39C6B5" }}>
-                  Upload
-                </span>
-              </label>
-            </div>
-            <div className="form-group d-lg-flex align-items-center gap-3 p-2">
-              <label
-                className=" d-flex align-items-center"
-                style={{ color: "#067BC2", width: "110px", height: "43px" }}
-              >
-                Bachelors
-              </label>
-              <input
-                type="file"
-                name="Bachelors"
-                onChange={(e) => {
-                  if (e.target.files) {
-                    setFile({
-                      file: e.target.files[0],
-                      attachment_type: e.target.name,
-                    });
-                  }
-                }}
-                id="Bachelors"
-                style={{ display: "none" }}
-              />
-              <label
-                htmlFor="Bachelors"
-                className=" py-2  px-3 shadow border"
-                style={{
-                  borderRadius: "20px",
-                  textDecoration: "none",
-                  cursor: "pointer",
-                }}
-              >
-                <img
-                  style={{ width: "30px", backgroundColor: "#39C6B5" }}
-                  className="p-1 rounded-circle"
-                  src={uploadImg}
-                  alt=""
-                />
-                <span className="p-2" style={{ color: "#39C6B5" }}>
-                  Upload
-                </span>
-              </label>
-            </div>
-            <div className="form-group d-lg-flex align-items-center gap-3 p-2">
-              <label
-                className=" d-flex align-items-center"
-                style={{ color: "#067BC2", width: "110px", height: "43px" }}
-              >
-                Masters
-              </label>
-              <input
-                type="file"
-                name="Masters"
-                onChange={(e) => {
-                  if (e.target.files) {
-                    setFile({
-                      file: e.target.files[0],
-                      attachment_type: e.target.name,
-                    });
-                  }
-                }}
-                id="Masters"
-                style={{ display: "none" }}
-              />
-              <label
-                htmlFor="Masters"
-                className=" py-2  px-3 shadow border"
-                style={{
-                  borderRadius: "20px",
-                  textDecoration: "none",
-                  cursor: "pointer",
-                }}
-              >
-                <img
-                  style={{ width: "30px", backgroundColor: "#39C6B5" }}
-                  className="p-1 rounded-circle"
-                  src={uploadImg}
-                  alt=""
-                />
-                <span className="p-2" style={{ color: "#39C6B5" }}>
-                  Upload
-                </span>
-              </label>
+            <div className="row">
+              <div className="col-6 col-lg-12">
+                <div className="form-group d-lg-flex align-items-center gap-3 p-2">
+                  <label
+                    className=" d-flex align-items-center"
+                    style={{ color: "#067BC2", width: "110px", height: "43px" }}
+                  >
+                    10th Grade*
+                  </label>
+                  <input
+                    type="file"
+                    name="10th Grade"
+                    onChange={(e) => {
+                      if (e.target.files) {
+                        setFile({
+                          file: e.target.files[0],
+                          attachment_type: e.target.name,
+                        });
+                      }
+                    }}
+                    id="10th Grade"
+                    style={{ display: "none" }}
+                  />
+                  <label
+                    htmlFor="10th Grade"
+                    className=" py-2  px-3 shadow border"
+                    style={{
+                      borderRadius: "20px",
+                      textDecoration: "none",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <img
+                      style={{ width: "30px", backgroundColor: "#39C6B5" }}
+                      className="p-1 rounded-circle"
+                      src={uploadImg}
+                      alt=""
+                    />
+                    <span className="p-2" style={{ color: "#39C6B5" }}>
+                      Upload
+                    </span>
+                  </label>
+                </div>
+                <div className="form-group d-lg-flex align-items-center gap-3 p-2">
+                  <label
+                    className=" d-flex align-items-center"
+                    style={{ color: "#067BC2", width: "110px", height: "43px" }}
+                  >
+                    12th Grade*
+                  </label>
+                  <input
+                    type="file"
+                    name="12th Grade"
+                    onChange={(e) => {
+                      if (e.target.files) {
+                        setFile({
+                          file: e.target.files[0],
+                          attachment_type: e.target.name,
+                        });
+                      }
+                    }}
+                    id="12th Grade"
+                    style={{ display: "none" }}
+                  />
+                  <label
+                    htmlFor="12th Grade"
+                    className=" py-2  px-3 shadow border"
+                    style={{
+                      borderRadius: "20px",
+                      textDecoration: "none",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <img
+                      style={{ width: "30px", backgroundColor: "#39C6B5" }}
+                      className="p-1 rounded-circle"
+                      src={uploadImg}
+                      alt=""
+                    />
+                    <span className="p-2" style={{ color: "#39C6B5" }}>
+                      Upload
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div className="col-6 col-lg-12">
+                <div className="form-group d-lg-flex align-items-center gap-3 p-2">
+                  <label
+                    className=" d-flex align-items-center"
+                    style={{ color: "#067BC2", width: "110px", height: "43px" }}
+                  >
+                    Bachelors
+                  </label>
+                  <input
+                    type="file"
+                    name="Bachelors"
+                    onChange={(e) => {
+                      if (e.target.files) {
+                        setFile({
+                          file: e.target.files[0],
+                          attachment_type: e.target.name,
+                        });
+                      }
+                    }}
+                    id="Bachelors"
+                    style={{ display: "none" }}
+                  />
+                  <label
+                    htmlFor="Bachelors"
+                    className=" py-2  px-3 shadow border"
+                    style={{
+                      borderRadius: "20px",
+                      textDecoration: "none",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <img
+                      style={{ width: "30px", backgroundColor: "#39C6B5" }}
+                      className="p-1 rounded-circle"
+                      src={uploadImg}
+                      alt=""
+                    />
+                    <span className="p-2" style={{ color: "#39C6B5" }}>
+                      Upload
+                    </span>
+                  </label>
+                </div>
+                <div className="form-group d-lg-flex align-items-center gap-3 p-2">
+                  <label
+                    className=" d-flex align-items-center"
+                    style={{ color: "#067BC2", width: "110px", height: "43px" }}
+                  >
+                    Masters
+                  </label>
+                  <input
+                    type="file"
+                    name="Masters"
+                    onChange={(e) => {
+                      if (e.target.files) {
+                        setFile({
+                          file: e.target.files[0],
+                          attachment_type: e.target.name,
+                        });
+                      }
+                    }}
+                    id="Masters"
+                    style={{ display: "none" }}
+                  />
+                  <label
+                    htmlFor="Masters"
+                    className=" py-2  px-3 shadow border"
+                    style={{
+                      borderRadius: "20px",
+                      textDecoration: "none",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <img
+                      style={{ width: "30px", backgroundColor: "#39C6B5" }}
+                      className="p-1 rounded-circle"
+                      src={uploadImg}
+                      alt=""
+                    />
+                    <span className="p-2" style={{ color: "#39C6B5" }}>
+                      Upload
+                    </span>
+                  </label>
+                </div>
+              </div>
             </div>
           </div>
           {/* Additional Documents */}
-          <div className="col-sm-4 mb-4">
+          <div className="col-lg-4 mb-4">
             <div className="p-2 ">
               <div className="titleBar d-flex shapeParent mt-5 ">
                 <div className="shape" style={{ height: "25px" }}></div>
                 <h2 className="fs-5 ms-4">Additional Documents</h2>
               </div>
             </div>
-            <div className="form-group d-lg-flex align-items-center gap-3 p-2">
-              <label
-                className=" d-flex align-items-center"
-                style={{ color: "#067BC2", width: "110px", height: "43px" }}
-              >
-                Documents 1
-              </label>
-              <input
-                type="file"
-                name="Documents 1"
-                onChange={(e) => {
-                  if (e.target.files) {
-                    setFile({
-                      file: e.target.files[0],
-                      attachment_type: e.target.name,
-                    });
-                  }
-                }}
-                id="Documents 1"
-                style={{ display: "none" }}
-              />
-              <label
-                htmlFor="Documents 1"
-                className=" py-2  px-3 shadow border"
-                style={{
-                  borderRadius: "20px",
-                  textDecoration: "none",
-                  cursor: "pointer",
-                }}
-              >
-                <img
-                  style={{ width: "30px", backgroundColor: "#39C6B5" }}
-                  className="p-1 rounded-circle"
-                  src={uploadImg}
-                  alt=""
-                />
-                <span className="p-2" style={{ color: "#39C6B5" }}>
-                  Upload
-                </span>
-              </label>
-            </div>
-            <div className="form-group d-lg-flex align-items-center gap-3 p-2">
-              <label
-                className=" d-flex align-items-center"
-                style={{ color: "#067BC2", width: "110px", height: "43px" }}
-              >
-                Documents 2
-              </label>
-              <input
-                type="file"
-                name="Documents 2"
-                onChange={(e) => {
-                  if (e.target.files) {
-                    setFile({
-                      file: e.target.files[0],
-                      attachment_type: e.target.name,
-                    });
-                  }
-                }}
-                id="Documents 2"
-                style={{ display: "none" }}
-              />
-              <label
-                htmlFor="Documents 2"
-                className=" py-2  px-3 shadow border"
-                style={{
-                  borderRadius: "20px",
-                  textDecoration: "none",
-                  cursor: "pointer",
-                }}
-              >
-                <img
-                  style={{ width: "30px", backgroundColor: "#39C6B5" }}
-                  className="p-1 rounded-circle"
-                  src={uploadImg}
-                  alt=""
-                />
-                <span className="p-2" style={{ color: "#39C6B5" }}>
-                  Upload
-                </span>
-              </label>
-            </div>
-            <div className="form-group d-lg-flex align-items-center gap-3 p-2">
-              <label
-                className=" d-flex align-items-center"
-                style={{ color: "#067BC2", width: "110px", height: "43px" }}
-              >
-                Documents 3
-              </label>
-              <input
-                type="file"
-                name="Documents 3"
-                onChange={(e) => {
-                  if (e.target.files) {
-                    setFile({
-                      file: e.target.files[0],
-                      attachment_type: e.target.name,
-                    });
-                  }
-                }}
-                id="Documents 3"
-                style={{ display: "none" }}
-              />
-              <label
-                htmlFor="Documents 3"
-                className=" py-2  px-3 shadow border"
-                style={{
-                  borderRadius: "20px",
-                  textDecoration: "none",
-                  cursor: "pointer",
-                }}
-              >
-                <img
-                  style={{ width: "30px", backgroundColor: "#39C6B5" }}
-                  className="p-1 rounded-circle"
-                  src={uploadImg}
-                  alt=""
-                />
-                <span className="p-2" style={{ color: "#39C6B5" }}>
-                  Upload
-                </span>
-              </label>
+            <div className="row">
+              <div className="col-6 col-lg-12">
+                <div className="form-group d-lg-flex align-items-center gap-3 p-2">
+                  <label
+                    className=" d-flex align-items-center"
+                    style={{ color: "#067BC2", width: "110px", height: "43px" }}
+                  >
+                    Documents 1
+                  </label>
+                  <input
+                    type="file"
+                    name="Documents 1"
+                    onChange={(e) => {
+                      if (e.target.files) {
+                        setFile({
+                          file: e.target.files[0],
+                          attachment_type: e.target.name,
+                        });
+                      }
+                    }}
+                    id="Documents 1"
+                    style={{ display: "none" }}
+                  />
+                  <label
+                    htmlFor="Documents 1"
+                    className=" py-2  px-3 shadow border"
+                    style={{
+                      borderRadius: "20px",
+                      textDecoration: "none",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <img
+                      style={{ width: "30px", backgroundColor: "#39C6B5" }}
+                      className="p-1 rounded-circle"
+                      src={uploadImg}
+                      alt=""
+                    />
+                    <span className="p-2" style={{ color: "#39C6B5" }}>
+                      Upload
+                    </span>
+                  </label>
+                </div>
+                <div className="form-group d-lg-flex align-items-center gap-3 p-2">
+                  <label
+                    className=" d-flex align-items-center"
+                    style={{ color: "#067BC2", width: "110px", height: "43px" }}
+                  >
+                    Documents 2
+                  </label>
+                  <input
+                    type="file"
+                    name="Documents 2"
+                    onChange={(e) => {
+                      if (e.target.files) {
+                        setFile({
+                          file: e.target.files[0],
+                          attachment_type: e.target.name,
+                        });
+                      }
+                    }}
+                    id="Documents 2"
+                    style={{ display: "none" }}
+                  />
+                  <label
+                    htmlFor="Documents 2"
+                    className=" py-2  px-3 shadow border"
+                    style={{
+                      borderRadius: "20px",
+                      textDecoration: "none",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <img
+                      style={{ width: "30px", backgroundColor: "#39C6B5" }}
+                      className="p-1 rounded-circle"
+                      src={uploadImg}
+                      alt=""
+                    />
+                    <span className="p-2" style={{ color: "#39C6B5" }}>
+                      Upload
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div className="col-6 col-lg-12">
+                <div className="form-group d-lg-flex align-items-center gap-3 p-2">
+                  <label
+                    className=" d-flex align-items-center"
+                    style={{ color: "#067BC2", width: "110px", height: "43px" }}
+                  >
+                    Documents 3
+                  </label>
+                  <input
+                    type="file"
+                    name="Documents 3"
+                    onChange={(e) => {
+                      if (e.target.files) {
+                        setFile({
+                          file: e.target.files[0],
+                          attachment_type: e.target.name,
+                        });
+                      }
+                    }}
+                    id="Documents 3"
+                    style={{ display: "none" }}
+                  />
+                  <label
+                    htmlFor="Documents 3"
+                    className=" py-2  px-3 shadow border"
+                    style={{
+                      borderRadius: "20px",
+                      textDecoration: "none",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <img
+                      style={{ width: "30px", backgroundColor: "#39C6B5" }}
+                      className="p-1 rounded-circle"
+                      src={uploadImg}
+                      alt=""
+                    />
+                    <span className="p-2" style={{ color: "#39C6B5" }}>
+                      Upload
+                    </span>
+                  </label>
+                </div>
+              </div>
             </div>
           </div>
         </div>

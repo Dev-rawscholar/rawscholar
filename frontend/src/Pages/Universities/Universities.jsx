@@ -8,7 +8,7 @@ import {
   universityContext,
 } from "../../Components/ContextShare";
 
-function Universities({setShow}) {
+function Universities({ setShow }) {
   useEffect(() => {
     setShow(true);
   });
@@ -69,7 +69,7 @@ function Universities({setShow}) {
               className="btn rounded-pill me-2"
               style={{
                 width: "100px",
-                backgroundColor: "#067BC2",
+                backgroundColor: "#39C6B5",
                 color: "white",
               }}
             >
@@ -83,7 +83,7 @@ function Universities({setShow}) {
             className="btn rounded-pill"
             style={{
               width: "100px",
-              backgroundColor: "#39C6B5",
+              backgroundColor: "#067BC2",
               color: "white",
             }}
           >

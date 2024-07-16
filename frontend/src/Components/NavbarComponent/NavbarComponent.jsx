@@ -100,9 +100,9 @@ function NavbarComponent() {
                       <img
                         className="rounded-circle border"
                         src={
-                          data
-                            ? `https://rawscholar1.frappe.cloud${data?.photo}`
-                            : Profile
+                          data?.photo == ""
+                            ? Profile
+                            : `https://rawscholar1.frappe.cloud${data?.photo}`
                         }
                         alt="Profile photo"
                         style={{ height: "100%", width: "100%" }}

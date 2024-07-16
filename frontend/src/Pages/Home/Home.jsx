@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import heroImage from "../../assets/heroImg.png";
 import find2 from "../../assets/find2.png";
@@ -7,23 +7,37 @@ import diploma2 from "../../assets/diploma2.png";
 import germany from "../../assets/flags/germany.png";
 import france from "../../assets/flags/france.png";
 import uk from "../../assets/flags/uk.png";
-import hungary from "../../assets/flags/hungary.png";
+import ireland from "../../assets/flags/ireland.png";
 import university1 from "../../assets/universities/university1.svg";
 import university2 from "../../assets/universities/university2.svg";
 import university3 from "../../assets/universities/university3.svg";
 import university4 from "../../assets/universities/university4.svg";
 
 import styles from "./Home.module.css";
-import { useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
+import { countryContext } from "../../Components/ContextShare";
 
 function Home({ setShow }) {
   useEffect(() => {
     setShow(true);
   });
+  let loggedData = JSON.parse(localStorage.getItem("userData"));
+
+  const [islogged, setIslogged] = useState(false);
+  useEffect(() => {
+    setIslogged(true);
+  }, [loggedData]);
+
+  const { setCountryData } = useContext(countryContext);
+  const navigate = useNavigate();
+  const goToCountry = (country) => {
+    setCountryData(country);
+    navigate("/universities");
+  };
 
   return (
     <>
-      <section id="heroContainer">
+      <section id="heroContainer" className="container">
         <div className={styles.hero}>
           <div className={styles.heroContent}>
             <div className={styles.heroText}>
@@ -32,9 +46,13 @@ function Home({ setShow }) {
             <div className={styles.heroText}>
               <p>Your academic</p>
               <p>Journey</p>
-              <Link to="/signup" className={styles.signup}>
-                Sign Up
-              </Link>
+              {islogged ? (
+                ""
+              ) : (
+                <Link to="/signup" className={styles.signup}>
+                  Sign Up
+                </Link>
+              )}
             </div>
           </div>
           <div className={styles.heroImageDiv}>
@@ -92,10 +110,7 @@ function Home({ setShow }) {
               <div className="shape"></div>
               <h5 className="fs-4">How it works</h5>
             </div>
-            <div
-              className="p-2 d-flex align-items-center"
-              style={{ height: "80%" }}
-            >
+            <div className=" d-flex align-items-center mt-4">
               <p>
                 Raw Scholar is available to all students who wish to study
                 abroad. Raw scholar is India’s 1st all inclusive platform in
@@ -128,24 +143,38 @@ function Home({ setShow }) {
                 alt="germany"
                 width="250"
                 className="rounded"
+                onClick={() => goToCountry({ name: "Germany" })}
               />
               <p>Germany</p>
             </div>
             <div>
               <img
-                src={hungary}
-                alt="hungary"
+                src={ireland}
+                alt="ireland"
                 width="250"
                 className="rounded"
+                onClick={() => goToCountry({ name: "Ireland" })}
               />
-              <p>Hungary</p>
+              <p>Ireland</p>
             </div>
             <div>
-              <img src={france} alt="france" width="250" className="rounded" />
+              <img
+                src={france}
+                alt="france"
+                width="250"
+                className="rounded"
+                onClick={() => goToCountry({ name: "France" })}
+              />
               <p>France</p>
             </div>
             <div>
-              <img src={uk} alt="uk" width="250" className="rounded" />
+              <img
+                src={uk}
+                alt="uk"
+                width="250"
+                className="rounded"
+                onClick={() => goToCountry({ name: "UK" })}
+              />
               <p>UK</p>
             </div>
           </div>

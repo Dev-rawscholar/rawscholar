@@ -9,7 +9,7 @@
 .heroContent {
 	width: 100%;
 	position: absolute;
-	left: 10%;
+	left: 0%;
 	top: 50%;
 	transform: translate(0%, -50%);
 	color: white;
@@ -111,11 +111,11 @@
 }
 
 .heroImageDiv {
-	width: 50%;
+	width: 45%;
 }
 
 .heroImageDiv img {
-	width: 80%;
+	width: 100%;
 }
 
 .cardText {

@@ -141,14 +141,14 @@ function Signup({ setShow }) {
         </div>
         <Button
           className="mt-2  w-100 "
-          style={{ fontSize: "13px" }}
+          style={{ fontSize: "13px", backgroundColor: "#067BC2" }}
           onClick={() => signin()}
         >
           Signup
         </Button>
         <p className=" mt-5" style={{ fontSize: "13px" }}>
           Already have an account?
-          <Link to={"/login"} style={{ color: "blue", fontSize: "13px" }}>
+          <Link to={"/login"} className="ms-2" style={{ color: "blue", fontSize: "13px" }}>
             Login
           </Link>
         </p>
