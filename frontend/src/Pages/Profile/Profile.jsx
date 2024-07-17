@@ -267,7 +267,7 @@ function Profile({ setShow }) {
               )}
               <img
                 src={
-                  data.photo
+                  data?.photo
                     ? `https://rawscholar1.frappe.cloud${data.photo}`
                     : profileImg
                 }

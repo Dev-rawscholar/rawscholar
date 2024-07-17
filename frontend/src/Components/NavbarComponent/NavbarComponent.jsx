@@ -24,6 +24,7 @@ function NavbarComponent() {
   let loggedData = JSON.parse(localStorage.getItem("userData"));
 
   const { data } = useFrappeGetDoc("Student", loggedData?.email);
+  console.log(data);
 
   useEffect(() => {
     if (loggedData) setIslogged(true);
@@ -100,7 +101,7 @@ function NavbarComponent() {
                       <img
                         className="rounded-circle border"
                         src={
-                          data.photo
+                          data?.photo
                             ? `https://rawscholar1.frappe.cloud${data.photo}`
                             : Profile
                         }
