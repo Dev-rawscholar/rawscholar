@@ -24,7 +24,6 @@ function NavbarComponent() {
   let loggedData = JSON.parse(localStorage.getItem("userData"));
 
   const { data } = useFrappeGetDoc("Student", loggedData?.email);
-  console.log(data);
 
   useEffect(() => {
     if (loggedData) setIslogged(true);

@@ -14,19 +14,15 @@ import university3 from "../../assets/universities/university3.svg";
 import university4 from "../../assets/universities/university4.svg";
 
 import styles from "./Home.module.css";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { countryContext } from "../../Components/ContextShare";
 
 function Home({ setShow }) {
   useEffect(() => {
     setShow(true);
   });
-  let loggedData = JSON.parse(localStorage.getItem("userData"));
 
-  const [islogged, setIslogged] = useState(false);
-  useEffect(() => {
-    setIslogged(true);
-  }, [loggedData]);
+  let loggedData = JSON.parse(localStorage.getItem("userData"));
 
   const { setCountryData } = useContext(countryContext);
   const navigate = useNavigate();
@@ -46,7 +42,7 @@ function Home({ setShow }) {
             <div className={styles.heroText}>
               <p>Your academic</p>
               <p>Journey</p>
-              {islogged ? (
+              {loggedData ? (
                 ""
               ) : (
                 <Link to="/signup" className={styles.signup}>

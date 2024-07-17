@@ -30,6 +30,7 @@ function App() {
   const [show, setShow] = useState(true);
 
   return (
+    // <FrappeProvider url="https://rawscholar1.frappe.cloud">
     <FrappeProvider>
       {show && <NavbarComponent />}
       <ScrollToTop />
@@ -56,7 +57,10 @@ function App() {
         <Route path="/search" element={<Search setShow={setShow} />} />
         <Route path="/contactus" element={<Contactus setShow={setShow} />} />
         <Route path="/faq" element={<Faq setShow={setShow} />} />
-        <Route path="/user/applications" element={<Application setShow={setShow}/>}/>
+        <Route
+          path="/user/applications"
+          element={<Application setShow={setShow} />}
+        />
         <Route path="*" element={<PageNotFound setShow={setShow} />} />
         <Route path="/test" element={<Test setShow={setShow} />} />
       </Routes>
@@ -72,7 +76,6 @@ function App() {
         draggable
         pauseOnHover
         theme="light"
-        transition:Slide
       />
     </FrappeProvider>
   );

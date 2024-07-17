@@ -18,13 +18,12 @@ function Universities({ setShow }) {
   const { setUniversityData } = useContext(universityContext);
   const { countryData } = useContext(countryContext);
 
-  const { data, error } = useFrappeGetDocList("University", {
+  const { data } = useFrappeGetDocList("University", {
     fields: ["country", "university", "type_of_university", "location"],
     filters: countryData ? [["country", "=", countryData.name]] : [],
     limit_start: pageIndex,
     limit: 12,
   });
-  console.log(error);
 
   const gotoUniversity = (university) => {
     setUniversityData(university);

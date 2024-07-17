@@ -13,12 +13,13 @@ function Course({ setShow }) {
   const navigate = useNavigate();
   const [isInterested, setIsInterested] = useState(false);
   const { courseData } = useContext(courseContext);
+
   let loggedData = JSON.parse(localStorage.getItem("userData"));
-  const { data } = useFrappeGetDoc("Student", loggedData.name);
+  const { data } = useFrappeGetDoc("Student", loggedData.email);
 
   useEffect(() => {
     if (data) {
-      data.interested_courses.map((item) => {
+      data.interested_courses?.map((item) => {
         if (
           item.course == courseData.course &&
           item.university == courseData.university

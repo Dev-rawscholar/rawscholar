@@ -22,7 +22,7 @@ function University({ setShow }) {
   const { unviersityData } = useContext(universityContext);
   const { setCourseData } = useContext(courseContext);
 
-  const { data, error } = useFrappeGetDocList("Courses", {
+  const { data } = useFrappeGetDocList("Courses", {
     fields: [
       "course",
       "university",
@@ -34,7 +34,6 @@ function University({ setShow }) {
     ],
     filters: [["university", "=", unviersityData.university]],
   });
-  console.log(error);
 
   const gotoCourse = (course) => {
     setCourseData(course);
