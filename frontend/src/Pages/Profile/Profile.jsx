@@ -11,7 +11,7 @@ import {
 import { useContext, useEffect, useState } from "react";
 import { userContext } from "../../Components/ContextShare";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BeatLoader } from "react-spinners";
 
 function Profile({ setShow }) {
@@ -189,14 +189,22 @@ function Profile({ setShow }) {
     <section id="profileContainer">
       <div className="container my-5">
         <div>
-          <h2
-            style={{
-              color: "#067BC2",
-              marginTop: "50px",
-            }}
-          >
-            Hello {inputData.name1} 👋
-          </h2>
+          <div className="d-flex justify-content-between align-items-center pt-3">
+            <h2
+              style={{
+                color: "#067BC2",
+              }}
+            >
+              Hello {inputData.name1} 👋
+            </h2>
+            <Link
+              to="/user/applications"
+              className="btn rounded-pill fw-bold py-2 px-3"
+              style={{ backgroundColor: "#39C6B5", color: "white" }}
+            >
+              Go to Applications 👈
+            </Link>
+          </div>
           <p className="mt-4">
             Get what you deserve. Never miss an opportunity & don't fall for
             sparking words by consultancies. we will guide you in right path.
