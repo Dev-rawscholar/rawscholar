@@ -40,13 +40,13 @@
   },
   {
    "fieldname": "image",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "Image"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-06 11:05:48.197645",
+ "modified": "2024-07-17 15:23:44.597960",
  "modified_by": "Administrator",
  "module": "Rawscholar",
  "name": "University",
