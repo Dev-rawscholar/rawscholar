@@ -185,7 +185,7 @@
    "link_fieldname": "Student"
   }
  ],
- "modified": "2024-07-17 10:34:09.998434",
+ "modified": "2024-07-18 16:08:09.565429",
  "modified_by": "Administrator",
  "module": "Rawscholar",
  "name": "Student",
@@ -202,18 +202,6 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Guest",
    "share": 1,
    "write": 1
   }

@@ -10,7 +10,6 @@
   "university",
   "image",
   "country",
-  "type_of_university",
   "location"
  ],
  "fields": [
@@ -29,11 +28,6 @@
    "options": "Countries"
   },
   {
-   "fieldname": "type_of_university",
-   "fieldtype": "Data",
-   "label": "Type of University"
-  },
-  {
    "fieldname": "location",
    "fieldtype": "Data",
    "label": "Location"
@@ -46,7 +40,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-17 15:23:44.597960",
+ "modified": "2024-07-19 15:32:54.883534",
  "modified_by": "Administrator",
  "module": "Rawscholar",
  "name": "University",

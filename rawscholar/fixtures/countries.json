@@ -32,14 +32,6 @@
   "name": "Hungary"
  },
  {
-  "country": "France",
-  "docstatus": 0,
-  "doctype": "Countries",
-  "image": null,
-  "modified": "2024-06-18 11:27:30.052658",
-  "name": "France"
- },
- {
   "country": "Ireland",
   "docstatus": 0,
   "doctype": "Countries",
@@ -62,5 +54,13 @@
   "image": null,
   "modified": "2024-06-18 11:08:56.866244",
   "name": "Germany"
+ },
+ {
+  "country": "France",
+  "docstatus": 0,
+  "doctype": "Countries",
+  "image": null,
+  "modified": "2024-06-18 11:27:30.052658",
+  "name": "France"
  }
 ]
