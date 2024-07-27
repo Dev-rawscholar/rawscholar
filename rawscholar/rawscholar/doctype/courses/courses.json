@@ -14,8 +14,7 @@
   "column_break_izow",
   "duration",
   "mode",
-  "fee",
-  "exam_accepted"
+  "fee"
  ],
  "fields": [
   {
@@ -57,11 +56,6 @@
    "label": "Fee"
   },
   {
-   "fieldname": "exam_accepted",
-   "fieldtype": "Data",
-   "label": "Exam Accepted"
-  },
-  {
    "fieldname": "column_break_izow",
    "fieldtype": "Column Break"
   },
@@ -76,7 +70,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-19 15:38:41.515292",
+ "modified": "2024-07-27 11:58:47.561537",
  "modified_by": "Administrator",
  "module": "Rawscholar",
  "name": "Courses",
