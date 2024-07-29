@@ -6,16 +6,13 @@ frappe.ui.form.on("Student", {
       $(".notes-section").remove();
       $(".open-activities").remove();
 
-    //   frm.add_custom_button(__("Create Application"), function () {
-    //     if (frm.doc.name1) {
-    //         frappe.new_doc('Application');
-    //         console.log("hello")
-    //     } else {
-    //         frappe.msgprint(__('Please select a student first.'));
-    //     }
-    // });
+      // payments************************************************
+      frm.add_custom_button(__("Payment"), function () {
+       console.log("hello");
+       frm.trigger("");
+      });
     
-  
+      // ********************************************************
       let notes = frm.doc.notes || [];
       notes.sort(function (a, b) {
         return new Date(b.created_on) - new Date(a.created_on);
