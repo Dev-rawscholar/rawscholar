@@ -21,6 +21,8 @@ function Login({ setShow }) {
     password: "",
   });
 
+  const [isVisible, setIsVisible] = useState(false);
+
   const getInputData = (e) => {
     const { name, value } = e.target;
     setInputData({ ...inputData, [name]: value });
@@ -30,6 +32,10 @@ function Login({ setShow }) {
 
   const { data } = useFrappeGetDoc("Student", loggedEmail);
   console.log(data);
+
+  const handleVisibility = () => {
+    setIsVisible(!isVisible);
+  };
 
   const login = () => {
     const { email, password } = inputData;
@@ -75,14 +81,47 @@ function Login({ setShow }) {
         </div>
         <div className="form-group mb-2">
           <p className="m-0">Password</p>
-          <input
-            className="inputBox"
-            type="password"
-            name="password"
-            placeholder="Enter Password"
-            onChange={(e) => getInputData(e)}
-            style={{ fontSize: "15px" }}
-          />
+          <div style={{ position: "relative" }}>
+            <input
+              className="inputBox"
+              type={isVisible ? "text" : "password"}
+              name="password"
+              placeholder="Enter Password"
+              onChange={(e) => getInputData(e)}
+              style={{ fontSize: "15px" }}
+            />
+            {isVisible ? (
+              <span
+                onClick={() => {
+                  handleVisibility();
+                }}
+                style={{
+                  position: "absolute",
+                  right: "10px",
+                  top: "10px",
+                  cursor: "pointer",
+                }}
+                class="material-symbols-outlined"
+              >
+                visibility_off
+              </span>
+            ) : (
+              <span
+                onClick={() => {
+                  handleVisibility();
+                }}
+                style={{
+                  position: "absolute",
+                  right: "10px",
+                  top: "10px",
+                  cursor: "pointer",
+                }}
+                class="material-symbols-outlined"
+              >
+                visibility
+              </span>
+            )}
+          </div>
         </div>
         <Button
           className="mt-2 mb-3 w-100 "
@@ -96,7 +135,11 @@ function Login({ setShow }) {
         </Link>
         <p className=" mt-5" style={{ fontSize: "13px" }}>
           Don’t have account yet?
-          <Link to={"/signup"} className="ms-2" style={{ color: "blue", fontSize: "13px" }}>
+          <Link
+            to={"/signup"}
+            className="ms-2"
+            style={{ color: "blue", fontSize: "13px" }}
+          >
             Sign Up
           </Link>
         </p>

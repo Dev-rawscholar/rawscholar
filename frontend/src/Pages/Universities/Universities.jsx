@@ -19,7 +19,7 @@ function Universities({ setShow }) {
   const { countryData } = useContext(countryContext);
 
   const { data } = useFrappeGetDocList("University", {
-    fields: ["country", "university", "type_of_university", "location"],
+    fields: ["image", "country", "university", "location"],
     filters: countryData ? [["country", "=", countryData.name]] : [],
     limit_start: pageIndex,
     limit: 12,
@@ -37,7 +37,7 @@ function Universities({ setShow }) {
           <div className="shape"></div>
           <h3 className="ms-4">Universities</h3>
         </div>
-        <div className="universityList d-flex justify-content-center align-items-center gap-5 flex-wrap">
+        <div className="universityList d-flex justify-content-center align-items-center gap-3 flex-wrap">
           {data?.map((university, i) => (
             <div
               to="/university"
@@ -47,16 +47,29 @@ function Universities({ setShow }) {
             >
               <div
                 className=" universitycard shadow p-3 rounded"
-                style={{ width: "18rem", height: "15rem" }}
+                style={{ width: "18rem", height: "16rem" }}
               >
-                <img
-                  src={university.image}
-                  alt="university1"
-                  style={{ width: "100%" }}
-                  className="rounded mb-3"
-                />
-                <p className="unviversitytitile">In {university.country}</p>
-                <p className="universityfname">{university.university}</p>
+                <div
+                  style={{
+                    width: "100%",
+                    height: "50%",
+                  }}
+                >
+                  <img
+                    src={university.image}
+                    alt="university1"
+                    style={{
+                      height: "100%",
+                      width: "100%",
+                      objectFit: "contain",
+                    }}
+                    className="rounded mb-3"
+                  />
+                </div>
+                <div className="pt-3">
+                  <p className="unviversitytitile">In {university.country}</p>
+                  <p className="universityfname">{university.university}</p>
+                </div>
               </div>
             </div>
           ))}

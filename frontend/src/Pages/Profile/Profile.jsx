@@ -1,6 +1,6 @@
 import edit from "../../assets/Edit.svg";
 import save from "../../assets/Save.svg";
-import profileImg from "../../assets/profile image/Profile.svg";
+import profileImg from "../../assets/profile image/Profile.png";
 import frame from "../../assets/profile image/Frame.svg";
 import uploadImg from "../../assets/profile image/uploadImg.svg";
 import {
@@ -410,7 +410,7 @@ function Profile({ setShow }) {
               <input
                 className="inputBox shadow "
                 type="text"
-                name="PassportNo"
+                name="passport_no"
                 value={inputData.passport_no || ""}
                 disabled={editable}
                 onChange={(e) => getInputData(e)}

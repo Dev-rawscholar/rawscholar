@@ -4,7 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 
 import Logo from "../../assets/Logo.svg";
 import Search from "../../assets/icons/Search.svg";
-import Profile from "../../assets/profile image/Profile.svg";
+import Profile from "../../assets/profile image/Profile.png";
 
 import style from "./NavbarComponent.module.css";
 import { Link, useNavigate } from "react-router-dom";

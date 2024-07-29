@@ -31,7 +31,7 @@ const Test = () => {
     console.log(data);
 
     const options = {
-      key: "rzp_test_dA2EJLIvDe4Amr",
+      key: "rzp_test_fmwd3K6TrfIbAA",
       amount: 1000,
       currency: "INR",
       name: "<CHECKOUT MODAL TITLE>",

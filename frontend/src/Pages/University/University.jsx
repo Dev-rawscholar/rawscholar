@@ -1,6 +1,5 @@
 import { useContext, useEffect } from "react";
 
-import university1 from "../../assets/universities/university1.svg";
 import { useFrappeGetDocList } from "frappe-react-sdk";
 import {
   courseContext,
@@ -24,13 +23,13 @@ function University({ setShow }) {
 
   const { data } = useFrappeGetDocList("Courses", {
     fields: [
+      "name",
       "course",
       "university",
       "duration",
       "mode",
       "fee",
       "level",
-      "exam_accepted",
     ],
     filters: [["university", "=", unviersityData.university]],
   });
@@ -51,9 +50,21 @@ function University({ setShow }) {
               {unviersityData.location} | {unviersityData.type_of_university}
             </p>
           </div>
-          <img src={university1} alt="university" height={100} />
+          <div
+            style={{
+              height: "140px",
+              width: "300px",
+            }}
+          >
+            <img
+              src={unviersityData.image}
+              alt="university"
+              className="shadow-sm rounded"
+              style={{ height: "100%", width: "100%", objectFit: "contain" }}
+            />
+          </div>
         </div>
-        <div className="courseTags d-flex flex-wrap gap-3">
+        {/* <div className="courseTags d-flex flex-wrap gap-3">
           <div className="tags rounded-pill shadow-sm px-3 pt-3">
             <p>All Courses</p>
           </div>
@@ -81,12 +92,12 @@ function University({ setShow }) {
           <div className="tags rounded-pill shadow-sm px-3 pt-3">
             <p>Btech</p>
           </div>
-        </div>
+        </div> */}
         <div className="courseContainer d-flex justify-content-between gap-5 flex-wrap py-5 px-2">
-          {data?.map((course, i) => (
+          {data?.map((course) => (
             <div
               className="courseCard rounded shadow p-5 col-lg-5"
-              key={i}
+              key={course.name}
               onClick={() => gotoCourse(course)}
             >
               <div className="courseTitle mb-4 fw-bold">

@@ -25,12 +25,16 @@ function Signup({ setShow }) {
 
   const { createDoc } = useFrappeCreateDoc();
 
+  const [isVisible, setIsVisible] = useState(false);
+
   const getInputData = (e) => {
     const { name, value } = e.target;
     setInputData({ ...inputData, [name]: value });
   };
 
-  const signin = () => {
+  const signin = (e) => {
+    e.preventDefault();
+
     const { name1, email, phone, password, confirmPassword } = inputData;
 
     if (!name1 || !email || !phone || !password || !confirmPassword) {
@@ -56,11 +60,15 @@ function Signup({ setShow }) {
     }
   };
 
+  const handleVisibility = () => {
+    setIsVisible(!isVisible);
+  };
+
   return (
     <div className="containerlogin d-flex justify-content-center align-items-center">
       <div style={{ height: "700px" }}>
         <img
-          className="p-1  d-none d-sm-block"
+          className="p-1 d-none d-sm-block"
           src={StudyIllustration}
           alt="Study"
           style={{ height: "100%" }}
@@ -115,40 +123,111 @@ function Signup({ setShow }) {
           <p className="m-0">
             Password<span style={{ color: "#067BC2" }}>*</span>
           </p>
-          <input
-            className="inputBox"
-            type="password"
-            name="password"
-            required
-            onChange={(e) => getInputData(e)}
-            placeholder="Enter Password"
-            style={{ fontSize: "15px" }}
-          />
+          <div style={{ position: "relative" }}>
+            <input
+              className="inputBox"
+              type={isVisible ? "text" : "password"}
+              name="password"
+              required
+              onChange={(e) => getInputData(e)}
+              placeholder="Enter Password"
+              style={{ fontSize: "15px" }}
+            />
+            {isVisible ? (
+              <span
+                onClick={() => {
+                  handleVisibility();
+                }}
+                style={{
+                  position: "absolute",
+                  right: "10px",
+                  top: "10px",
+                  cursor: "pointer",
+                }}
+                class="material-symbols-outlined"
+              >
+                visibility_off
+              </span>
+            ) : (
+              <span
+                onClick={() => {
+                  handleVisibility();
+                }}
+                style={{
+                  position: "absolute",
+                  right: "10px",
+                  top: "10px",
+                  cursor: "pointer",
+                }}
+                class="material-symbols-outlined"
+              >
+                visibility
+              </span>
+            )}
+          </div>
         </div>
         <div className="form-group mb-2">
           <p className="m-0">
             Confirm Password<span style={{ color: "#067BC2" }}>*</span>
           </p>
-          <input
-            className="inputBox"
-            type="password"
-            name="confirmPassword"
-            required
-            onChange={(e) => getInputData(e)}
-            placeholder="Enter Password"
-            style={{ fontSize: "15px" }}
-          />
+          <div style={{ position: "relative" }}>
+            <input
+              className="inputBox"
+              type={isVisible ? "text" : "password"}
+              name="confirmPassword"
+              required
+              onChange={(e) => getInputData(e)}
+              placeholder="Enter Password"
+              style={{ fontSize: "15px" }}
+            />
+            {isVisible ? (
+              <span
+                onClick={() => {
+                  handleVisibility();
+                }}
+                style={{
+                  position: "absolute",
+                  right: "10px",
+                  top: "10px",
+                  cursor: "pointer",
+                }}
+                class="material-symbols-outlined"
+              >
+                visibility_off
+              </span>
+            ) : (
+              <span
+                onClick={() => {
+                  handleVisibility();
+                }}
+                style={{
+                  position: "absolute",
+                  right: "10px",
+                  top: "10px",
+                  cursor: "pointer",
+                }}
+                class="material-symbols-outlined"
+              >
+                visibility
+              </span>
+            )}
+          </div>
         </div>
-        <Button
-          className="mt-2  w-100 "
-          style={{ fontSize: "13px", backgroundColor: "#067BC2" }}
-          onClick={() => signin()}
+        <button
+          type="submit"
+          className="mt-2 w-100 py-2 border rounded text-light"
+          style={{ fontSize: "15px", backgroundColor: "#067BC2" }}
+          onClick={(e) => signin(e)}
         >
           Signup
-        </Button>
-        <p className=" mt-5" style={{ fontSize: "13px" }}>
+        </button>
+        <p className="mt-5" style={{ fontSize: "13px" }}>
           Already have an account?
-          <Link to={"/login"} className="ms-2" style={{ color: "blue", fontSize: "13px" }}>
+          <Link
+            to={"/login"}
+            className="ms-2"
+            style={{ color: "blue", fontSize: "13px" }}
+          >
             Login
           </Link>
         </p>
