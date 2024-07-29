@@ -25,7 +25,7 @@ def send_whatsapp_message(phone_number):
     if response.status_code == 200:
         frappe.msgprint("WhatsApp message sent successfully.")
     else:
-        frappe.throw("Failed to send WhatsApp message. Error: " + response.text)
+        frappe.throw("Failed to send WhatsApp message. Error: Ivde" + phone_number)
 
 def send_welcome_message(doc, method):
     # doc is the document object

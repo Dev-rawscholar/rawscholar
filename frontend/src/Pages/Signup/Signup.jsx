@@ -106,11 +106,11 @@ function Signup({ setShow }) {
         </div>
         <div className="form-group ">
           <p className="m-0">
-            Phone No<span style={{ color: "#067BC2" }}>*</span>
+            Phone<span style={{ color: "#067BC2" }}>*</span>
           </p>
           <input
             className="inputBox"
-            type="number"
+            type="text"
             name="phone"
             required
             onChange={(e) => getInputData(e)}
