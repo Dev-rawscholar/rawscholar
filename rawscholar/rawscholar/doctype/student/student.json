@@ -81,7 +81,7 @@
   },
   {
    "fieldname": "phone",
-   "fieldtype": "Data",
+   "fieldtype": "Phone",
    "label": "Phone"
   },
   {
@@ -185,7 +185,7 @@
    "link_fieldname": "Student"
   }
  ],
- "modified": "2024-07-18 16:08:09.565429",
+ "modified": "2024-07-29 15:25:31.746212",
  "modified_by": "Administrator",
  "module": "Rawscholar",
  "name": "Student",
