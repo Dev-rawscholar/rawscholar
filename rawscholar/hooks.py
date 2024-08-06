@@ -32,11 +32,11 @@ app_include_js = "rawscholar.bundle.js"
 # web_include_css = "/assets/rawscholar/css/rawscholar.css"
 # web_include_js = "/assets/rawscholar/js/rawscholar.js"
 
-doc_events = {
-    "Student": {
-        "after_insert": "rawscholar.api.send_welcome_message"
-    }
-}
+# doc_events = {
+#     "Student": {
+#         "after_insert": "rawscholar.api.send_welcome_message"
+#     }
+# }
 
 
 # include custom scss in every website theme (without file extension ".scss")
